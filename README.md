@@ -2,10 +2,10 @@
 
 ## Release roadmap
 
-- [ ] Paper
-- [ ] CLIP models on huggingface
-- [ ] Evaluation code
-- [ ] Training dataset: Entities and URLs
-- [ ] Code for building the dataset
-- [ ] Model training code
+- [ ] Publish paper
+- [ ] Upload CLIP models on huggingface
+- [ ] Add evaluation code
+- [ ] Add entities and URLs of the training dataset
+- [ ] Add the code for building the training dataset
+- [ ] Add model training code
 
