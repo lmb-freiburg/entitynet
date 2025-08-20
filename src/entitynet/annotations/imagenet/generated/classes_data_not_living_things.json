@@ -1,0 +1,2951 @@
+[{
+  "class_idx": 0,
+  "class_idx_1k": 398,
+  "clip_bench_label": "abacus",
+  "synname": "abacus.n.02"
+}, {
+  "class_idx": 1,
+  "class_idx_1k": 399,
+  "clip_bench_label": "abaya",
+  "synname": "abaya.n.01"
+}, {
+  "class_idx": 2,
+  "class_idx_1k": 400,
+  "clip_bench_label": "academic gown",
+  "synname": "academic_gown.n.01"
+}, {
+  "class_idx": 3,
+  "class_idx_1k": 401,
+  "clip_bench_label": "accordion",
+  "synname": "accordion.n.01"
+}, {
+  "class_idx": 4,
+  "class_idx_1k": 402,
+  "clip_bench_label": "acoustic guitar",
+  "synname": "acoustic_guitar.n.01"
+}, {
+  "class_idx": 5,
+  "class_idx_1k": 403,
+  "clip_bench_label": "aircraft carrier",
+  "synname": "aircraft_carrier.n.01"
+}, {
+  "class_idx": 6,
+  "class_idx_1k": 404,
+  "clip_bench_label": "airliner",
+  "synname": "airliner.n.01"
+}, {
+  "class_idx": 7,
+  "class_idx_1k": 405,
+  "clip_bench_label": "airship",
+  "synname": "airship.n.01"
+}, {
+  "class_idx": 8,
+  "class_idx_1k": 406,
+  "clip_bench_label": "altar",
+  "synname": "altar.n.02"
+}, {
+  "class_idx": 9,
+  "class_idx_1k": 407,
+  "clip_bench_label": "ambulance",
+  "synname": "ambulance.n.01"
+}, {
+  "class_idx": 10,
+  "class_idx_1k": 408,
+  "clip_bench_label": "amphibious vehicle",
+  "synname": "amphibian.n.01"
+}, {
+  "class_idx": 11,
+  "class_idx_1k": 409,
+  "clip_bench_label": "analog clock",
+  "synname": "analog_clock.n.01"
+}, {
+  "class_idx": 12,
+  "class_idx_1k": 410,
+  "clip_bench_label": "apiary",
+  "synname": "apiary.n.01"
+}, {
+  "class_idx": 13,
+  "class_idx_1k": 411,
+  "clip_bench_label": "apron",
+  "synname": "apron.n.01"
+}, {
+  "class_idx": 14,
+  "class_idx_1k": 412,
+  "clip_bench_label": "trash can",
+  "synname": "ashcan.n.01"
+}, {
+  "class_idx": 15,
+  "class_idx_1k": 413,
+  "clip_bench_label": "assault rifle",
+  "synname": "assault_rifle.n.01"
+}, {
+  "class_idx": 16,
+  "class_idx_1k": 414,
+  "clip_bench_label": "backpack",
+  "synname": "backpack.n.01"
+}, {
+  "class_idx": 17,
+  "class_idx_1k": 415,
+  "clip_bench_label": "bakery",
+  "synname": "bakery.n.01"
+}, {
+  "class_idx": 18,
+  "class_idx_1k": 416,
+  "clip_bench_label": "balance beam",
+  "synname": "balance_beam.n.01"
+}, {
+  "class_idx": 19,
+  "class_idx_1k": 417,
+  "clip_bench_label": "balloon",
+  "synname": "balloon.n.01"
+}, {
+  "class_idx": 20,
+  "class_idx_1k": 418,
+  "clip_bench_label": "ballpoint pen",
+  "synname": "ballpoint.n.01"
+}, {
+  "class_idx": 21,
+  "class_idx_1k": 419,
+  "clip_bench_label": "Band-Aid",
+  "synname": "band_aid.n.01"
+}, {
+  "class_idx": 22,
+  "class_idx_1k": 420,
+  "clip_bench_label": "banjo",
+  "synname": "banjo.n.01"
+}, {
+  "class_idx": 23,
+  "class_idx_1k": 421,
+  "clip_bench_label": "baluster / handrail",
+  "synname": "bannister.n.02"
+}, {
+  "class_idx": 24,
+  "class_idx_1k": 422,
+  "clip_bench_label": "barbell",
+  "synname": "barbell.n.01"
+}, {
+  "class_idx": 25,
+  "class_idx_1k": 423,
+  "clip_bench_label": "barber chair",
+  "synname": "barber_chair.n.01"
+}, {
+  "class_idx": 26,
+  "class_idx_1k": 424,
+  "clip_bench_label": "barbershop",
+  "synname": "barbershop.n.01"
+}, {
+  "class_idx": 27,
+  "class_idx_1k": 425,
+  "clip_bench_label": "barn",
+  "synname": "barn.n.01"
+}, {
+  "class_idx": 28,
+  "class_idx_1k": 426,
+  "clip_bench_label": "barometer",
+  "synname": "barometer.n.01"
+}, {
+  "class_idx": 29,
+  "class_idx_1k": 427,
+  "clip_bench_label": "barrel",
+  "synname": "barrel.n.02"
+}, {
+  "class_idx": 30,
+  "class_idx_1k": 428,
+  "clip_bench_label": "wheelbarrow",
+  "synname": "barrow.n.03"
+}, {
+  "class_idx": 31,
+  "class_idx_1k": 429,
+  "clip_bench_label": "baseball",
+  "synname": "baseball.n.02"
+}, {
+  "class_idx": 32,
+  "class_idx_1k": 430,
+  "clip_bench_label": "basketball",
+  "synname": "basketball.n.02"
+}, {
+  "class_idx": 33,
+  "class_idx_1k": 431,
+  "clip_bench_label": "bassinet",
+  "synname": "bassinet.n.01"
+}, {
+  "class_idx": 34,
+  "class_idx_1k": 432,
+  "clip_bench_label": "bassoon",
+  "synname": "bassoon.n.01"
+}, {
+  "class_idx": 35,
+  "class_idx_1k": 433,
+  "clip_bench_label": "swimming cap",
+  "synname": "bathing_cap.n.01"
+}, {
+  "class_idx": 36,
+  "class_idx_1k": 434,
+  "clip_bench_label": "bath towel",
+  "synname": "bath_towel.n.01"
+}, {
+  "class_idx": 37,
+  "class_idx_1k": 435,
+  "clip_bench_label": "bathtub",
+  "synname": "bathtub.n.01"
+}, {
+  "class_idx": 38,
+  "class_idx_1k": 436,
+  "clip_bench_label": "station wagon",
+  "synname": "beach_wagon.n.01"
+}, {
+  "class_idx": 39,
+  "class_idx_1k": 437,
+  "clip_bench_label": "lighthouse",
+  "synname": "beacon.n.03"
+}, {
+  "class_idx": 40,
+  "class_idx_1k": 438,
+  "clip_bench_label": "beaker",
+  "synname": "beaker.n.01"
+}, {
+  "class_idx": 41,
+  "class_idx_1k": 439,
+  "clip_bench_label": "military hat (bearskin or shako)",
+  "synname": "bearskin.n.02"
+}, {
+  "class_idx": 42,
+  "class_idx_1k": 440,
+  "clip_bench_label": "beer bottle",
+  "synname": "beer_bottle.n.01"
+}, {
+  "class_idx": 43,
+  "class_idx_1k": 441,
+  "clip_bench_label": "beer glass",
+  "synname": "beer_glass.n.01"
+}, {
+  "class_idx": 44,
+  "class_idx_1k": 442,
+  "clip_bench_label": "bell tower",
+  "synname": "bell_cote.n.01"
+}, {
+  "class_idx": 45,
+  "class_idx_1k": 443,
+  "clip_bench_label": "baby bib",
+  "synname": "bib.n.01"
+}, {
+  "class_idx": 46,
+  "class_idx_1k": 444,
+  "clip_bench_label": "tandem bicycle",
+  "synname": "bicycle-built-for-two.n.01"
+}, {
+  "class_idx": 47,
+  "class_idx_1k": 445,
+  "clip_bench_label": "bikini",
+  "synname": "bikini.n.02"
+}, {
+  "class_idx": 48,
+  "class_idx_1k": 446,
+  "clip_bench_label": "ring binder",
+  "synname": "binder.n.03"
+}, {
+  "class_idx": 49,
+  "class_idx_1k": 447,
+  "clip_bench_label": "binoculars",
+  "synname": "binoculars.n.01"
+}, {
+  "class_idx": 50,
+  "class_idx_1k": 448,
+  "clip_bench_label": "birdhouse",
+  "synname": "birdhouse.n.01"
+}, {
+  "class_idx": 51,
+  "class_idx_1k": 449,
+  "clip_bench_label": "boathouse",
+  "synname": "boathouse.n.01"
+}, {
+  "class_idx": 52,
+  "class_idx_1k": 450,
+  "clip_bench_label": "bobsleigh",
+  "synname": "bobsled.n.02"
+}, {
+  "class_idx": 53,
+  "class_idx_1k": 451,
+  "clip_bench_label": "bolo tie",
+  "synname": "bolo_tie.n.01"
+}, {
+  "class_idx": 54,
+  "class_idx_1k": 452,
+  "clip_bench_label": "poke bonnet",
+  "synname": "bonnet.n.01"
+}, {
+  "class_idx": 55,
+  "class_idx_1k": 453,
+  "clip_bench_label": "bookcase",
+  "synname": "bookcase.n.01"
+}, {
+  "class_idx": 56,
+  "class_idx_1k": 454,
+  "clip_bench_label": "bookstore",
+  "synname": "bookshop.n.01"
+}, {
+  "class_idx": 57,
+  "class_idx_1k": 455,
+  "clip_bench_label": "bottle cap",
+  "synname": "bottlecap.n.01"
+}, {
+  "class_idx": 58,
+  "class_idx_1k": 456,
+  "clip_bench_label": "hunting bow",
+  "synname": "bow.n.04"
+}, {
+  "class_idx": 59,
+  "class_idx_1k": 457,
+  "clip_bench_label": "bow tie",
+  "synname": "bow_tie.n.01"
+}, {
+  "class_idx": 60,
+  "class_idx_1k": 458,
+  "clip_bench_label": "brass memorial plaque",
+  "synname": "brass.n.07"
+}, {
+  "class_idx": 61,
+  "class_idx_1k": 459,
+  "clip_bench_label": "bra",
+  "synname": "brassiere.n.01"
+}, {
+  "class_idx": 62,
+  "class_idx_1k": 460,
+  "clip_bench_label": "breakwater",
+  "synname": "breakwater.n.01"
+}, {
+  "class_idx": 63,
+  "class_idx_1k": 461,
+  "clip_bench_label": "breastplate",
+  "synname": "breastplate.n.01"
+}, {
+  "class_idx": 64,
+  "class_idx_1k": 462,
+  "clip_bench_label": "broom",
+  "synname": "broom.n.01"
+}, {
+  "class_idx": 65,
+  "class_idx_1k": 463,
+  "clip_bench_label": "bucket",
+  "synname": "bucket.n.01"
+}, {
+  "class_idx": 66,
+  "class_idx_1k": 464,
+  "clip_bench_label": "buckle",
+  "synname": "buckle.n.01"
+}, {
+  "class_idx": 67,
+  "class_idx_1k": 465,
+  "clip_bench_label": "bulletproof vest",
+  "synname": "bulletproof_vest.n.01"
+}, {
+  "class_idx": 68,
+  "class_idx_1k": 466,
+  "clip_bench_label": "high-speed train",
+  "synname": "bullet_train.n.01"
+}, {
+  "class_idx": 69,
+  "class_idx_1k": 467,
+  "clip_bench_label": "butcher shop",
+  "synname": "butcher_shop.n.01"
+}, {
+  "class_idx": 70,
+  "class_idx_1k": 468,
+  "clip_bench_label": "taxicab",
+  "synname": "cab.n.03"
+}, {
+  "class_idx": 71,
+  "class_idx_1k": 469,
+  "clip_bench_label": "cauldron",
+  "synname": "caldron.n.01"
+}, {
+  "class_idx": 72,
+  "class_idx_1k": 470,
+  "clip_bench_label": "candle",
+  "synname": "candle.n.01"
+}, {
+  "class_idx": 73,
+  "class_idx_1k": 471,
+  "clip_bench_label": "cannon",
+  "synname": "cannon.n.02"
+}, {
+  "class_idx": 74,
+  "class_idx_1k": 472,
+  "clip_bench_label": "canoe",
+  "synname": "canoe.n.01"
+}, {
+  "class_idx": 75,
+  "class_idx_1k": 473,
+  "clip_bench_label": "can opener",
+  "synname": "can_opener.n.01"
+}, {
+  "class_idx": 76,
+  "class_idx_1k": 474,
+  "clip_bench_label": "cardigan",
+  "synname": "cardigan.n.01"
+}, {
+  "class_idx": 77,
+  "class_idx_1k": 475,
+  "clip_bench_label": "car mirror",
+  "synname": "car_mirror.n.01"
+}, {
+  "class_idx": 78,
+  "class_idx_1k": 476,
+  "clip_bench_label": "carousel",
+  "synname": "carousel.n.02"
+}, {
+  "class_idx": 79,
+  "class_idx_1k": 477,
+  "clip_bench_label": "tool kit",
+  "synname": "carpenter's_kit.n.01"
+}, {
+  "class_idx": 80,
+  "class_idx_1k": 478,
+  "clip_bench_label": "cardboard box / carton",
+  "synname": "carton.n.02"
+}, {
+  "class_idx": 81,
+  "class_idx_1k": 479,
+  "clip_bench_label": "car wheel",
+  "synname": "car_wheel.n.01"
+}, {
+  "class_idx": 82,
+  "class_idx_1k": 480,
+  "clip_bench_label": "automated teller machine",
+  "synname": "cash_machine.n.01"
+}, {
+  "class_idx": 83,
+  "class_idx_1k": 481,
+  "clip_bench_label": "cassette",
+  "synname": "cassette.n.01"
+}, {
+  "class_idx": 84,
+  "class_idx_1k": 482,
+  "clip_bench_label": "cassette player",
+  "synname": "cassette_player.n.01"
+}, {
+  "class_idx": 85,
+  "class_idx_1k": 483,
+  "clip_bench_label": "castle",
+  "synname": "castle.n.02"
+}, {
+  "class_idx": 86,
+  "class_idx_1k": 484,
+  "clip_bench_label": "catamaran",
+  "synname": "catamaran.n.01"
+}, {
+  "class_idx": 87,
+  "class_idx_1k": 485,
+  "clip_bench_label": "CD player",
+  "synname": "cd_player.n.01"
+}, {
+  "class_idx": 88,
+  "class_idx_1k": 486,
+  "clip_bench_label": "cello",
+  "synname": "cello.n.01"
+}, {
+  "class_idx": 89,
+  "class_idx_1k": 487,
+  "clip_bench_label": "mobile phone",
+  "synname": "cellular_telephone.n.01"
+}, {
+  "class_idx": 90,
+  "class_idx_1k": 488,
+  "clip_bench_label": "chain",
+  "synname": "chain.n.03"
+}, {
+  "class_idx": 91,
+  "class_idx_1k": 489,
+  "clip_bench_label": "chain-link fence",
+  "synname": "chainlink_fence.n.01"
+}, {
+  "class_idx": 92,
+  "class_idx_1k": 490,
+  "clip_bench_label": "chain mail",
+  "synname": "chain_mail.n.01"
+}, {
+  "class_idx": 93,
+  "class_idx_1k": 491,
+  "clip_bench_label": "chainsaw",
+  "synname": "chain_saw.n.01"
+}, {
+  "class_idx": 94,
+  "class_idx_1k": 492,
+  "clip_bench_label": "storage chest",
+  "synname": "chest.n.02"
+}, {
+  "class_idx": 95,
+  "class_idx_1k": 493,
+  "clip_bench_label": "chiffonier",
+  "synname": "chiffonier.n.01"
+}, {
+  "class_idx": 96,
+  "class_idx_1k": 494,
+  "clip_bench_label": "bell or wind chime",
+  "synname": "chime.n.01"
+}, {
+  "class_idx": 97,
+  "class_idx_1k": 495,
+  "clip_bench_label": "china cabinet",
+  "synname": "china_cabinet.n.01"
+}, {
+  "class_idx": 98,
+  "class_idx_1k": 496,
+  "clip_bench_label": "Christmas stocking",
+  "synname": "christmas_stocking.n.01"
+}, {
+  "class_idx": 99,
+  "class_idx_1k": 497,
+  "clip_bench_label": "church",
+  "synname": "church.n.02"
+}, {
+  "class_idx": 100,
+  "class_idx_1k": 498,
+  "clip_bench_label": "movie theater",
+  "synname": "cinema.n.02"
+}, {
+  "class_idx": 101,
+  "class_idx_1k": 499,
+  "clip_bench_label": "cleaver",
+  "synname": "cleaver.n.01"
+}, {
+  "class_idx": 102,
+  "class_idx_1k": 500,
+  "clip_bench_label": "cliff dwelling",
+  "synname": "cliff_dwelling.n.01"
+}, {
+  "class_idx": 103,
+  "class_idx_1k": 501,
+  "clip_bench_label": "cloak",
+  "synname": "cloak.n.01"
+}, {
+  "class_idx": 104,
+  "class_idx_1k": 502,
+  "clip_bench_label": "clogs",
+  "synname": "clog.n.01"
+}, {
+  "class_idx": 105,
+  "class_idx_1k": 503,
+  "clip_bench_label": "cocktail shaker",
+  "synname": "cocktail_shaker.n.01"
+}, {
+  "class_idx": 106,
+  "class_idx_1k": 504,
+  "clip_bench_label": "coffee mug",
+  "synname": "coffee_mug.n.01"
+}, {
+  "class_idx": 107,
+  "class_idx_1k": 505,
+  "clip_bench_label": "coffeemaker",
+  "synname": "coffeepot.n.01"
+}, {
+  "class_idx": 108,
+  "class_idx_1k": 506,
+  "clip_bench_label": "spiral or coil",
+  "synname": "coil.n.01"
+}, {
+  "class_idx": 109,
+  "class_idx_1k": 507,
+  "clip_bench_label": "combination lock",
+  "synname": "combination_lock.n.01"
+}, {
+  "class_idx": 110,
+  "class_idx_1k": 508,
+  "clip_bench_label": "computer keyboard",
+  "synname": "computer_keyboard.n.01"
+}, {
+  "class_idx": 111,
+  "class_idx_1k": 509,
+  "clip_bench_label": "candy store",
+  "synname": "confectionery.n.02"
+}, {
+  "class_idx": 112,
+  "class_idx_1k": 510,
+  "clip_bench_label": "container ship",
+  "synname": "container_ship.n.01"
+}, {
+  "class_idx": 113,
+  "class_idx_1k": 511,
+  "clip_bench_label": "convertible",
+  "synname": "convertible.n.01"
+}, {
+  "class_idx": 114,
+  "class_idx_1k": 512,
+  "clip_bench_label": "corkscrew",
+  "synname": "corkscrew.n.01"
+}, {
+  "class_idx": 115,
+  "class_idx_1k": 513,
+  "clip_bench_label": "cornet",
+  "synname": "cornet.n.01"
+}, {
+  "class_idx": 116,
+  "class_idx_1k": 514,
+  "clip_bench_label": "cowboy boot",
+  "synname": "cowboy_boot.n.01"
+}, {
+  "class_idx": 117,
+  "class_idx_1k": 515,
+  "clip_bench_label": "cowboy hat",
+  "synname": "cowboy_hat.n.01"
+}, {
+  "class_idx": 118,
+  "class_idx_1k": 516,
+  "clip_bench_label": "cradle",
+  "synname": "cradle.n.01"
+}, {
+  "class_idx": 119,
+  "class_idx_1k": 517,
+  "clip_bench_label": "construction crane",
+  "synname": "crane.n.04"
+}, {
+  "class_idx": 120,
+  "class_idx_1k": 518,
+  "clip_bench_label": "crash helmet",
+  "synname": "crash_helmet.n.01"
+}, {
+  "class_idx": 121,
+  "class_idx_1k": 519,
+  "clip_bench_label": "crate",
+  "synname": "crate.n.01"
+}, {
+  "class_idx": 122,
+  "class_idx_1k": 520,
+  "clip_bench_label": "infant bed",
+  "synname": "crib.n.01"
+}, {
+  "class_idx": 123,
+  "class_idx_1k": 521,
+  "clip_bench_label": "Crock Pot",
+  "synname": "crock_pot.n.01"
+}, {
+  "class_idx": 124,
+  "class_idx_1k": 522,
+  "clip_bench_label": "croquet ball",
+  "synname": "croquet_ball.n.01"
+}, {
+  "class_idx": 125,
+  "class_idx_1k": 523,
+  "clip_bench_label": "crutch",
+  "synname": "crutch.n.01"
+}, {
+  "class_idx": 126,
+  "class_idx_1k": 524,
+  "clip_bench_label": "cuirass",
+  "synname": "cuirass.n.01"
+}, {
+  "class_idx": 127,
+  "class_idx_1k": 525,
+  "clip_bench_label": "dam",
+  "synname": "dam.n.01"
+}, {
+  "class_idx": 128,
+  "class_idx_1k": 526,
+  "clip_bench_label": "desk",
+  "synname": "desk.n.01"
+}, {
+  "class_idx": 129,
+  "class_idx_1k": 527,
+  "clip_bench_label": "desktop computer",
+  "synname": "desktop_computer.n.01"
+}, {
+  "class_idx": 130,
+  "class_idx_1k": 528,
+  "clip_bench_label": "rotary dial telephone",
+  "synname": "dial_telephone.n.01"
+}, {
+  "class_idx": 131,
+  "class_idx_1k": 529,
+  "clip_bench_label": "diaper",
+  "synname": "diaper.n.01"
+}, {
+  "class_idx": 132,
+  "class_idx_1k": 530,
+  "clip_bench_label": "digital clock",
+  "synname": "digital_clock.n.01"
+}, {
+  "class_idx": 133,
+  "class_idx_1k": 531,
+  "clip_bench_label": "digital watch",
+  "synname": "digital_watch.n.01"
+}, {
+  "class_idx": 134,
+  "class_idx_1k": 532,
+  "clip_bench_label": "dining table",
+  "synname": "dining_table.n.01"
+}, {
+  "class_idx": 135,
+  "class_idx_1k": 533,
+  "clip_bench_label": "dishcloth",
+  "synname": "dishrag.n.01"
+}, {
+  "class_idx": 136,
+  "class_idx_1k": 534,
+  "clip_bench_label": "dishwasher",
+  "synname": "dishwasher.n.01"
+}, {
+  "class_idx": 137,
+  "class_idx_1k": 535,
+  "clip_bench_label": "disc brake",
+  "synname": "disk_brake.n.01"
+}, {
+  "class_idx": 138,
+  "class_idx_1k": 536,
+  "clip_bench_label": "dock",
+  "synname": "dock.n.05"
+}, {
+  "class_idx": 139,
+  "class_idx_1k": 537,
+  "clip_bench_label": "dog sled",
+  "synname": "dogsled.n.01"
+}, {
+  "class_idx": 140,
+  "class_idx_1k": 538,
+  "clip_bench_label": "dome",
+  "synname": "dome.n.04"
+}, {
+  "class_idx": 141,
+  "class_idx_1k": 539,
+  "clip_bench_label": "doormat",
+  "synname": "doormat.n.02"
+}, {
+  "class_idx": 142,
+  "class_idx_1k": 540,
+  "clip_bench_label": "drilling rig",
+  "synname": "drilling_platform.n.01"
+}, {
+  "class_idx": 143,
+  "class_idx_1k": 541,
+  "clip_bench_label": "drum",
+  "synname": "drum.n.01"
+}, {
+  "class_idx": 144,
+  "class_idx_1k": 542,
+  "clip_bench_label": "drumstick",
+  "synname": "drumstick.n.02"
+}, {
+  "class_idx": 145,
+  "class_idx_1k": 543,
+  "clip_bench_label": "dumbbell",
+  "synname": "dumbbell.n.01"
+}, {
+  "class_idx": 146,
+  "class_idx_1k": 544,
+  "clip_bench_label": "Dutch oven",
+  "synname": "dutch_oven.n.01"
+}, {
+  "class_idx": 147,
+  "class_idx_1k": 545,
+  "clip_bench_label": "electric fan",
+  "synname": "electric_fan.n.01"
+}, {
+  "class_idx": 148,
+  "class_idx_1k": 546,
+  "clip_bench_label": "electric guitar",
+  "synname": "electric_guitar.n.01"
+}, {
+  "class_idx": 149,
+  "class_idx_1k": 547,
+  "clip_bench_label": "electric locomotive",
+  "synname": "electric_locomotive.n.01"
+}, {
+  "class_idx": 150,
+  "class_idx_1k": 548,
+  "clip_bench_label": "entertainment center",
+  "synname": "entertainment_center.n.01"
+}, {
+  "class_idx": 151,
+  "class_idx_1k": 549,
+  "clip_bench_label": "envelope",
+  "synname": "envelope.n.01"
+}, {
+  "class_idx": 152,
+  "class_idx_1k": 550,
+  "clip_bench_label": "espresso machine",
+  "synname": "espresso_maker.n.01"
+}, {
+  "class_idx": 153,
+  "class_idx_1k": 551,
+  "clip_bench_label": "face powder",
+  "synname": "face_powder.n.01"
+}, {
+  "class_idx": 154,
+  "class_idx_1k": 552,
+  "clip_bench_label": "feather boa",
+  "synname": "feather_boa.n.01"
+}, {
+  "class_idx": 155,
+  "class_idx_1k": 553,
+  "clip_bench_label": "filing cabinet",
+  "synname": "file.n.03"
+}, {
+  "class_idx": 156,
+  "class_idx_1k": 554,
+  "clip_bench_label": "fireboat",
+  "synname": "fireboat.n.01"
+}, {
+  "class_idx": 157,
+  "class_idx_1k": 555,
+  "clip_bench_label": "fire truck",
+  "synname": "fire_engine.n.01"
+}, {
+  "class_idx": 158,
+  "class_idx_1k": 556,
+  "clip_bench_label": "fire screen",
+  "synname": "fire_screen.n.01"
+}, {
+  "class_idx": 159,
+  "class_idx_1k": 557,
+  "clip_bench_label": "flagpole",
+  "synname": "flagpole.n.02"
+}, {
+  "class_idx": 160,
+  "class_idx_1k": 558,
+  "clip_bench_label": "flute",
+  "synname": "flute.n.01"
+}, {
+  "class_idx": 161,
+  "class_idx_1k": 559,
+  "clip_bench_label": "folding chair",
+  "synname": "folding_chair.n.01"
+}, {
+  "class_idx": 162,
+  "class_idx_1k": 560,
+  "clip_bench_label": "football helmet",
+  "synname": "football_helmet.n.01"
+}, {
+  "class_idx": 163,
+  "class_idx_1k": 561,
+  "clip_bench_label": "forklift",
+  "synname": "forklift.n.01"
+}, {
+  "class_idx": 164,
+  "class_idx_1k": 562,
+  "clip_bench_label": "fountain",
+  "synname": "fountain.n.01"
+}, {
+  "class_idx": 165,
+  "class_idx_1k": 563,
+  "clip_bench_label": "fountain pen",
+  "synname": "fountain_pen.n.01"
+}, {
+  "class_idx": 166,
+  "class_idx_1k": 564,
+  "clip_bench_label": "four-poster bed",
+  "synname": "four-poster.n.01"
+}, {
+  "class_idx": 167,
+  "class_idx_1k": 565,
+  "clip_bench_label": "freight car",
+  "synname": "freight_car.n.01"
+}, {
+  "class_idx": 168,
+  "class_idx_1k": 566,
+  "clip_bench_label": "French horn",
+  "synname": "french_horn.n.01"
+}, {
+  "class_idx": 169,
+  "class_idx_1k": 567,
+  "clip_bench_label": "frying pan",
+  "synname": "frying_pan.n.01"
+}, {
+  "class_idx": 170,
+  "class_idx_1k": 568,
+  "clip_bench_label": "fur coat",
+  "synname": "fur_coat.n.01"
+}, {
+  "class_idx": 171,
+  "class_idx_1k": 569,
+  "clip_bench_label": "garbage truck",
+  "synname": "garbage_truck.n.01"
+}, {
+  "class_idx": 172,
+  "class_idx_1k": 570,
+  "clip_bench_label": "gas mask or respirator",
+  "synname": "gasmask.n.01"
+}, {
+  "class_idx": 173,
+  "class_idx_1k": 571,
+  "clip_bench_label": "gas pump",
+  "synname": "gas_pump.n.01"
+}, {
+  "class_idx": 174,
+  "class_idx_1k": 572,
+  "clip_bench_label": "goblet",
+  "synname": "goblet.n.01"
+}, {
+  "class_idx": 175,
+  "class_idx_1k": 573,
+  "clip_bench_label": "go-kart",
+  "synname": "go-kart.n.01"
+}, {
+  "class_idx": 176,
+  "class_idx_1k": 574,
+  "clip_bench_label": "golf ball",
+  "synname": "golf_ball.n.01"
+}, {
+  "class_idx": 177,
+  "class_idx_1k": 575,
+  "clip_bench_label": "golf cart",
+  "synname": "golfcart.n.01"
+}, {
+  "class_idx": 178,
+  "class_idx_1k": 576,
+  "clip_bench_label": "gondola",
+  "synname": "gondola.n.02"
+}, {
+  "class_idx": 179,
+  "class_idx_1k": 577,
+  "clip_bench_label": "gong",
+  "synname": "gong.n.01"
+}, {
+  "class_idx": 180,
+  "class_idx_1k": 578,
+  "clip_bench_label": "gown",
+  "synname": "gown.n.01"
+}, {
+  "class_idx": 181,
+  "class_idx_1k": 579,
+  "clip_bench_label": "grand piano",
+  "synname": "grand_piano.n.01"
+}, {
+  "class_idx": 182,
+  "class_idx_1k": 580,
+  "clip_bench_label": "greenhouse",
+  "synname": "greenhouse.n.01"
+}, {
+  "class_idx": 183,
+  "class_idx_1k": 581,
+  "clip_bench_label": "radiator grille",
+  "synname": "grille.n.02"
+}, {
+  "class_idx": 184,
+  "class_idx_1k": 582,
+  "clip_bench_label": "grocery store",
+  "synname": "grocery_store.n.01"
+}, {
+  "class_idx": 185,
+  "class_idx_1k": 583,
+  "clip_bench_label": "guillotine",
+  "synname": "guillotine.n.02"
+}, {
+  "class_idx": 186,
+  "class_idx_1k": 584,
+  "clip_bench_label": "hair clip",
+  "synname": "hair_slide.n.01"
+}, {
+  "class_idx": 187,
+  "class_idx_1k": 585,
+  "clip_bench_label": "hair spray",
+  "synname": "hair_spray.n.01"
+}, {
+  "class_idx": 188,
+  "class_idx_1k": 586,
+  "clip_bench_label": "half-track",
+  "synname": "half_track.n.01"
+}, {
+  "class_idx": 189,
+  "class_idx_1k": 587,
+  "clip_bench_label": "hammer",
+  "synname": "hammer.n.02"
+}, {
+  "class_idx": 190,
+  "class_idx_1k": 588,
+  "clip_bench_label": "hamper",
+  "synname": "hamper.n.02"
+}, {
+  "class_idx": 191,
+  "class_idx_1k": 589,
+  "clip_bench_label": "hair dryer",
+  "synname": "hand_blower.n.01"
+}, {
+  "class_idx": 192,
+  "class_idx_1k": 590,
+  "clip_bench_label": "hand-held computer",
+  "synname": "hand-held_computer.n.01"
+}, {
+  "class_idx": 193,
+  "class_idx_1k": 591,
+  "clip_bench_label": "handkerchief",
+  "synname": "handkerchief.n.01"
+}, {
+  "class_idx": 194,
+  "class_idx_1k": 592,
+  "clip_bench_label": "hard disk drive",
+  "synname": "hard_disc.n.01"
+}, {
+  "class_idx": 195,
+  "class_idx_1k": 593,
+  "clip_bench_label": "harmonica",
+  "synname": "harmonica.n.01"
+}, {
+  "class_idx": 196,
+  "class_idx_1k": 594,
+  "clip_bench_label": "harp",
+  "synname": "harp.n.01"
+}, {
+  "class_idx": 197,
+  "class_idx_1k": 595,
+  "clip_bench_label": "combine harvester",
+  "synname": "harvester.n.02"
+}, {
+  "class_idx": 198,
+  "class_idx_1k": 596,
+  "clip_bench_label": "hatchet",
+  "synname": "hatchet.n.02"
+}, {
+  "class_idx": 199,
+  "class_idx_1k": 597,
+  "clip_bench_label": "holster",
+  "synname": "holster.n.01"
+}, {
+  "class_idx": 200,
+  "class_idx_1k": 598,
+  "clip_bench_label": "home theater",
+  "synname": "home_theater.n.01"
+}, {
+  "class_idx": 201,
+  "class_idx_1k": 599,
+  "clip_bench_label": "honeycomb",
+  "synname": "honeycomb.n.02"
+}, {
+  "class_idx": 202,
+  "class_idx_1k": 600,
+  "clip_bench_label": "hook",
+  "synname": "hook.n.04"
+}, {
+  "class_idx": 203,
+  "class_idx_1k": 601,
+  "clip_bench_label": "hoop skirt",
+  "synname": "hoopskirt.n.01"
+}, {
+  "class_idx": 204,
+  "class_idx_1k": 602,
+  "clip_bench_label": "gymnastic horizontal bar",
+  "synname": "horizontal_bar.n.01"
+}, {
+  "class_idx": 205,
+  "class_idx_1k": 603,
+  "clip_bench_label": "horse-drawn vehicle",
+  "synname": "horse_cart.n.01"
+}, {
+  "class_idx": 206,
+  "class_idx_1k": 604,
+  "clip_bench_label": "hourglass",
+  "synname": "hourglass.n.01"
+}, {
+  "class_idx": 207,
+  "class_idx_1k": 605,
+  "clip_bench_label": "iPod",
+  "synname": "ipod.n.01"
+}, {
+  "class_idx": 208,
+  "class_idx_1k": 606,
+  "clip_bench_label": "clothes iron",
+  "synname": "iron.n.04"
+}, {
+  "class_idx": 209,
+  "class_idx_1k": 607,
+  "clip_bench_label": "carved pumpkin",
+  "synname": "jack-o'-lantern.n.02"
+}, {
+  "class_idx": 210,
+  "class_idx_1k": 608,
+  "clip_bench_label": "jeans",
+  "synname": "jean.n.01"
+}, {
+  "class_idx": 211,
+  "class_idx_1k": 609,
+  "clip_bench_label": "jeep",
+  "synname": "jeep.n.01"
+}, {
+  "class_idx": 212,
+  "class_idx_1k": 610,
+  "clip_bench_label": "T-shirt",
+  "synname": "jersey.n.03"
+}, {
+  "class_idx": 213,
+  "class_idx_1k": 611,
+  "clip_bench_label": "jigsaw puzzle",
+  "synname": "jigsaw_puzzle.n.01"
+}, {
+  "class_idx": 214,
+  "class_idx_1k": 612,
+  "clip_bench_label": "rickshaw",
+  "synname": "jinrikisha.n.01"
+}, {
+  "class_idx": 215,
+  "class_idx_1k": 613,
+  "clip_bench_label": "joystick",
+  "synname": "joystick.n.02"
+}, {
+  "class_idx": 216,
+  "class_idx_1k": 614,
+  "clip_bench_label": "kimono",
+  "synname": "kimono.n.01"
+}, {
+  "class_idx": 217,
+  "class_idx_1k": 615,
+  "clip_bench_label": "knee pad",
+  "synname": "knee_pad.n.01"
+}, {
+  "class_idx": 218,
+  "class_idx_1k": 616,
+  "clip_bench_label": "knot",
+  "synname": "knot.n.02"
+}, {
+  "class_idx": 219,
+  "class_idx_1k": 617,
+  "clip_bench_label": "lab coat",
+  "synname": "lab_coat.n.01"
+}, {
+  "class_idx": 220,
+  "class_idx_1k": 618,
+  "clip_bench_label": "ladle",
+  "synname": "ladle.n.01"
+}, {
+  "class_idx": 221,
+  "class_idx_1k": 619,
+  "clip_bench_label": "lampshade",
+  "synname": "lampshade.n.01"
+}, {
+  "class_idx": 222,
+  "class_idx_1k": 620,
+  "clip_bench_label": "laptop computer",
+  "synname": "laptop.n.01"
+}, {
+  "class_idx": 223,
+  "class_idx_1k": 621,
+  "clip_bench_label": "lawn mower",
+  "synname": "lawn_mower.n.01"
+}, {
+  "class_idx": 224,
+  "class_idx_1k": 622,
+  "clip_bench_label": "lens cap",
+  "synname": "lens_cap.n.01"
+}, {
+  "class_idx": 225,
+  "class_idx_1k": 623,
+  "clip_bench_label": "letter opener",
+  "synname": "letter_opener.n.01"
+}, {
+  "class_idx": 226,
+  "class_idx_1k": 624,
+  "clip_bench_label": "library",
+  "synname": "library.n.05"
+}, {
+  "class_idx": 227,
+  "class_idx_1k": 625,
+  "clip_bench_label": "lifeboat",
+  "synname": "lifeboat.n.01"
+}, {
+  "class_idx": 228,
+  "class_idx_1k": 626,
+  "clip_bench_label": "lighter",
+  "synname": "lighter.n.02"
+}, {
+  "class_idx": 229,
+  "class_idx_1k": 627,
+  "clip_bench_label": "limousine",
+  "synname": "limousine.n.01"
+}, {
+  "class_idx": 230,
+  "class_idx_1k": 628,
+  "clip_bench_label": "ocean liner",
+  "synname": "liner.n.04"
+}, {
+  "class_idx": 231,
+  "class_idx_1k": 629,
+  "clip_bench_label": "lipstick",
+  "synname": "lipstick.n.01"
+}, {
+  "class_idx": 232,
+  "class_idx_1k": 630,
+  "clip_bench_label": "slip-on shoe",
+  "synname": "loafer.n.02"
+}, {
+  "class_idx": 233,
+  "class_idx_1k": 631,
+  "clip_bench_label": "lotion",
+  "synname": "lotion.n.01"
+}, {
+  "class_idx": 234,
+  "class_idx_1k": 632,
+  "clip_bench_label": "music speaker",
+  "synname": "loudspeaker.n.01"
+}, {
+  "class_idx": 235,
+  "class_idx_1k": 633,
+  "clip_bench_label": "loupe magnifying glass",
+  "synname": "loupe.n.01"
+}, {
+  "class_idx": 236,
+  "class_idx_1k": 634,
+  "clip_bench_label": "sawmill",
+  "synname": "lumbermill.n.01"
+}, {
+  "class_idx": 237,
+  "class_idx_1k": 635,
+  "clip_bench_label": "magnetic compass",
+  "synname": "magnetic_compass.n.01"
+}, {
+  "class_idx": 238,
+  "class_idx_1k": 636,
+  "clip_bench_label": "messenger bag",
+  "synname": "mailbag.n.02"
+}, {
+  "class_idx": 239,
+  "class_idx_1k": 637,
+  "clip_bench_label": "mailbox",
+  "synname": "mailbox.n.01"
+}, {
+  "class_idx": 240,
+  "class_idx_1k": 638,
+  "clip_bench_label": "tights",
+  "synname": "maillot.n.02"
+}, {
+  "class_idx": 241,
+  "class_idx_1k": 639,
+  "clip_bench_label": "one-piece bathing suit",
+  "synname": "maillot.n.01"
+}, {
+  "class_idx": 242,
+  "class_idx_1k": 640,
+  "clip_bench_label": "manhole cover",
+  "synname": "manhole_cover.n.01"
+}, {
+  "class_idx": 243,
+  "class_idx_1k": 641,
+  "clip_bench_label": "maraca",
+  "synname": "maraca.n.01"
+}, {
+  "class_idx": 244,
+  "class_idx_1k": 642,
+  "clip_bench_label": "marimba",
+  "synname": "marimba.n.01"
+}, {
+  "class_idx": 245,
+  "class_idx_1k": 643,
+  "clip_bench_label": "mask",
+  "synname": "mask.n.01"
+}, {
+  "class_idx": 246,
+  "class_idx_1k": 644,
+  "clip_bench_label": "matchstick",
+  "synname": "matchstick.n.01"
+}, {
+  "class_idx": 247,
+  "class_idx_1k": 645,
+  "clip_bench_label": "maypole",
+  "synname": "maypole.n.01"
+}, {
+  "class_idx": 248,
+  "class_idx_1k": 646,
+  "clip_bench_label": "maze",
+  "synname": "maze.n.01"
+}, {
+  "class_idx": 249,
+  "class_idx_1k": 647,
+  "clip_bench_label": "measuring cup",
+  "synname": "measuring_cup.n.01"
+}, {
+  "class_idx": 250,
+  "class_idx_1k": 648,
+  "clip_bench_label": "medicine cabinet",
+  "synname": "medicine_chest.n.01"
+}, {
+  "class_idx": 251,
+  "class_idx_1k": 649,
+  "clip_bench_label": "megalith",
+  "synname": "megalith.n.01"
+}, {
+  "class_idx": 252,
+  "class_idx_1k": 650,
+  "clip_bench_label": "microphone",
+  "synname": "microphone.n.01"
+}, {
+  "class_idx": 253,
+  "class_idx_1k": 651,
+  "clip_bench_label": "microwave oven",
+  "synname": "microwave.n.02"
+}, {
+  "class_idx": 254,
+  "class_idx_1k": 652,
+  "clip_bench_label": "military uniform",
+  "synname": "military_uniform.n.01"
+}, {
+  "class_idx": 255,
+  "class_idx_1k": 653,
+  "clip_bench_label": "milk can",
+  "synname": "milk_can.n.01"
+}, {
+  "class_idx": 256,
+  "class_idx_1k": 654,
+  "clip_bench_label": "minibus",
+  "synname": "minibus.n.01"
+}, {
+  "class_idx": 257,
+  "class_idx_1k": 655,
+  "clip_bench_label": "miniskirt",
+  "synname": "miniskirt.n.01"
+}, {
+  "class_idx": 258,
+  "class_idx_1k": 656,
+  "clip_bench_label": "minivan",
+  "synname": "minivan.n.01"
+}, {
+  "class_idx": 259,
+  "class_idx_1k": 657,
+  "clip_bench_label": "missile",
+  "synname": "missile.n.01"
+}, {
+  "class_idx": 260,
+  "class_idx_1k": 658,
+  "clip_bench_label": "mitten",
+  "synname": "mitten.n.01"
+}, {
+  "class_idx": 261,
+  "class_idx_1k": 659,
+  "clip_bench_label": "mixing bowl",
+  "synname": "mixing_bowl.n.01"
+}, {
+  "class_idx": 262,
+  "class_idx_1k": 660,
+  "clip_bench_label": "mobile home",
+  "synname": "mobile_home.n.01"
+}, {
+  "class_idx": 263,
+  "class_idx_1k": 661,
+  "clip_bench_label": "ford model t",
+  "synname": "model_t.n.01"
+}, {
+  "class_idx": 264,
+  "class_idx_1k": 662,
+  "clip_bench_label": "modem",
+  "synname": "modem.n.01"
+}, {
+  "class_idx": 265,
+  "class_idx_1k": 663,
+  "clip_bench_label": "monastery",
+  "synname": "monastery.n.01"
+}, {
+  "class_idx": 266,
+  "class_idx_1k": 664,
+  "clip_bench_label": "monitor",
+  "synname": "monitor.n.05"
+}, {
+  "class_idx": 267,
+  "class_idx_1k": 665,
+  "clip_bench_label": "moped",
+  "synname": "moped.n.01"
+}, {
+  "class_idx": 268,
+  "class_idx_1k": 666,
+  "clip_bench_label": "mortar and pestle",
+  "synname": "mortar.n.03"
+}, {
+  "class_idx": 269,
+  "class_idx_1k": 667,
+  "clip_bench_label": "graduation cap",
+  "synname": "mortarboard.n.02"
+}, {
+  "class_idx": 270,
+  "class_idx_1k": 668,
+  "clip_bench_label": "mosque",
+  "synname": "mosque.n.01"
+}, {
+  "class_idx": 271,
+  "class_idx_1k": 669,
+  "clip_bench_label": "mosquito net",
+  "synname": "mosquito_net.n.01"
+}, {
+  "class_idx": 272,
+  "class_idx_1k": 670,
+  "clip_bench_label": "vespa",
+  "synname": "motor_scooter.n.01"
+}, {
+  "class_idx": 273,
+  "class_idx_1k": 671,
+  "clip_bench_label": "mountain bike",
+  "synname": "mountain_bike.n.01"
+}, {
+  "class_idx": 274,
+  "class_idx_1k": 672,
+  "clip_bench_label": "tent",
+  "synname": "mountain_tent.n.01"
+}, {
+  "class_idx": 275,
+  "class_idx_1k": 673,
+  "clip_bench_label": "computer mouse",
+  "synname": "mouse.n.04"
+}, {
+  "class_idx": 276,
+  "class_idx_1k": 674,
+  "clip_bench_label": "mousetrap",
+  "synname": "mousetrap.n.01"
+}, {
+  "class_idx": 277,
+  "class_idx_1k": 675,
+  "clip_bench_label": "moving van",
+  "synname": "moving_van.n.01"
+}, {
+  "class_idx": 278,
+  "class_idx_1k": 676,
+  "clip_bench_label": "muzzle",
+  "synname": "muzzle.n.03"
+}, {
+  "class_idx": 279,
+  "class_idx_1k": 677,
+  "clip_bench_label": "metal nail",
+  "synname": "nail.n.02"
+}, {
+  "class_idx": 280,
+  "class_idx_1k": 678,
+  "clip_bench_label": "neck brace",
+  "synname": "neck_brace.n.01"
+}, {
+  "class_idx": 281,
+  "class_idx_1k": 679,
+  "clip_bench_label": "necklace",
+  "synname": "necklace.n.01"
+}, {
+  "class_idx": 282,
+  "class_idx_1k": 680,
+  "clip_bench_label": "baby pacifier",
+  "synname": "nipple.n.02"
+}, {
+  "class_idx": 283,
+  "class_idx_1k": 681,
+  "clip_bench_label": "notebook computer",
+  "synname": "notebook.n.02"
+}, {
+  "class_idx": 284,
+  "class_idx_1k": 682,
+  "clip_bench_label": "obelisk",
+  "synname": "obelisk.n.01"
+}, {
+  "class_idx": 285,
+  "class_idx_1k": 683,
+  "clip_bench_label": "oboe",
+  "synname": "oboe.n.01"
+}, {
+  "class_idx": 286,
+  "class_idx_1k": 684,
+  "clip_bench_label": "ocarina",
+  "synname": "ocarina.n.01"
+}, {
+  "class_idx": 287,
+  "class_idx_1k": 685,
+  "clip_bench_label": "odometer",
+  "synname": "odometer.n.01"
+}, {
+  "class_idx": 288,
+  "class_idx_1k": 686,
+  "clip_bench_label": "oil filter",
+  "synname": "oil_filter.n.01"
+}, {
+  "class_idx": 289,
+  "class_idx_1k": 687,
+  "clip_bench_label": "pipe organ",
+  "synname": "organ.n.05"
+}, {
+  "class_idx": 290,
+  "class_idx_1k": 688,
+  "clip_bench_label": "oscilloscope",
+  "synname": "oscilloscope.n.01"
+}, {
+  "class_idx": 291,
+  "class_idx_1k": 689,
+  "clip_bench_label": "overskirt",
+  "synname": "overskirt.n.01"
+}, {
+  "class_idx": 292,
+  "class_idx_1k": 690,
+  "clip_bench_label": "bullock cart",
+  "synname": "oxcart.n.01"
+}, {
+  "class_idx": 293,
+  "class_idx_1k": 691,
+  "clip_bench_label": "oxygen mask",
+  "synname": "oxygen_mask.n.01"
+}, {
+  "class_idx": 294,
+  "class_idx_1k": 692,
+  "clip_bench_label": "product packet / packaging",
+  "synname": "packet.n.03"
+}, {
+  "class_idx": 295,
+  "class_idx_1k": 693,
+  "clip_bench_label": "paddle",
+  "synname": "paddle.n.04"
+}, {
+  "class_idx": 296,
+  "class_idx_1k": 694,
+  "clip_bench_label": "paddle wheel",
+  "synname": "paddlewheel.n.01"
+}, {
+  "class_idx": 297,
+  "class_idx_1k": 695,
+  "clip_bench_label": "padlock",
+  "synname": "padlock.n.01"
+}, {
+  "class_idx": 298,
+  "class_idx_1k": 696,
+  "clip_bench_label": "paintbrush",
+  "synname": "paintbrush.n.01"
+}, {
+  "class_idx": 299,
+  "class_idx_1k": 697,
+  "clip_bench_label": "pajamas",
+  "synname": "pajama.n.02"
+}, {
+  "class_idx": 300,
+  "class_idx_1k": 698,
+  "clip_bench_label": "palace",
+  "synname": "palace.n.04"
+}, {
+  "class_idx": 301,
+  "class_idx_1k": 699,
+  "clip_bench_label": "pan flute",
+  "synname": "panpipe.n.01"
+}, {
+  "class_idx": 302,
+  "class_idx_1k": 700,
+  "clip_bench_label": "paper towel",
+  "synname": "paper_towel.n.01"
+}, {
+  "class_idx": 303,
+  "class_idx_1k": 701,
+  "clip_bench_label": "parachute",
+  "synname": "parachute.n.01"
+}, {
+  "class_idx": 304,
+  "class_idx_1k": 702,
+  "clip_bench_label": "parallel bars",
+  "synname": "parallel_bars.n.01"
+}, {
+  "class_idx": 305,
+  "class_idx_1k": 703,
+  "clip_bench_label": "park bench",
+  "synname": "park_bench.n.01"
+}, {
+  "class_idx": 306,
+  "class_idx_1k": 704,
+  "clip_bench_label": "parking meter",
+  "synname": "parking_meter.n.01"
+}, {
+  "class_idx": 307,
+  "class_idx_1k": 705,
+  "clip_bench_label": "railroad car",
+  "synname": "passenger_car.n.01"
+}, {
+  "class_idx": 308,
+  "class_idx_1k": 706,
+  "clip_bench_label": "patio",
+  "synname": "patio.n.01"
+}, {
+  "class_idx": 309,
+  "class_idx_1k": 707,
+  "clip_bench_label": "payphone",
+  "synname": "pay-phone.n.01"
+}, {
+  "class_idx": 310,
+  "class_idx_1k": 708,
+  "clip_bench_label": "pedestal",
+  "synname": "pedestal.n.03"
+}, {
+  "class_idx": 311,
+  "class_idx_1k": 709,
+  "clip_bench_label": "pencil case",
+  "synname": "pencil_box.n.01"
+}, {
+  "class_idx": 312,
+  "class_idx_1k": 710,
+  "clip_bench_label": "pencil sharpener",
+  "synname": "pencil_sharpener.n.01"
+}, {
+  "class_idx": 313,
+  "class_idx_1k": 711,
+  "clip_bench_label": "perfume",
+  "synname": "perfume.n.02"
+}, {
+  "class_idx": 314,
+  "class_idx_1k": 712,
+  "clip_bench_label": "Petri dish",
+  "synname": "petri_dish.n.01"
+}, {
+  "class_idx": 315,
+  "class_idx_1k": 713,
+  "clip_bench_label": "photocopier",
+  "synname": "photocopier.n.01"
+}, {
+  "class_idx": 316,
+  "class_idx_1k": 714,
+  "clip_bench_label": "plectrum",
+  "synname": "pick.n.05"
+}, {
+  "class_idx": 317,
+  "class_idx_1k": 715,
+  "clip_bench_label": "Pickelhaube",
+  "synname": "pickelhaube.n.01"
+}, {
+  "class_idx": 318,
+  "class_idx_1k": 716,
+  "clip_bench_label": "picket fence",
+  "synname": "picket_fence.n.01"
+}, {
+  "class_idx": 319,
+  "class_idx_1k": 717,
+  "clip_bench_label": "pickup truck",
+  "synname": "pickup.n.01"
+}, {
+  "class_idx": 320,
+  "class_idx_1k": 718,
+  "clip_bench_label": "pier",
+  "synname": "pier.n.03"
+}, {
+  "class_idx": 321,
+  "class_idx_1k": 719,
+  "clip_bench_label": "piggy bank",
+  "synname": "piggy_bank.n.01"
+}, {
+  "class_idx": 322,
+  "class_idx_1k": 720,
+  "clip_bench_label": "pill bottle",
+  "synname": "pill_bottle.n.01"
+}, {
+  "class_idx": 323,
+  "class_idx_1k": 721,
+  "clip_bench_label": "pillow",
+  "synname": "pillow.n.01"
+}, {
+  "class_idx": 324,
+  "class_idx_1k": 722,
+  "clip_bench_label": "ping-pong ball",
+  "synname": "ping-pong_ball.n.01"
+}, {
+  "class_idx": 325,
+  "class_idx_1k": 723,
+  "clip_bench_label": "pinwheel",
+  "synname": "pinwheel.n.02"
+}, {
+  "class_idx": 326,
+  "class_idx_1k": 724,
+  "clip_bench_label": "pirate ship",
+  "synname": "pirate.n.03"
+}, {
+  "class_idx": 327,
+  "class_idx_1k": 725,
+  "clip_bench_label": "drink pitcher",
+  "synname": "pitcher.n.02"
+}, {
+  "class_idx": 328,
+  "class_idx_1k": 726,
+  "clip_bench_label": "block plane",
+  "synname": "plane.n.05"
+}, {
+  "class_idx": 329,
+  "class_idx_1k": 727,
+  "clip_bench_label": "planetarium",
+  "synname": "planetarium.n.01"
+}, {
+  "class_idx": 330,
+  "class_idx_1k": 728,
+  "clip_bench_label": "plastic bag",
+  "synname": "plastic_bag.n.01"
+}, {
+  "class_idx": 331,
+  "class_idx_1k": 729,
+  "clip_bench_label": "plate rack",
+  "synname": "plate_rack.n.01"
+}, {
+  "class_idx": 332,
+  "class_idx_1k": 730,
+  "clip_bench_label": "farm plow",
+  "synname": "plow.n.01"
+}, {
+  "class_idx": 333,
+  "class_idx_1k": 731,
+  "clip_bench_label": "plunger",
+  "synname": "plunger.n.03"
+}, {
+  "class_idx": 334,
+  "class_idx_1k": 732,
+  "clip_bench_label": "Polaroid camera",
+  "synname": "polaroid_camera.n.01"
+}, {
+  "class_idx": 335,
+  "class_idx_1k": 733,
+  "clip_bench_label": "pole",
+  "synname": "pole.n.01"
+}, {
+  "class_idx": 336,
+  "class_idx_1k": 734,
+  "clip_bench_label": "police van",
+  "synname": "police_van.n.01"
+}, {
+  "class_idx": 337,
+  "class_idx_1k": 735,
+  "clip_bench_label": "poncho",
+  "synname": "poncho.n.01"
+}, {
+  "class_idx": 338,
+  "class_idx_1k": 736,
+  "clip_bench_label": "pool table",
+  "synname": "pool_table.n.01"
+}, {
+  "class_idx": 339,
+  "class_idx_1k": 737,
+  "clip_bench_label": "soda bottle",
+  "synname": "pop_bottle.n.01"
+}, {
+  "class_idx": 340,
+  "class_idx_1k": 738,
+  "clip_bench_label": "plant pot",
+  "synname": "pot.n.04"
+}, {
+  "class_idx": 341,
+  "class_idx_1k": 739,
+  "clip_bench_label": "potter's wheel",
+  "synname": "potter's_wheel.n.01"
+}, {
+  "class_idx": 342,
+  "class_idx_1k": 740,
+  "clip_bench_label": "power drill",
+  "synname": "power_drill.n.01"
+}, {
+  "class_idx": 343,
+  "class_idx_1k": 741,
+  "clip_bench_label": "prayer rug",
+  "synname": "prayer_rug.n.01"
+}, {
+  "class_idx": 344,
+  "class_idx_1k": 742,
+  "clip_bench_label": "printer",
+  "synname": "printer.n.02"
+}, {
+  "class_idx": 345,
+  "class_idx_1k": 743,
+  "clip_bench_label": "prison",
+  "synname": "prison.n.01"
+}, {
+  "class_idx": 346,
+  "class_idx_1k": 744,
+  "clip_bench_label": "projectile",
+  "synname": "projectile.n.01"
+}, {
+  "class_idx": 347,
+  "class_idx_1k": 745,
+  "clip_bench_label": "projector",
+  "synname": "projector.n.02"
+}, {
+  "class_idx": 348,
+  "class_idx_1k": 746,
+  "clip_bench_label": "hockey puck",
+  "synname": "puck.n.02"
+}, {
+  "class_idx": 349,
+  "class_idx_1k": 747,
+  "clip_bench_label": "punching bag",
+  "synname": "punching_bag.n.02"
+}, {
+  "class_idx": 350,
+  "class_idx_1k": 748,
+  "clip_bench_label": "purse",
+  "synname": "purse.n.03"
+}, {
+  "class_idx": 351,
+  "class_idx_1k": 749,
+  "clip_bench_label": "quill",
+  "synname": "quill.n.01"
+}, {
+  "class_idx": 352,
+  "class_idx_1k": 750,
+  "clip_bench_label": "quilt",
+  "synname": "quilt.n.01"
+}, {
+  "class_idx": 353,
+  "class_idx_1k": 751,
+  "clip_bench_label": "race car",
+  "synname": "racer.n.02"
+}, {
+  "class_idx": 354,
+  "class_idx_1k": 752,
+  "clip_bench_label": "racket",
+  "synname": "racket.n.04"
+}, {
+  "class_idx": 355,
+  "class_idx_1k": 753,
+  "clip_bench_label": "radiator",
+  "synname": "radiator.n.03"
+}, {
+  "class_idx": 356,
+  "class_idx_1k": 754,
+  "clip_bench_label": "radio",
+  "synname": "radio.n.03"
+}, {
+  "class_idx": 357,
+  "class_idx_1k": 755,
+  "clip_bench_label": "radio telescope",
+  "synname": "radio_telescope.n.01"
+}, {
+  "class_idx": 358,
+  "class_idx_1k": 756,
+  "clip_bench_label": "rain barrel",
+  "synname": "rain_barrel.n.01"
+}, {
+  "class_idx": 359,
+  "class_idx_1k": 757,
+  "clip_bench_label": "recreational vehicle",
+  "synname": "recreational_vehicle.n.01"
+}, {
+  "class_idx": 360,
+  "class_idx_1k": 758,
+  "clip_bench_label": "fishing casting reel",
+  "synname": "reel.n.03"
+}, {
+  "class_idx": 361,
+  "class_idx_1k": 759,
+  "clip_bench_label": "reflex camera",
+  "synname": "reflex_camera.n.01"
+}, {
+  "class_idx": 362,
+  "class_idx_1k": 760,
+  "clip_bench_label": "refrigerator",
+  "synname": "refrigerator.n.01"
+}, {
+  "class_idx": 363,
+  "class_idx_1k": 761,
+  "clip_bench_label": "remote control",
+  "synname": "remote_control.n.01"
+}, {
+  "class_idx": 364,
+  "class_idx_1k": 762,
+  "clip_bench_label": "restaurant",
+  "synname": "restaurant.n.01"
+}, {
+  "class_idx": 365,
+  "class_idx_1k": 763,
+  "clip_bench_label": "revolver",
+  "synname": "revolver.n.01"
+}, {
+  "class_idx": 366,
+  "class_idx_1k": 764,
+  "clip_bench_label": "rifle",
+  "synname": "rifle.n.01"
+}, {
+  "class_idx": 367,
+  "class_idx_1k": 765,
+  "clip_bench_label": "rocking chair",
+  "synname": "rocking_chair.n.01"
+}, {
+  "class_idx": 368,
+  "class_idx_1k": 766,
+  "clip_bench_label": "rotisserie",
+  "synname": "rotisserie.n.01"
+}, {
+  "class_idx": 369,
+  "class_idx_1k": 767,
+  "clip_bench_label": "eraser",
+  "synname": "rubber_eraser.n.01"
+}, {
+  "class_idx": 370,
+  "class_idx_1k": 768,
+  "clip_bench_label": "rugby ball",
+  "synname": "rugby_ball.n.01"
+}, {
+  "class_idx": 371,
+  "class_idx_1k": 769,
+  "clip_bench_label": "ruler measuring stick",
+  "synname": "rule.n.12"
+}, {
+  "class_idx": 372,
+  "class_idx_1k": 770,
+  "clip_bench_label": "sneaker",
+  "synname": "running_shoe.n.01"
+}, {
+  "class_idx": 373,
+  "class_idx_1k": 771,
+  "clip_bench_label": "safe",
+  "synname": "safe.n.01"
+}, {
+  "class_idx": 374,
+  "class_idx_1k": 772,
+  "clip_bench_label": "safety pin",
+  "synname": "safety_pin.n.01"
+}, {
+  "class_idx": 375,
+  "class_idx_1k": 773,
+  "clip_bench_label": "salt shaker",
+  "synname": "saltshaker.n.01"
+}, {
+  "class_idx": 376,
+  "class_idx_1k": 774,
+  "clip_bench_label": "sandal",
+  "synname": "sandal.n.01"
+}, {
+  "class_idx": 377,
+  "class_idx_1k": 775,
+  "clip_bench_label": "sarong",
+  "synname": "sarong.n.01"
+}, {
+  "class_idx": 378,
+  "class_idx_1k": 776,
+  "clip_bench_label": "saxophone",
+  "synname": "sax.n.02"
+}, {
+  "class_idx": 379,
+  "class_idx_1k": 777,
+  "clip_bench_label": "scabbard",
+  "synname": "scabbard.n.01"
+}, {
+  "class_idx": 380,
+  "class_idx_1k": 778,
+  "clip_bench_label": "weighing scale",
+  "synname": "scale.n.07"
+}, {
+  "class_idx": 381,
+  "class_idx_1k": 779,
+  "clip_bench_label": "school bus",
+  "synname": "school_bus.n.01"
+}, {
+  "class_idx": 382,
+  "class_idx_1k": 780,
+  "clip_bench_label": "schooner",
+  "synname": "schooner.n.02"
+}, {
+  "class_idx": 383,
+  "class_idx_1k": 781,
+  "clip_bench_label": "scoreboard",
+  "synname": "scoreboard.n.01"
+}, {
+  "class_idx": 384,
+  "class_idx_1k": 782,
+  "clip_bench_label": "CRT monitor",
+  "synname": "screen.n.03"
+}, {
+  "class_idx": 385,
+  "class_idx_1k": 783,
+  "clip_bench_label": "screw",
+  "synname": "screw.n.04"
+}, {
+  "class_idx": 386,
+  "class_idx_1k": 784,
+  "clip_bench_label": "screwdriver",
+  "synname": "screwdriver.n.01"
+}, {
+  "class_idx": 387,
+  "class_idx_1k": 785,
+  "clip_bench_label": "seat belt",
+  "synname": "seat_belt.n.01"
+}, {
+  "class_idx": 388,
+  "class_idx_1k": 786,
+  "clip_bench_label": "sewing machine",
+  "synname": "sewing_machine.n.01"
+}, {
+  "class_idx": 389,
+  "class_idx_1k": 787,
+  "clip_bench_label": "shield",
+  "synname": "shield.n.02"
+}, {
+  "class_idx": 390,
+  "class_idx_1k": 788,
+  "clip_bench_label": "shoe store",
+  "synname": "shoe_shop.n.01"
+}, {
+  "class_idx": 391,
+  "class_idx_1k": 789,
+  "clip_bench_label": "shoji screen / room divider",
+  "synname": "shoji.n.01"
+}, {
+  "class_idx": 392,
+  "class_idx_1k": 790,
+  "clip_bench_label": "shopping basket",
+  "synname": "shopping_basket.n.01"
+}, {
+  "class_idx": 393,
+  "class_idx_1k": 791,
+  "clip_bench_label": "shopping cart",
+  "synname": "shopping_cart.n.01"
+}, {
+  "class_idx": 394,
+  "class_idx_1k": 792,
+  "clip_bench_label": "shovel",
+  "synname": "shovel.n.01"
+}, {
+  "class_idx": 395,
+  "class_idx_1k": 793,
+  "clip_bench_label": "shower cap",
+  "synname": "shower_cap.n.01"
+}, {
+  "class_idx": 396,
+  "class_idx_1k": 794,
+  "clip_bench_label": "shower curtain",
+  "synname": "shower_curtain.n.01"
+}, {
+  "class_idx": 397,
+  "class_idx_1k": 795,
+  "clip_bench_label": "ski",
+  "synname": "ski.n.01"
+}, {
+  "class_idx": 398,
+  "class_idx_1k": 796,
+  "clip_bench_label": "balaclava ski mask",
+  "synname": "ski_mask.n.01"
+}, {
+  "class_idx": 399,
+  "class_idx_1k": 797,
+  "clip_bench_label": "sleeping bag",
+  "synname": "sleeping_bag.n.01"
+}, {
+  "class_idx": 400,
+  "class_idx_1k": 798,
+  "clip_bench_label": "slide rule",
+  "synname": "slide_rule.n.01"
+}, {
+  "class_idx": 401,
+  "class_idx_1k": 799,
+  "clip_bench_label": "sliding door",
+  "synname": "sliding_door.n.01"
+}, {
+  "class_idx": 402,
+  "class_idx_1k": 800,
+  "clip_bench_label": "slot machine",
+  "synname": "slot.n.07"
+}, {
+  "class_idx": 403,
+  "class_idx_1k": 801,
+  "clip_bench_label": "snorkel",
+  "synname": "snorkel.n.01"
+}, {
+  "class_idx": 404,
+  "class_idx_1k": 802,
+  "clip_bench_label": "snowmobile",
+  "synname": "snowmobile.n.01"
+}, {
+  "class_idx": 405,
+  "class_idx_1k": 803,
+  "clip_bench_label": "snowplow",
+  "synname": "snowplow.n.01"
+}, {
+  "class_idx": 406,
+  "class_idx_1k": 804,
+  "clip_bench_label": "soap dispenser",
+  "synname": "soap_dispenser.n.01"
+}, {
+  "class_idx": 407,
+  "class_idx_1k": 805,
+  "clip_bench_label": "soccer ball",
+  "synname": "soccer_ball.n.01"
+}, {
+  "class_idx": 408,
+  "class_idx_1k": 806,
+  "clip_bench_label": "sock",
+  "synname": "sock.n.01"
+}, {
+  "class_idx": 409,
+  "class_idx_1k": 807,
+  "clip_bench_label": "solar thermal collector",
+  "synname": "solar_dish.n.01"
+}, {
+  "class_idx": 410,
+  "class_idx_1k": 808,
+  "clip_bench_label": "sombrero",
+  "synname": "sombrero.n.02"
+}, {
+  "class_idx": 411,
+  "class_idx_1k": 809,
+  "clip_bench_label": "soup bowl",
+  "synname": "soup_bowl.n.01"
+}, {
+  "class_idx": 412,
+  "class_idx_1k": 810,
+  "clip_bench_label": "keyboard space bar",
+  "synname": "space_bar.n.01"
+}, {
+  "class_idx": 413,
+  "class_idx_1k": 811,
+  "clip_bench_label": "space heater",
+  "synname": "space_heater.n.01"
+}, {
+  "class_idx": 414,
+  "class_idx_1k": 812,
+  "clip_bench_label": "space shuttle",
+  "synname": "space_shuttle.n.01"
+}, {
+  "class_idx": 415,
+  "class_idx_1k": 813,
+  "clip_bench_label": "spatula",
+  "synname": "spatula.n.01"
+}, {
+  "class_idx": 416,
+  "class_idx_1k": 814,
+  "clip_bench_label": "motorboat",
+  "synname": "speedboat.n.01"
+}, {
+  "class_idx": 417,
+  "class_idx_1k": 815,
+  "clip_bench_label": "spider web",
+  "synname": "spider_web.n.01"
+}, {
+  "class_idx": 418,
+  "class_idx_1k": 816,
+  "clip_bench_label": "spindle",
+  "synname": "spindle.n.04"
+}, {
+  "class_idx": 419,
+  "class_idx_1k": 817,
+  "clip_bench_label": "sports car",
+  "synname": "sports_car.n.01"
+}, {
+  "class_idx": 420,
+  "class_idx_1k": 818,
+  "clip_bench_label": "spotlight",
+  "synname": "spotlight.n.02"
+}, {
+  "class_idx": 421,
+  "class_idx_1k": 819,
+  "clip_bench_label": "stage",
+  "synname": "stage.n.03"
+}, {
+  "class_idx": 422,
+  "class_idx_1k": 820,
+  "clip_bench_label": "steam locomotive",
+  "synname": "steam_locomotive.n.01"
+}, {
+  "class_idx": 423,
+  "class_idx_1k": 821,
+  "clip_bench_label": "through arch bridge",
+  "synname": "steel_arch_bridge.n.01"
+}, {
+  "class_idx": 424,
+  "class_idx_1k": 822,
+  "clip_bench_label": "steel drum",
+  "synname": "steel_drum.n.01"
+}, {
+  "class_idx": 425,
+  "class_idx_1k": 823,
+  "clip_bench_label": "stethoscope",
+  "synname": "stethoscope.n.01"
+}, {
+  "class_idx": 426,
+  "class_idx_1k": 824,
+  "clip_bench_label": "scarf",
+  "synname": "stole.n.01"
+}, {
+  "class_idx": 427,
+  "class_idx_1k": 825,
+  "clip_bench_label": "stone wall",
+  "synname": "stone_wall.n.01"
+}, {
+  "class_idx": 428,
+  "class_idx_1k": 826,
+  "clip_bench_label": "stopwatch",
+  "synname": "stopwatch.n.01"
+}, {
+  "class_idx": 429,
+  "class_idx_1k": 827,
+  "clip_bench_label": "stove",
+  "synname": "stove.n.02"
+}, {
+  "class_idx": 430,
+  "class_idx_1k": 828,
+  "clip_bench_label": "strainer",
+  "synname": "strainer.n.01"
+}, {
+  "class_idx": 431,
+  "class_idx_1k": 829,
+  "clip_bench_label": "tram",
+  "synname": "streetcar.n.01"
+}, {
+  "class_idx": 432,
+  "class_idx_1k": 830,
+  "clip_bench_label": "stretcher",
+  "synname": "stretcher.n.03"
+}, {
+  "class_idx": 433,
+  "class_idx_1k": 831,
+  "clip_bench_label": "couch",
+  "synname": "studio_couch.n.01"
+}, {
+  "class_idx": 434,
+  "class_idx_1k": 832,
+  "clip_bench_label": "stupa",
+  "synname": "stupa.n.01"
+}, {
+  "class_idx": 435,
+  "class_idx_1k": 833,
+  "clip_bench_label": "submarine",
+  "synname": "submarine.n.01"
+}, {
+  "class_idx": 436,
+  "class_idx_1k": 834,
+  "clip_bench_label": "suit",
+  "synname": "suit.n.01"
+}, {
+  "class_idx": 437,
+  "class_idx_1k": 835,
+  "clip_bench_label": "sundial",
+  "synname": "sundial.n.01"
+}, {
+  "class_idx": 438,
+  "class_idx_1k": 836,
+  "clip_bench_label": "sunglass",
+  "synname": "sunglass.n.01"
+}, {
+  "class_idx": 439,
+  "class_idx_1k": 837,
+  "clip_bench_label": "sunglasses",
+  "synname": "sunglasses.n.01"
+}, {
+  "class_idx": 440,
+  "class_idx_1k": 838,
+  "clip_bench_label": "sunscreen",
+  "synname": "sunscreen.n.01"
+}, {
+  "class_idx": 441,
+  "class_idx_1k": 839,
+  "clip_bench_label": "suspension bridge",
+  "synname": "suspension_bridge.n.01"
+}, {
+  "class_idx": 442,
+  "class_idx_1k": 840,
+  "clip_bench_label": "mop",
+  "synname": "swab.n.02"
+}, {
+  "class_idx": 443,
+  "class_idx_1k": 841,
+  "clip_bench_label": "sweatshirt",
+  "synname": "sweatshirt.n.01"
+}, {
+  "class_idx": 444,
+  "class_idx_1k": 842,
+  "clip_bench_label": "swim trunks / shorts",
+  "synname": "swimming_trunks.n.01"
+}, {
+  "class_idx": 445,
+  "class_idx_1k": 843,
+  "clip_bench_label": "swing",
+  "synname": "swing.n.02"
+}, {
+  "class_idx": 446,
+  "class_idx_1k": 844,
+  "clip_bench_label": "electrical switch",
+  "synname": "switch.n.01"
+}, {
+  "class_idx": 447,
+  "class_idx_1k": 845,
+  "clip_bench_label": "syringe",
+  "synname": "syringe.n.01"
+}, {
+  "class_idx": 448,
+  "class_idx_1k": 846,
+  "clip_bench_label": "table lamp",
+  "synname": "table_lamp.n.01"
+}, {
+  "class_idx": 449,
+  "class_idx_1k": 847,
+  "clip_bench_label": "tank",
+  "synname": "tank.n.01"
+}, {
+  "class_idx": 450,
+  "class_idx_1k": 848,
+  "clip_bench_label": "tape player",
+  "synname": "tape_player.n.01"
+}, {
+  "class_idx": 451,
+  "class_idx_1k": 849,
+  "clip_bench_label": "teapot",
+  "synname": "teapot.n.01"
+}, {
+  "class_idx": 452,
+  "class_idx_1k": 850,
+  "clip_bench_label": "teddy bear",
+  "synname": "teddy.n.01"
+}, {
+  "class_idx": 453,
+  "class_idx_1k": 851,
+  "clip_bench_label": "television",
+  "synname": "television.n.02"
+}, {
+  "class_idx": 454,
+  "class_idx_1k": 852,
+  "clip_bench_label": "tennis ball",
+  "synname": "tennis_ball.n.01"
+}, {
+  "class_idx": 455,
+  "class_idx_1k": 853,
+  "clip_bench_label": "thatched roof",
+  "synname": "thatch.n.04"
+}, {
+  "class_idx": 456,
+  "class_idx_1k": 854,
+  "clip_bench_label": "front curtain",
+  "synname": "theater_curtain.n.01"
+}, {
+  "class_idx": 457,
+  "class_idx_1k": 855,
+  "clip_bench_label": "thimble",
+  "synname": "thimble.n.02"
+}, {
+  "class_idx": 458,
+  "class_idx_1k": 856,
+  "clip_bench_label": "threshing machine",
+  "synname": "thresher.n.01"
+}, {
+  "class_idx": 459,
+  "class_idx_1k": 857,
+  "clip_bench_label": "throne",
+  "synname": "throne.n.01"
+}, {
+  "class_idx": 460,
+  "class_idx_1k": 858,
+  "clip_bench_label": "tile roof",
+  "synname": "tile_roof.n.01"
+}, {
+  "class_idx": 461,
+  "class_idx_1k": 859,
+  "clip_bench_label": "toaster",
+  "synname": "toaster.n.02"
+}, {
+  "class_idx": 462,
+  "class_idx_1k": 860,
+  "clip_bench_label": "tobacco shop",
+  "synname": "tobacco_shop.n.01"
+}, {
+  "class_idx": 463,
+  "class_idx_1k": 861,
+  "clip_bench_label": "toilet seat",
+  "synname": "toilet_seat.n.01"
+}, {
+  "class_idx": 464,
+  "class_idx_1k": 862,
+  "clip_bench_label": "torch",
+  "synname": "torch.n.01"
+}, {
+  "class_idx": 465,
+  "class_idx_1k": 863,
+  "clip_bench_label": "totem pole",
+  "synname": "totem_pole.n.01"
+}, {
+  "class_idx": 466,
+  "class_idx_1k": 864,
+  "clip_bench_label": "tow truck",
+  "synname": "tow_truck.n.01"
+}, {
+  "class_idx": 467,
+  "class_idx_1k": 865,
+  "clip_bench_label": "toy store",
+  "synname": "toyshop.n.01"
+}, {
+  "class_idx": 468,
+  "class_idx_1k": 866,
+  "clip_bench_label": "tractor",
+  "synname": "tractor.n.01"
+}, {
+  "class_idx": 469,
+  "class_idx_1k": 867,
+  "clip_bench_label": "semi-trailer truck",
+  "synname": "trailer_truck.n.01"
+}, {
+  "class_idx": 470,
+  "class_idx_1k": 868,
+  "clip_bench_label": "tray",
+  "synname": "tray.n.01"
+}, {
+  "class_idx": 471,
+  "class_idx_1k": 869,
+  "clip_bench_label": "trench coat",
+  "synname": "trench_coat.n.01"
+}, {
+  "class_idx": 472,
+  "class_idx_1k": 870,
+  "clip_bench_label": "tricycle",
+  "synname": "tricycle.n.01"
+}, {
+  "class_idx": 473,
+  "class_idx_1k": 871,
+  "clip_bench_label": "trimaran",
+  "synname": "trimaran.n.01"
+}, {
+  "class_idx": 474,
+  "class_idx_1k": 872,
+  "clip_bench_label": "tripod",
+  "synname": "tripod.n.01"
+}, {
+  "class_idx": 475,
+  "class_idx_1k": 873,
+  "clip_bench_label": "triumphal arch",
+  "synname": "triumphal_arch.n.01"
+}, {
+  "class_idx": 476,
+  "class_idx_1k": 874,
+  "clip_bench_label": "trolleybus",
+  "synname": "trolleybus.n.01"
+}, {
+  "class_idx": 477,
+  "class_idx_1k": 875,
+  "clip_bench_label": "trombone",
+  "synname": "trombone.n.01"
+}, {
+  "class_idx": 478,
+  "class_idx_1k": 876,
+  "clip_bench_label": "hot tub",
+  "synname": "tub.n.02"
+}, {
+  "class_idx": 479,
+  "class_idx_1k": 877,
+  "clip_bench_label": "turnstile",
+  "synname": "turnstile.n.01"
+}, {
+  "class_idx": 480,
+  "class_idx_1k": 878,
+  "clip_bench_label": "typewriter keyboard",
+  "synname": "typewriter_keyboard.n.01"
+}, {
+  "class_idx": 481,
+  "class_idx_1k": 879,
+  "clip_bench_label": "umbrella",
+  "synname": "umbrella.n.01"
+}, {
+  "class_idx": 482,
+  "class_idx_1k": 880,
+  "clip_bench_label": "unicycle",
+  "synname": "unicycle.n.01"
+}, {
+  "class_idx": 483,
+  "class_idx_1k": 881,
+  "clip_bench_label": "upright piano",
+  "synname": "upright.n.02"
+}, {
+  "class_idx": 484,
+  "class_idx_1k": 882,
+  "clip_bench_label": "vacuum cleaner",
+  "synname": "vacuum.n.04"
+}, {
+  "class_idx": 485,
+  "class_idx_1k": 883,
+  "clip_bench_label": "vase",
+  "synname": "vase.n.01"
+}, {
+  "class_idx": 486,
+  "class_idx_1k": 884,
+  "clip_bench_label": "vaulted or arched ceiling",
+  "synname": "vault.n.03"
+}, {
+  "class_idx": 487,
+  "class_idx_1k": 885,
+  "clip_bench_label": "velvet fabric",
+  "synname": "velvet.n.01"
+}, {
+  "class_idx": 488,
+  "class_idx_1k": 886,
+  "clip_bench_label": "vending machine",
+  "synname": "vending_machine.n.01"
+}, {
+  "class_idx": 489,
+  "class_idx_1k": 887,
+  "clip_bench_label": "vestment",
+  "synname": "vestment.n.01"
+}, {
+  "class_idx": 490,
+  "class_idx_1k": 888,
+  "clip_bench_label": "viaduct",
+  "synname": "viaduct.n.01"
+}, {
+  "class_idx": 491,
+  "class_idx_1k": 889,
+  "clip_bench_label": "violin",
+  "synname": "violin.n.01"
+}, {
+  "class_idx": 492,
+  "class_idx_1k": 890,
+  "clip_bench_label": "volleyball",
+  "synname": "volleyball.n.02"
+}, {
+  "class_idx": 493,
+  "class_idx_1k": 891,
+  "clip_bench_label": "waffle iron",
+  "synname": "waffle_iron.n.01"
+}, {
+  "class_idx": 494,
+  "class_idx_1k": 892,
+  "clip_bench_label": "wall clock",
+  "synname": "wall_clock.n.01"
+}, {
+  "class_idx": 495,
+  "class_idx_1k": 893,
+  "clip_bench_label": "wallet",
+  "synname": "wallet.n.01"
+}, {
+  "class_idx": 496,
+  "class_idx_1k": 894,
+  "clip_bench_label": "wardrobe",
+  "synname": "wardrobe.n.01"
+}, {
+  "class_idx": 497,
+  "class_idx_1k": 895,
+  "clip_bench_label": "military aircraft",
+  "synname": "warplane.n.01"
+}, {
+  "class_idx": 498,
+  "class_idx_1k": 896,
+  "clip_bench_label": "sink",
+  "synname": "washbasin.n.02"
+}, {
+  "class_idx": 499,
+  "class_idx_1k": 897,
+  "clip_bench_label": "washing machine",
+  "synname": "washer.n.03"
+}, {
+  "class_idx": 500,
+  "class_idx_1k": 898,
+  "clip_bench_label": "water bottle",
+  "synname": "water_bottle.n.01"
+}, {
+  "class_idx": 501,
+  "class_idx_1k": 899,
+  "clip_bench_label": "water jug",
+  "synname": "water_jug.n.01"
+}, {
+  "class_idx": 502,
+  "class_idx_1k": 900,
+  "clip_bench_label": "water tower",
+  "synname": "water_tower.n.01"
+}, {
+  "class_idx": 503,
+  "class_idx_1k": 901,
+  "clip_bench_label": "whiskey jug",
+  "synname": "whiskey_jug.n.01"
+}, {
+  "class_idx": 504,
+  "class_idx_1k": 902,
+  "clip_bench_label": "whistle",
+  "synname": "whistle.n.04"
+}, {
+  "class_idx": 505,
+  "class_idx_1k": 903,
+  "clip_bench_label": "hair wig",
+  "synname": "wig.n.01"
+}, {
+  "class_idx": 506,
+  "class_idx_1k": 904,
+  "clip_bench_label": "window screen",
+  "synname": "window_screen.n.01"
+}, {
+  "class_idx": 507,
+  "class_idx_1k": 905,
+  "clip_bench_label": "window shade",
+  "synname": "window_shade.n.01"
+}, {
+  "class_idx": 508,
+  "class_idx_1k": 906,
+  "clip_bench_label": "Windsor tie",
+  "synname": "windsor_tie.n.01"
+}, {
+  "class_idx": 509,
+  "class_idx_1k": 907,
+  "clip_bench_label": "wine bottle",
+  "synname": "wine_bottle.n.01"
+}, {
+  "class_idx": 510,
+  "class_idx_1k": 908,
+  "clip_bench_label": "airplane wing",
+  "synname": "wing.n.02"
+}, {
+  "class_idx": 511,
+  "class_idx_1k": 909,
+  "clip_bench_label": "wok",
+  "synname": "wok.n.01"
+}, {
+  "class_idx": 512,
+  "class_idx_1k": 910,
+  "clip_bench_label": "wooden spoon",
+  "synname": "wooden_spoon.n.02"
+}, {
+  "class_idx": 513,
+  "class_idx_1k": 911,
+  "clip_bench_label": "wool",
+  "synname": "wool.n.01"
+}, {
+  "class_idx": 514,
+  "class_idx_1k": 912,
+  "clip_bench_label": "split-rail fence",
+  "synname": "worm_fence.n.01"
+}, {
+  "class_idx": 515,
+  "class_idx_1k": 913,
+  "clip_bench_label": "shipwreck",
+  "synname": "wreck.n.04"
+}, {
+  "class_idx": 516,
+  "class_idx_1k": 914,
+  "clip_bench_label": "sailboat",
+  "synname": "yawl.n.01"
+}, {
+  "class_idx": 517,
+  "class_idx_1k": 915,
+  "clip_bench_label": "yurt",
+  "synname": "yurt.n.01"
+}, {
+  "class_idx": 518,
+  "class_idx_1k": 916,
+  "clip_bench_label": "website",
+  "synname": "web_site.n.01"
+}, {
+  "class_idx": 519,
+  "class_idx_1k": 917,
+  "clip_bench_label": "comic book",
+  "synname": "comic_book.n.01"
+}, {
+  "class_idx": 520,
+  "class_idx_1k": 918,
+  "clip_bench_label": "crossword",
+  "synname": "crossword_puzzle.n.01"
+}, {
+  "class_idx": 521,
+  "class_idx_1k": 919,
+  "clip_bench_label": "traffic or street sign",
+  "synname": "street_sign.n.01"
+}, {
+  "class_idx": 522,
+  "class_idx_1k": 920,
+  "clip_bench_label": "traffic light",
+  "synname": "traffic_light.n.01"
+}, {
+  "class_idx": 523,
+  "class_idx_1k": 921,
+  "clip_bench_label": "dust jacket",
+  "synname": "book_jacket.n.01"
+}, {
+  "class_idx": 524,
+  "class_idx_1k": 922,
+  "clip_bench_label": "menu",
+  "synname": "menu.n.02"
+}, {
+  "class_idx": 525,
+  "class_idx_1k": 923,
+  "clip_bench_label": "plate",
+  "synname": "plate.n.08"
+}, {
+  "class_idx": 526,
+  "class_idx_1k": 924,
+  "clip_bench_label": "guacamole",
+  "synname": "guacamole.n.01"
+}, {
+  "class_idx": 527,
+  "class_idx_1k": 925,
+  "clip_bench_label": "consomme",
+  "synname": "consomme.n.01"
+}, {
+  "class_idx": 528,
+  "class_idx_1k": 926,
+  "clip_bench_label": "hot pot",
+  "synname": "hot_pot.n.01"
+}, {
+  "class_idx": 529,
+  "class_idx_1k": 927,
+  "clip_bench_label": "trifle",
+  "synname": "trifle.n.01"
+}, {
+  "class_idx": 530,
+  "class_idx_1k": 928,
+  "clip_bench_label": "ice cream",
+  "synname": "ice_cream.n.01"
+}, {
+  "class_idx": 531,
+  "class_idx_1k": 929,
+  "clip_bench_label": "popsicle",
+  "synname": "ice_lolly.n.01"
+}, {
+  "class_idx": 532,
+  "class_idx_1k": 930,
+  "clip_bench_label": "baguette",
+  "synname": "french_loaf.n.01"
+}, {
+  "class_idx": 533,
+  "class_idx_1k": 931,
+  "clip_bench_label": "bagel",
+  "synname": "bagel.n.01"
+}, {
+  "class_idx": 534,
+  "class_idx_1k": 932,
+  "clip_bench_label": "pretzel",
+  "synname": "pretzel.n.01"
+}, {
+  "class_idx": 535,
+  "class_idx_1k": 933,
+  "clip_bench_label": "cheeseburger",
+  "synname": "cheeseburger.n.01"
+}, {
+  "class_idx": 536,
+  "class_idx_1k": 934,
+  "clip_bench_label": "hot dog",
+  "synname": "hotdog.n.02"
+}, {
+  "class_idx": 537,
+  "class_idx_1k": 935,
+  "clip_bench_label": "mashed potatoes",
+  "synname": "mashed_potato.n.01"
+}, {
+  "class_idx": 538,
+  "class_idx_1k": 936,
+  "clip_bench_label": "cabbage",
+  "synname": "head_cabbage.n.02"
+}, {
+  "class_idx": 539,
+  "class_idx_1k": 937,
+  "clip_bench_label": "broccoli",
+  "synname": "broccoli.n.02"
+}, {
+  "class_idx": 540,
+  "class_idx_1k": 938,
+  "clip_bench_label": "cauliflower",
+  "synname": "cauliflower.n.02"
+}, {
+  "class_idx": 541,
+  "class_idx_1k": 939,
+  "clip_bench_label": "zucchini",
+  "synname": "zucchini.n.02"
+}, {
+  "class_idx": 542,
+  "class_idx_1k": 940,
+  "clip_bench_label": "spaghetti squash",
+  "synname": "spaghetti_squash.n.02"
+}, {
+  "class_idx": 543,
+  "class_idx_1k": 941,
+  "clip_bench_label": "acorn squash",
+  "synname": "acorn_squash.n.02"
+}, {
+  "class_idx": 544,
+  "class_idx_1k": 942,
+  "clip_bench_label": "butternut squash",
+  "synname": "butternut_squash.n.02"
+}, {
+  "class_idx": 545,
+  "class_idx_1k": 943,
+  "clip_bench_label": "cucumber",
+  "synname": "cucumber.n.02"
+}, {
+  "class_idx": 546,
+  "class_idx_1k": 944,
+  "clip_bench_label": "artichoke",
+  "synname": "artichoke.n.02"
+}, {
+  "class_idx": 547,
+  "class_idx_1k": 945,
+  "clip_bench_label": "bell pepper",
+  "synname": "bell_pepper.n.02"
+}, {
+  "class_idx": 548,
+  "class_idx_1k": 946,
+  "clip_bench_label": "cardoon",
+  "synname": "cardoon.n.02"
+}, {
+  "class_idx": 549,
+  "class_idx_1k": 947,
+  "clip_bench_label": "mushroom",
+  "synname": "mushroom.n.05"
+}, {
+  "class_idx": 550,
+  "class_idx_1k": 948,
+  "clip_bench_label": "Granny Smith apple",
+  "synname": "granny_smith.n.01"
+}, {
+  "class_idx": 551,
+  "class_idx_1k": 949,
+  "clip_bench_label": "strawberry",
+  "synname": "strawberry.n.01"
+}, {
+  "class_idx": 552,
+  "class_idx_1k": 950,
+  "clip_bench_label": "orange",
+  "synname": "orange.n.01"
+}, {
+  "class_idx": 553,
+  "class_idx_1k": 951,
+  "clip_bench_label": "lemon",
+  "synname": "lemon.n.01"
+}, {
+  "class_idx": 554,
+  "class_idx_1k": 952,
+  "clip_bench_label": "fig",
+  "synname": "fig.n.04"
+}, {
+  "class_idx": 555,
+  "class_idx_1k": 953,
+  "clip_bench_label": "pineapple",
+  "synname": "pineapple.n.02"
+}, {
+  "class_idx": 556,
+  "class_idx_1k": 954,
+  "clip_bench_label": "banana",
+  "synname": "banana.n.02"
+}, {
+  "class_idx": 557,
+  "class_idx_1k": 955,
+  "clip_bench_label": "jackfruit",
+  "synname": "jackfruit.n.02"
+}, {
+  "class_idx": 558,
+  "class_idx_1k": 956,
+  "clip_bench_label": "cherimoya (custard apple)",
+  "synname": "custard_apple.n.02"
+}, {
+  "class_idx": 559,
+  "class_idx_1k": 957,
+  "clip_bench_label": "pomegranate",
+  "synname": "pomegranate.n.02"
+}, {
+  "class_idx": 560,
+  "class_idx_1k": 958,
+  "clip_bench_label": "hay",
+  "synname": "hay.n.01"
+}, {
+  "class_idx": 561,
+  "class_idx_1k": 959,
+  "clip_bench_label": "carbonara",
+  "synname": "carbonara.n.01"
+}, {
+  "class_idx": 562,
+  "class_idx_1k": 960,
+  "clip_bench_label": "chocolate syrup",
+  "synname": "chocolate_sauce.n.01"
+}, {
+  "class_idx": 563,
+  "class_idx_1k": 961,
+  "clip_bench_label": "dough",
+  "synname": "dough.n.01"
+}, {
+  "class_idx": 564,
+  "class_idx_1k": 962,
+  "clip_bench_label": "meatloaf",
+  "synname": "meat_loaf.n.01"
+}, {
+  "class_idx": 565,
+  "class_idx_1k": 963,
+  "clip_bench_label": "pizza",
+  "synname": "pizza.n.01"
+}, {
+  "class_idx": 566,
+  "class_idx_1k": 964,
+  "clip_bench_label": "pot pie",
+  "synname": "potpie.n.01"
+}, {
+  "class_idx": 567,
+  "class_idx_1k": 965,
+  "clip_bench_label": "burrito",
+  "synname": "burrito.n.01"
+}, {
+  "class_idx": 568,
+  "class_idx_1k": 966,
+  "clip_bench_label": "red wine",
+  "synname": "red_wine.n.01"
+}, {
+  "class_idx": 569,
+  "class_idx_1k": 967,
+  "clip_bench_label": "espresso",
+  "synname": "espresso.n.01"
+}, {
+  "class_idx": 570,
+  "class_idx_1k": 968,
+  "clip_bench_label": "tea cup",
+  "synname": "cup.n.06"
+}, {
+  "class_idx": 571,
+  "class_idx_1k": 969,
+  "clip_bench_label": "eggnog",
+  "synname": "eggnog.n.01"
+}, {
+  "class_idx": 572,
+  "class_idx_1k": 970,
+  "clip_bench_label": "mountain",
+  "synname": "alp.n.01"
+}, {
+  "class_idx": 573,
+  "class_idx_1k": 971,
+  "clip_bench_label": "bubble",
+  "synname": "bubble.n.01"
+}, {
+  "class_idx": 574,
+  "class_idx_1k": 972,
+  "clip_bench_label": "cliff",
+  "synname": "cliff.n.01"
+}, {
+  "class_idx": 575,
+  "class_idx_1k": 973,
+  "clip_bench_label": "coral reef",
+  "synname": "coral_reef.n.01"
+}, {
+  "class_idx": 576,
+  "class_idx_1k": 974,
+  "clip_bench_label": "geyser",
+  "synname": "geyser.n.01"
+}, {
+  "class_idx": 577,
+  "class_idx_1k": 975,
+  "clip_bench_label": "lakeshore",
+  "synname": "lakeside.n.01"
+}, {
+  "class_idx": 578,
+  "class_idx_1k": 976,
+  "clip_bench_label": "promontory",
+  "synname": "promontory.n.01"
+}, {
+  "class_idx": 579,
+  "class_idx_1k": 977,
+  "clip_bench_label": "sandbar",
+  "synname": "sandbar.n.01"
+}, {
+  "class_idx": 580,
+  "class_idx_1k": 978,
+  "clip_bench_label": "beach",
+  "synname": "seashore.n.01"
+}, {
+  "class_idx": 581,
+  "class_idx_1k": 979,
+  "clip_bench_label": "valley",
+  "synname": "valley.n.01"
+}, {
+  "class_idx": 582,
+  "class_idx_1k": 980,
+  "clip_bench_label": "volcano",
+  "synname": "volcano.n.02"
+}, {
+  "class_idx": 583,
+  "class_idx_1k": 984,
+  "clip_bench_label": "rapeseed",
+  "synname": "rapeseed.n.01"
+}, {
+  "class_idx": 584,
+  "class_idx_1k": 987,
+  "clip_bench_label": "corn",
+  "synname": "corn.n.02"
+}, {
+  "class_idx": 585,
+  "class_idx_1k": 988,
+  "clip_bench_label": "acorn",
+  "synname": "acorn.n.01"
+}, {
+  "class_idx": 586,
+  "class_idx_1k": 989,
+  "clip_bench_label": "rose hip",
+  "synname": "hip.n.05"
+}, {
+  "class_idx": 587,
+  "class_idx_1k": 990,
+  "clip_bench_label": "horse chestnut seed",
+  "synname": "buckeye.n.01"
+}, {
+  "class_idx": 588,
+  "class_idx_1k": 998,
+  "clip_bench_label": "corn cob",
+  "synname": "ear.n.05"
+}, {
+  "class_idx": 589,
+  "class_idx_1k": 999,
+  "clip_bench_label": "toilet paper",
+  "synname": "toilet_tissue.n.01"
+}]

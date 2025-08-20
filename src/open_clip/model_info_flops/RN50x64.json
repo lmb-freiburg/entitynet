@@ -1,0 +1,13 @@
+{
+  "model": "RN50x64",
+  "image_size": 448,
+  "image_width": 128,
+  "text_width": 1024,
+  "embed_dim": 1024,
+  "mparams": 623.258305,
+  "image_mparams": 420.380352,
+  "text_mparams": 202.877952,
+  "gflops": 551.726481408,
+  "image_gflops": 528.47116288,
+  "text_gflops": 23.255318528
+}

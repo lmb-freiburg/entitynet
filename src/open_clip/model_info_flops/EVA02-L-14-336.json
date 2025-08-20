@@ -1,0 +1,13 @@
+{
+  "model": "EVA02-L-14-336",
+  "image_size": 336,
+  "image_width": 768,
+  "text_width": 768,
+  "embed_dim": 768,
+  "mparams": 428.083137,
+  "image_mparams": 304.432832,
+  "text_mparams": 123.650304,
+  "gflops": 362.215931904,
+  "image_gflops": 349.134815232,
+  "text_gflops": 13.081116672
+}

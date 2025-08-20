@@ -1,0 +1,6 @@
+task_factory: "zeroshot_classification"
+clip_zs_template: "none"
+dataset:
+    dataset_factory: "rare_species"
+    dataset_name: "rare_species_tax"
+    dataset_split: "train"

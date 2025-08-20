@@ -1,0 +1,13 @@
+{
+  "model": "RN50x4",
+  "image_size": 288,
+  "image_width": 80,
+  "text_width": 640,
+  "embed_dim": 640,
+  "mparams": 178.300601,
+  "image_mparams": 87.13708,
+  "text_mparams": 91.16352,
+  "gflops": 51.57246976,
+  "image_gflops": 42.48836096,
+  "text_gflops": 9.0841088
+}

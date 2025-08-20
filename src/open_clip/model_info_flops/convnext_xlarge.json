@@ -1,0 +1,13 @@
+{
+  "model": "convnext_xlarge",
+  "image_size": 256,
+  "image_width": 768,
+  "text_width": 1024,
+  "embed_dim": 1024,
+  "mparams": 653.892865,
+  "image_mparams": 350.24512,
+  "text_mparams": 303.647744,
+  "gflops": 197.896962048,
+  "image_gflops": 159.139495936,
+  "text_gflops": 38.757466112
+}

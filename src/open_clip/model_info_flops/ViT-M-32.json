@@ -1,0 +1,13 @@
+{
+  "model": "ViT-M-32",
+  "image_size": 224,
+  "image_width": 512,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 103.119873,
+  "image_mparams": 39.691776,
+  "text_mparams": 63.428096,
+  "gflops": 9.743368192,
+  "image_gflops": 3.92953856,
+  "text_gflops": 5.813829632
+}

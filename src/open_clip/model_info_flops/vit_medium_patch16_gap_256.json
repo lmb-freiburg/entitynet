@@ -1,0 +1,13 @@
+{
+  "model": "vit_medium_patch16_gap_256",
+  "image_size": 256,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 102.038529,
+  "image_mparams": 38.610432,
+  "text_mparams": 63.428096,
+  "gflops": 25.343033344,
+  "image_gflops": 19.529203712,
+  "text_gflops": 5.813829632
+}

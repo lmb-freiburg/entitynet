@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entitynet"
+description = "entitynet"
+readme = "README.md"
+authors = [{name = "Simon Ging"}]
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+#keywords = ["", ""]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Computer Vision Researchers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Version Control :: Git"
+]
+dynamic = ["version", "dependencies"]
+
+[project.scripts]
+
+[project.urls]
+Project-URL = "https://github.com/lmb-freiburg/entitynet"
+
+[tool.setuptools]
+zip-safe = true
+platforms = ["any"]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = { attr = "entitynet.__version__" }
+# dependencies = {file = ["requirements.txt"]}  # easier to install manually
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = false
+force_single_line = false
+line_length = 999
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "LIBRARY", "FIRSTPARTY", "LOCALFOLDER"]
+known_library = ["typedparser", "packg", "visiontext"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow", "regression_test", "cuda"]
+filterwarnings = [
+    "ignore:.*jsonschema.RefResolver is deprecated.*:DeprecationWarning"
+]
+addopts = "-m 'not cuda' --pdbcls=IPython.terminal.debugger:TerminalPdb"
+# timeout = 1200
+log_cli = true
+log_cli_level = "INFO"
+
+[tool.coverage.run]
+source_pkgs = ["entitynet"]
+branch = true
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.html]
+directory = ".covreport"
+
+[tool.coverage.xml]
+output = ".covreport/coverage.xml"
+
+[tool.pylint.main]
+jobs = 1
+
+[tool.pylint.messages_control]
+enable = "all"
+disable = [
+    'suppressed-message', 'locally-disabled', 'file-ignored',
+    'line-too-long', 'missing-module-docstring',
+    'missing-class-docstring', 'missing-function-docstring', 'fixme',
+    'f-string-without-interpolation', 'invalid-name',
+    'logging-fstring-interpolation', 'consider-iterating-dictionary',
+    'use-implicit-booleaness-not-comparison',
+    'attribute-defined-outside-init', 'consider-using-with', 'global-statement',
+    'import-outside-toplevel', 'super-init-not-called', 'broad-exception-caught',
+    'disallowed-name', 'redefined-outer-name', 'use-implicit-booleaness-not-comparison-to-zero',
+    'eval-used', 'unknown-option-value', 'arguments-differ','subprocess-run-check',
+    'use-implicit-booleaness-not-comparison-to-string', 'use-dict-literal',
+    'useless-suppression',
+]
+
+[tool.pylint.format]
+max-line-length = 99999
+max-module-lines = 99999
+
+[tool.pylint.refactoring]
+max-nested-blocks = 9999
+
+[tool.pylint.design]
+max-args = 9999
+max-attributes = 9999
+max-bool-expr = 9999
+max-branches = 9999
+max-locals = 9999
+max-parents = 9999
+max-public-methods = 9999
+max-returns = 9999
+max-statements = 9999
+min-public-methods = 0

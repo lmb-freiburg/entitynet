@@ -1,0 +1,13 @@
+{
+  "model": "ViT-B-16-plus-240",
+  "image_size": 240,
+  "image_width": 896,
+  "text_width": 640,
+  "embed_dim": 640,
+  "mparams": 208.377345,
+  "image_mparams": 117.213824,
+  "text_mparams": 91.16352,
+  "gflops": 61.648601088,
+  "image_gflops": 52.564492288,
+  "text_gflops": 9.0841088
+}

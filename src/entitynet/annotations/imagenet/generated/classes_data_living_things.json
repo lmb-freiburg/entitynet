@@ -1,0 +1,2051 @@
+[{
+  "class_idx": 0,
+  "class_idx_1k": 0,
+  "clip_bench_label": "tench",
+  "synname": "tench.n.01"
+}, {
+  "class_idx": 1,
+  "class_idx_1k": 1,
+  "clip_bench_label": "goldfish",
+  "synname": "goldfish.n.01"
+}, {
+  "class_idx": 2,
+  "class_idx_1k": 2,
+  "clip_bench_label": "great white shark",
+  "synname": "great_white_shark.n.01"
+}, {
+  "class_idx": 3,
+  "class_idx_1k": 3,
+  "clip_bench_label": "tiger shark",
+  "synname": "tiger_shark.n.01"
+}, {
+  "class_idx": 4,
+  "class_idx_1k": 4,
+  "clip_bench_label": "hammerhead shark",
+  "synname": "hammerhead.n.03"
+}, {
+  "class_idx": 5,
+  "class_idx_1k": 5,
+  "clip_bench_label": "electric ray",
+  "synname": "electric_ray.n.01"
+}, {
+  "class_idx": 6,
+  "class_idx_1k": 6,
+  "clip_bench_label": "stingray",
+  "synname": "stingray.n.01"
+}, {
+  "class_idx": 7,
+  "class_idx_1k": 7,
+  "clip_bench_label": "rooster",
+  "synname": "cock.n.05"
+}, {
+  "class_idx": 8,
+  "class_idx_1k": 8,
+  "clip_bench_label": "hen",
+  "synname": "hen.n.02"
+}, {
+  "class_idx": 9,
+  "class_idx_1k": 9,
+  "clip_bench_label": "ostrich",
+  "synname": "ostrich.n.02"
+}, {
+  "class_idx": 10,
+  "class_idx_1k": 10,
+  "clip_bench_label": "brambling",
+  "synname": "brambling.n.01"
+}, {
+  "class_idx": 11,
+  "class_idx_1k": 11,
+  "clip_bench_label": "goldfinch",
+  "synname": "goldfinch.n.02"
+}, {
+  "class_idx": 12,
+  "class_idx_1k": 12,
+  "clip_bench_label": "house finch",
+  "synname": "house_finch.n.01"
+}, {
+  "class_idx": 13,
+  "class_idx_1k": 13,
+  "clip_bench_label": "junco",
+  "synname": "junco.n.01"
+}, {
+  "class_idx": 14,
+  "class_idx_1k": 14,
+  "clip_bench_label": "indigo bunting",
+  "synname": "indigo_bunting.n.01"
+}, {
+  "class_idx": 15,
+  "class_idx_1k": 15,
+  "clip_bench_label": "American robin",
+  "synname": "robin.n.02"
+}, {
+  "class_idx": 16,
+  "class_idx_1k": 16,
+  "clip_bench_label": "bulbul",
+  "synname": "bulbul.n.01"
+}, {
+  "class_idx": 17,
+  "class_idx_1k": 17,
+  "clip_bench_label": "jay",
+  "synname": "jay.n.02"
+}, {
+  "class_idx": 18,
+  "class_idx_1k": 18,
+  "clip_bench_label": "magpie",
+  "synname": "magpie.n.01"
+}, {
+  "class_idx": 19,
+  "class_idx_1k": 19,
+  "clip_bench_label": "chickadee",
+  "synname": "chickadee.n.01"
+}, {
+  "class_idx": 20,
+  "class_idx_1k": 20,
+  "clip_bench_label": "American dipper",
+  "synname": "water_ouzel.n.01"
+}, {
+  "class_idx": 21,
+  "class_idx_1k": 21,
+  "clip_bench_label": "kite (bird of prey)",
+  "synname": "kite.n.04"
+}, {
+  "class_idx": 22,
+  "class_idx_1k": 22,
+  "clip_bench_label": "bald eagle",
+  "synname": "bald_eagle.n.01"
+}, {
+  "class_idx": 23,
+  "class_idx_1k": 23,
+  "clip_bench_label": "vulture",
+  "synname": "vulture.n.01"
+}, {
+  "class_idx": 24,
+  "class_idx_1k": 24,
+  "clip_bench_label": "great grey owl",
+  "synname": "great_grey_owl.n.01"
+}, {
+  "class_idx": 25,
+  "class_idx_1k": 25,
+  "clip_bench_label": "fire salamander",
+  "synname": "european_fire_salamander.n.01"
+}, {
+  "class_idx": 26,
+  "class_idx_1k": 26,
+  "clip_bench_label": "smooth newt",
+  "synname": "common_newt.n.01"
+}, {
+  "class_idx": 27,
+  "class_idx_1k": 27,
+  "clip_bench_label": "newt",
+  "synname": "eft.n.01"
+}, {
+  "class_idx": 28,
+  "class_idx_1k": 28,
+  "clip_bench_label": "spotted salamander",
+  "synname": "spotted_salamander.n.01"
+}, {
+  "class_idx": 29,
+  "class_idx_1k": 29,
+  "clip_bench_label": "axolotl",
+  "synname": "axolotl.n.01"
+}, {
+  "class_idx": 30,
+  "class_idx_1k": 30,
+  "clip_bench_label": "American bullfrog",
+  "synname": "bullfrog.n.01"
+}, {
+  "class_idx": 31,
+  "class_idx_1k": 31,
+  "clip_bench_label": "tree frog",
+  "synname": "tree_frog.n.02"
+}, {
+  "class_idx": 32,
+  "class_idx_1k": 32,
+  "clip_bench_label": "tailed frog",
+  "synname": "tailed_frog.n.01"
+}, {
+  "class_idx": 33,
+  "class_idx_1k": 33,
+  "clip_bench_label": "loggerhead sea turtle",
+  "synname": "loggerhead.n.02"
+}, {
+  "class_idx": 34,
+  "class_idx_1k": 34,
+  "clip_bench_label": "leatherback sea turtle",
+  "synname": "leatherback_turtle.n.01"
+}, {
+  "class_idx": 35,
+  "class_idx_1k": 35,
+  "clip_bench_label": "mud turtle",
+  "synname": "mud_turtle.n.01"
+}, {
+  "class_idx": 36,
+  "class_idx_1k": 36,
+  "clip_bench_label": "terrapin",
+  "synname": "terrapin.n.01"
+}, {
+  "class_idx": 37,
+  "class_idx_1k": 37,
+  "clip_bench_label": "box turtle",
+  "synname": "box_turtle.n.01"
+}, {
+  "class_idx": 38,
+  "class_idx_1k": 38,
+  "clip_bench_label": "banded gecko",
+  "synname": "banded_gecko.n.01"
+}, {
+  "class_idx": 39,
+  "class_idx_1k": 39,
+  "clip_bench_label": "green iguana",
+  "synname": "common_iguana.n.01"
+}, {
+  "class_idx": 40,
+  "class_idx_1k": 40,
+  "clip_bench_label": "Carolina anole",
+  "synname": "american_chameleon.n.01"
+}, {
+  "class_idx": 41,
+  "class_idx_1k": 41,
+  "clip_bench_label": "desert grassland whiptail lizard",
+  "synname": "whiptail.n.01"
+}, {
+  "class_idx": 42,
+  "class_idx_1k": 42,
+  "clip_bench_label": "agama",
+  "synname": "agama.n.01"
+}, {
+  "class_idx": 43,
+  "class_idx_1k": 43,
+  "clip_bench_label": "frilled-necked lizard",
+  "synname": "frilled_lizard.n.01"
+}, {
+  "class_idx": 44,
+  "class_idx_1k": 44,
+  "clip_bench_label": "alligator lizard",
+  "synname": "alligator_lizard.n.01"
+}, {
+  "class_idx": 45,
+  "class_idx_1k": 45,
+  "clip_bench_label": "Gila monster",
+  "synname": "gila_monster.n.01"
+}, {
+  "class_idx": 46,
+  "class_idx_1k": 46,
+  "clip_bench_label": "European green lizard",
+  "synname": "green_lizard.n.01"
+}, {
+  "class_idx": 47,
+  "class_idx_1k": 47,
+  "clip_bench_label": "chameleon",
+  "synname": "african_chameleon.n.01"
+}, {
+  "class_idx": 48,
+  "class_idx_1k": 48,
+  "clip_bench_label": "Komodo dragon",
+  "synname": "komodo_dragon.n.01"
+}, {
+  "class_idx": 49,
+  "class_idx_1k": 49,
+  "clip_bench_label": "Nile crocodile",
+  "synname": "african_crocodile.n.01"
+}, {
+  "class_idx": 50,
+  "class_idx_1k": 50,
+  "clip_bench_label": "American alligator",
+  "synname": "american_alligator.n.01"
+}, {
+  "class_idx": 51,
+  "class_idx_1k": 51,
+  "clip_bench_label": "triceratops",
+  "synname": "triceratops.n.01"
+}, {
+  "class_idx": 52,
+  "class_idx_1k": 52,
+  "clip_bench_label": "worm snake",
+  "synname": "thunder_snake.n.01"
+}, {
+  "class_idx": 53,
+  "class_idx_1k": 53,
+  "clip_bench_label": "ring-necked snake",
+  "synname": "ringneck_snake.n.01"
+}, {
+  "class_idx": 54,
+  "class_idx_1k": 54,
+  "clip_bench_label": "eastern hog-nosed snake",
+  "synname": "hognose_snake.n.01"
+}, {
+  "class_idx": 55,
+  "class_idx_1k": 55,
+  "clip_bench_label": "smooth green snake",
+  "synname": "green_snake.n.02"
+}, {
+  "class_idx": 56,
+  "class_idx_1k": 56,
+  "clip_bench_label": "kingsnake",
+  "synname": "king_snake.n.01"
+}, {
+  "class_idx": 57,
+  "class_idx_1k": 57,
+  "clip_bench_label": "garter snake",
+  "synname": "garter_snake.n.01"
+}, {
+  "class_idx": 58,
+  "class_idx_1k": 58,
+  "clip_bench_label": "water snake",
+  "synname": "water_snake.n.01"
+}, {
+  "class_idx": 59,
+  "class_idx_1k": 59,
+  "clip_bench_label": "vine snake",
+  "synname": "vine_snake.n.01"
+}, {
+  "class_idx": 60,
+  "class_idx_1k": 60,
+  "clip_bench_label": "night snake",
+  "synname": "night_snake.n.01"
+}, {
+  "class_idx": 61,
+  "class_idx_1k": 61,
+  "clip_bench_label": "boa constrictor",
+  "synname": "boa_constrictor.n.01"
+}, {
+  "class_idx": 62,
+  "class_idx_1k": 62,
+  "clip_bench_label": "African rock python",
+  "synname": "rock_python.n.01"
+}, {
+  "class_idx": 63,
+  "class_idx_1k": 63,
+  "clip_bench_label": "Indian cobra",
+  "synname": "indian_cobra.n.01"
+}, {
+  "class_idx": 64,
+  "class_idx_1k": 64,
+  "clip_bench_label": "green mamba",
+  "synname": "green_mamba.n.01"
+}, {
+  "class_idx": 65,
+  "class_idx_1k": 65,
+  "clip_bench_label": "sea snake",
+  "synname": "sea_snake.n.01"
+}, {
+  "class_idx": 66,
+  "class_idx_1k": 66,
+  "clip_bench_label": "Saharan horned viper",
+  "synname": "horned_viper.n.01"
+}, {
+  "class_idx": 67,
+  "class_idx_1k": 67,
+  "clip_bench_label": "eastern diamondback rattlesnake",
+  "synname": "diamondback.n.01"
+}, {
+  "class_idx": 68,
+  "class_idx_1k": 68,
+  "clip_bench_label": "sidewinder rattlesnake",
+  "synname": "sidewinder.n.01"
+}, {
+  "class_idx": 69,
+  "class_idx_1k": 69,
+  "clip_bench_label": "trilobite",
+  "synname": "trilobite.n.01"
+}, {
+  "class_idx": 70,
+  "class_idx_1k": 70,
+  "clip_bench_label": "harvestman",
+  "synname": "harvestman.n.01"
+}, {
+  "class_idx": 71,
+  "class_idx_1k": 71,
+  "clip_bench_label": "scorpion",
+  "synname": "scorpion.n.03"
+}, {
+  "class_idx": 72,
+  "class_idx_1k": 72,
+  "clip_bench_label": "yellow garden spider",
+  "synname": "black_and_gold_garden_spider.n.01"
+}, {
+  "class_idx": 73,
+  "class_idx_1k": 73,
+  "clip_bench_label": "barn spider",
+  "synname": "barn_spider.n.01"
+}, {
+  "class_idx": 74,
+  "class_idx_1k": 74,
+  "clip_bench_label": "European garden spider",
+  "synname": "garden_spider.n.01"
+}, {
+  "class_idx": 75,
+  "class_idx_1k": 75,
+  "clip_bench_label": "southern black widow",
+  "synname": "black_widow.n.01"
+}, {
+  "class_idx": 76,
+  "class_idx_1k": 76,
+  "clip_bench_label": "tarantula",
+  "synname": "tarantula.n.02"
+}, {
+  "class_idx": 77,
+  "class_idx_1k": 77,
+  "clip_bench_label": "wolf spider",
+  "synname": "wolf_spider.n.01"
+}, {
+  "class_idx": 78,
+  "class_idx_1k": 78,
+  "clip_bench_label": "tick",
+  "synname": "tick.n.02"
+}, {
+  "class_idx": 79,
+  "class_idx_1k": 79,
+  "clip_bench_label": "centipede",
+  "synname": "centipede.n.01"
+}, {
+  "class_idx": 80,
+  "class_idx_1k": 80,
+  "clip_bench_label": "black grouse",
+  "synname": "black_grouse.n.01"
+}, {
+  "class_idx": 81,
+  "class_idx_1k": 81,
+  "clip_bench_label": "ptarmigan",
+  "synname": "ptarmigan.n.01"
+}, {
+  "class_idx": 82,
+  "class_idx_1k": 82,
+  "clip_bench_label": "ruffed grouse",
+  "synname": "ruffed_grouse.n.01"
+}, {
+  "class_idx": 83,
+  "class_idx_1k": 83,
+  "clip_bench_label": "prairie grouse",
+  "synname": "prairie_chicken.n.01"
+}, {
+  "class_idx": 84,
+  "class_idx_1k": 84,
+  "clip_bench_label": "peafowl",
+  "synname": "peacock.n.02"
+}, {
+  "class_idx": 85,
+  "class_idx_1k": 85,
+  "clip_bench_label": "quail",
+  "synname": "quail.n.02"
+}, {
+  "class_idx": 86,
+  "class_idx_1k": 86,
+  "clip_bench_label": "partridge",
+  "synname": "partridge.n.03"
+}, {
+  "class_idx": 87,
+  "class_idx_1k": 87,
+  "clip_bench_label": "african grey parrot",
+  "synname": "african_grey.n.01"
+}, {
+  "class_idx": 88,
+  "class_idx_1k": 88,
+  "clip_bench_label": "macaw",
+  "synname": "macaw.n.01"
+}, {
+  "class_idx": 89,
+  "class_idx_1k": 89,
+  "clip_bench_label": "sulphur-crested cockatoo",
+  "synname": "sulphur-crested_cockatoo.n.01"
+}, {
+  "class_idx": 90,
+  "class_idx_1k": 90,
+  "clip_bench_label": "lorikeet",
+  "synname": "lorikeet.n.01"
+}, {
+  "class_idx": 91,
+  "class_idx_1k": 91,
+  "clip_bench_label": "coucal",
+  "synname": "coucal.n.01"
+}, {
+  "class_idx": 92,
+  "class_idx_1k": 92,
+  "clip_bench_label": "bee eater",
+  "synname": "bee_eater.n.01"
+}, {
+  "class_idx": 93,
+  "class_idx_1k": 93,
+  "clip_bench_label": "hornbill",
+  "synname": "hornbill.n.01"
+}, {
+  "class_idx": 94,
+  "class_idx_1k": 94,
+  "clip_bench_label": "hummingbird",
+  "synname": "hummingbird.n.01"
+}, {
+  "class_idx": 95,
+  "class_idx_1k": 95,
+  "clip_bench_label": "jacamar",
+  "synname": "jacamar.n.01"
+}, {
+  "class_idx": 96,
+  "class_idx_1k": 96,
+  "clip_bench_label": "toucan",
+  "synname": "toucan.n.01"
+}, {
+  "class_idx": 97,
+  "class_idx_1k": 97,
+  "clip_bench_label": "duck",
+  "synname": "drake.n.02"
+}, {
+  "class_idx": 98,
+  "class_idx_1k": 98,
+  "clip_bench_label": "red-breasted merganser",
+  "synname": "red-breasted_merganser.n.01"
+}, {
+  "class_idx": 99,
+  "class_idx_1k": 99,
+  "clip_bench_label": "goose",
+  "synname": "goose.n.01"
+}, {
+  "class_idx": 100,
+  "class_idx_1k": 100,
+  "clip_bench_label": "black swan",
+  "synname": "black_swan.n.01"
+}, {
+  "class_idx": 101,
+  "class_idx_1k": 101,
+  "clip_bench_label": "tusker",
+  "synname": "tusker.n.01"
+}, {
+  "class_idx": 102,
+  "class_idx_1k": 102,
+  "clip_bench_label": "echidna",
+  "synname": "echidna.n.02"
+}, {
+  "class_idx": 103,
+  "class_idx_1k": 103,
+  "clip_bench_label": "platypus",
+  "synname": "platypus.n.01"
+}, {
+  "class_idx": 104,
+  "class_idx_1k": 104,
+  "clip_bench_label": "wallaby",
+  "synname": "wallaby.n.01"
+}, {
+  "class_idx": 105,
+  "class_idx_1k": 105,
+  "clip_bench_label": "koala",
+  "synname": "koala.n.01"
+}, {
+  "class_idx": 106,
+  "class_idx_1k": 106,
+  "clip_bench_label": "wombat",
+  "synname": "wombat.n.01"
+}, {
+  "class_idx": 107,
+  "class_idx_1k": 107,
+  "clip_bench_label": "jellyfish",
+  "synname": "jellyfish.n.02"
+}, {
+  "class_idx": 108,
+  "class_idx_1k": 108,
+  "clip_bench_label": "sea anemone",
+  "synname": "sea_anemone.n.01"
+}, {
+  "class_idx": 109,
+  "class_idx_1k": 109,
+  "clip_bench_label": "brain coral",
+  "synname": "brain_coral.n.01"
+}, {
+  "class_idx": 110,
+  "class_idx_1k": 110,
+  "clip_bench_label": "flatworm",
+  "synname": "flatworm.n.01"
+}, {
+  "class_idx": 111,
+  "class_idx_1k": 111,
+  "clip_bench_label": "nematode",
+  "synname": "nematode.n.01"
+}, {
+  "class_idx": 112,
+  "class_idx_1k": 112,
+  "clip_bench_label": "conch",
+  "synname": "conch.n.01"
+}, {
+  "class_idx": 113,
+  "class_idx_1k": 113,
+  "clip_bench_label": "snail",
+  "synname": "snail.n.01"
+}, {
+  "class_idx": 114,
+  "class_idx_1k": 114,
+  "clip_bench_label": "slug",
+  "synname": "slug.n.07"
+}, {
+  "class_idx": 115,
+  "class_idx_1k": 115,
+  "clip_bench_label": "sea slug",
+  "synname": "sea_slug.n.01"
+}, {
+  "class_idx": 116,
+  "class_idx_1k": 116,
+  "clip_bench_label": "chiton",
+  "synname": "chiton.n.02"
+}, {
+  "class_idx": 117,
+  "class_idx_1k": 117,
+  "clip_bench_label": "chambered nautilus",
+  "synname": "chambered_nautilus.n.01"
+}, {
+  "class_idx": 118,
+  "class_idx_1k": 118,
+  "clip_bench_label": "Dungeness crab",
+  "synname": "dungeness_crab.n.02"
+}, {
+  "class_idx": 119,
+  "class_idx_1k": 119,
+  "clip_bench_label": "rock crab",
+  "synname": "rock_crab.n.01"
+}, {
+  "class_idx": 120,
+  "class_idx_1k": 120,
+  "clip_bench_label": "fiddler crab",
+  "synname": "fiddler_crab.n.01"
+}, {
+  "class_idx": 121,
+  "class_idx_1k": 121,
+  "clip_bench_label": "red king crab",
+  "synname": "king_crab.n.03"
+}, {
+  "class_idx": 122,
+  "class_idx_1k": 122,
+  "clip_bench_label": "American lobster",
+  "synname": "american_lobster.n.02"
+}, {
+  "class_idx": 123,
+  "class_idx_1k": 123,
+  "clip_bench_label": "spiny lobster",
+  "synname": "spiny_lobster.n.02"
+}, {
+  "class_idx": 124,
+  "class_idx_1k": 124,
+  "clip_bench_label": "crayfish",
+  "synname": "crayfish.n.03"
+}, {
+  "class_idx": 125,
+  "class_idx_1k": 125,
+  "clip_bench_label": "hermit crab",
+  "synname": "hermit_crab.n.01"
+}, {
+  "class_idx": 126,
+  "class_idx_1k": 126,
+  "clip_bench_label": "isopod",
+  "synname": "isopod.n.01"
+}, {
+  "class_idx": 127,
+  "class_idx_1k": 127,
+  "clip_bench_label": "white stork",
+  "synname": "white_stork.n.01"
+}, {
+  "class_idx": 128,
+  "class_idx_1k": 128,
+  "clip_bench_label": "black stork",
+  "synname": "black_stork.n.01"
+}, {
+  "class_idx": 129,
+  "class_idx_1k": 129,
+  "clip_bench_label": "spoonbill",
+  "synname": "spoonbill.n.01"
+}, {
+  "class_idx": 130,
+  "class_idx_1k": 130,
+  "clip_bench_label": "flamingo",
+  "synname": "flamingo.n.01"
+}, {
+  "class_idx": 131,
+  "class_idx_1k": 131,
+  "clip_bench_label": "little blue heron",
+  "synname": "little_blue_heron.n.01"
+}, {
+  "class_idx": 132,
+  "class_idx_1k": 132,
+  "clip_bench_label": "great egret",
+  "synname": "american_egret.n.01"
+}, {
+  "class_idx": 133,
+  "class_idx_1k": 133,
+  "clip_bench_label": "bittern bird",
+  "synname": "bittern.n.01"
+}, {
+  "class_idx": 134,
+  "class_idx_1k": 134,
+  "clip_bench_label": "crane bird",
+  "synname": "crane.n.05"
+}, {
+  "class_idx": 135,
+  "class_idx_1k": 135,
+  "clip_bench_label": "limpkin",
+  "synname": "limpkin.n.01"
+}, {
+  "class_idx": 136,
+  "class_idx_1k": 136,
+  "clip_bench_label": "common gallinule",
+  "synname": "european_gallinule.n.01"
+}, {
+  "class_idx": 137,
+  "class_idx_1k": 137,
+  "clip_bench_label": "American coot",
+  "synname": "american_coot.n.01"
+}, {
+  "class_idx": 138,
+  "class_idx_1k": 138,
+  "clip_bench_label": "bustard",
+  "synname": "bustard.n.01"
+}, {
+  "class_idx": 139,
+  "class_idx_1k": 139,
+  "clip_bench_label": "ruddy turnstone",
+  "synname": "ruddy_turnstone.n.01"
+}, {
+  "class_idx": 140,
+  "class_idx_1k": 140,
+  "clip_bench_label": "dunlin",
+  "synname": "red-backed_sandpiper.n.01"
+}, {
+  "class_idx": 141,
+  "class_idx_1k": 141,
+  "clip_bench_label": "common redshank",
+  "synname": "redshank.n.01"
+}, {
+  "class_idx": 142,
+  "class_idx_1k": 142,
+  "clip_bench_label": "dowitcher",
+  "synname": "dowitcher.n.01"
+}, {
+  "class_idx": 143,
+  "class_idx_1k": 143,
+  "clip_bench_label": "oystercatcher",
+  "synname": "oystercatcher.n.01"
+}, {
+  "class_idx": 144,
+  "class_idx_1k": 144,
+  "clip_bench_label": "pelican",
+  "synname": "pelican.n.01"
+}, {
+  "class_idx": 145,
+  "class_idx_1k": 145,
+  "clip_bench_label": "king penguin",
+  "synname": "king_penguin.n.01"
+}, {
+  "class_idx": 146,
+  "class_idx_1k": 146,
+  "clip_bench_label": "albatross",
+  "synname": "albatross.n.02"
+}, {
+  "class_idx": 147,
+  "class_idx_1k": 147,
+  "clip_bench_label": "grey whale",
+  "synname": "grey_whale.n.01"
+}, {
+  "class_idx": 148,
+  "class_idx_1k": 148,
+  "clip_bench_label": "killer whale",
+  "synname": "killer_whale.n.01"
+}, {
+  "class_idx": 149,
+  "class_idx_1k": 149,
+  "clip_bench_label": "dugong",
+  "synname": "dugong.n.01"
+}, {
+  "class_idx": 150,
+  "class_idx_1k": 150,
+  "clip_bench_label": "sea lion",
+  "synname": "sea_lion.n.01"
+}, {
+  "class_idx": 151,
+  "class_idx_1k": 151,
+  "clip_bench_label": "Chihuahua",
+  "synname": "chihuahua.n.03"
+}, {
+  "class_idx": 152,
+  "class_idx_1k": 152,
+  "clip_bench_label": "Japanese Chin",
+  "synname": "japanese_spaniel.n.01"
+}, {
+  "class_idx": 153,
+  "class_idx_1k": 153,
+  "clip_bench_label": "Maltese",
+  "synname": "maltese_dog.n.01"
+}, {
+  "class_idx": 154,
+  "class_idx_1k": 154,
+  "clip_bench_label": "Pekingese",
+  "synname": "pekinese.n.01"
+}, {
+  "class_idx": 155,
+  "class_idx_1k": 155,
+  "clip_bench_label": "Shih Tzu",
+  "synname": "shih-tzu.n.01"
+}, {
+  "class_idx": 156,
+  "class_idx_1k": 156,
+  "clip_bench_label": "King Charles Spaniel",
+  "synname": "blenheim_spaniel.n.01"
+}, {
+  "class_idx": 157,
+  "class_idx_1k": 157,
+  "clip_bench_label": "Papillon",
+  "synname": "papillon.n.01"
+}, {
+  "class_idx": 158,
+  "class_idx_1k": 158,
+  "clip_bench_label": "toy terrier",
+  "synname": "toy_terrier.n.01"
+}, {
+  "class_idx": 159,
+  "class_idx_1k": 159,
+  "clip_bench_label": "Rhodesian Ridgeback",
+  "synname": "rhodesian_ridgeback.n.01"
+}, {
+  "class_idx": 160,
+  "class_idx_1k": 160,
+  "clip_bench_label": "Afghan Hound",
+  "synname": "afghan_hound.n.01"
+}, {
+  "class_idx": 161,
+  "class_idx_1k": 161,
+  "clip_bench_label": "Basset Hound",
+  "synname": "basset.n.01"
+}, {
+  "class_idx": 162,
+  "class_idx_1k": 162,
+  "clip_bench_label": "Beagle",
+  "synname": "beagle.n.01"
+}, {
+  "class_idx": 163,
+  "class_idx_1k": 163,
+  "clip_bench_label": "Bloodhound",
+  "synname": "bloodhound.n.01"
+}, {
+  "class_idx": 164,
+  "class_idx_1k": 164,
+  "clip_bench_label": "Bluetick Coonhound",
+  "synname": "bluetick.n.01"
+}, {
+  "class_idx": 165,
+  "class_idx_1k": 165,
+  "clip_bench_label": "Black and Tan Coonhound",
+  "synname": "black-and-tan_coonhound.n.01"
+}, {
+  "class_idx": 166,
+  "class_idx_1k": 166,
+  "clip_bench_label": "Treeing Walker Coonhound",
+  "synname": "walker_hound.n.01"
+}, {
+  "class_idx": 167,
+  "class_idx_1k": 167,
+  "clip_bench_label": "English foxhound",
+  "synname": "english_foxhound.n.01"
+}, {
+  "class_idx": 168,
+  "class_idx_1k": 168,
+  "clip_bench_label": "Redbone Coonhound",
+  "synname": "redbone.n.01"
+}, {
+  "class_idx": 169,
+  "class_idx_1k": 169,
+  "clip_bench_label": "borzoi",
+  "synname": "borzoi.n.01"
+}, {
+  "class_idx": 170,
+  "class_idx_1k": 170,
+  "clip_bench_label": "Irish Wolfhound",
+  "synname": "irish_wolfhound.n.01"
+}, {
+  "class_idx": 171,
+  "class_idx_1k": 171,
+  "clip_bench_label": "Italian Greyhound",
+  "synname": "italian_greyhound.n.01"
+}, {
+  "class_idx": 172,
+  "class_idx_1k": 172,
+  "clip_bench_label": "Whippet",
+  "synname": "whippet.n.01"
+}, {
+  "class_idx": 173,
+  "class_idx_1k": 173,
+  "clip_bench_label": "Ibizan Hound",
+  "synname": "ibizan_hound.n.01"
+}, {
+  "class_idx": 174,
+  "class_idx_1k": 174,
+  "clip_bench_label": "Norwegian Elkhound",
+  "synname": "norwegian_elkhound.n.01"
+}, {
+  "class_idx": 175,
+  "class_idx_1k": 175,
+  "clip_bench_label": "Otterhound",
+  "synname": "otterhound.n.01"
+}, {
+  "class_idx": 176,
+  "class_idx_1k": 176,
+  "clip_bench_label": "Saluki",
+  "synname": "saluki.n.01"
+}, {
+  "class_idx": 177,
+  "class_idx_1k": 177,
+  "clip_bench_label": "Scottish Deerhound",
+  "synname": "scottish_deerhound.n.01"
+}, {
+  "class_idx": 178,
+  "class_idx_1k": 178,
+  "clip_bench_label": "Weimaraner",
+  "synname": "weimaraner.n.01"
+}, {
+  "class_idx": 179,
+  "class_idx_1k": 179,
+  "clip_bench_label": "Staffordshire Bull Terrier",
+  "synname": "staffordshire_bullterrier.n.01"
+}, {
+  "class_idx": 180,
+  "class_idx_1k": 180,
+  "clip_bench_label": "American Staffordshire Terrier",
+  "synname": "american_staffordshire_terrier.n.01"
+}, {
+  "class_idx": 181,
+  "class_idx_1k": 181,
+  "clip_bench_label": "Bedlington Terrier",
+  "synname": "bedlington_terrier.n.01"
+}, {
+  "class_idx": 182,
+  "class_idx_1k": 182,
+  "clip_bench_label": "Border Terrier",
+  "synname": "border_terrier.n.01"
+}, {
+  "class_idx": 183,
+  "class_idx_1k": 183,
+  "clip_bench_label": "Kerry Blue Terrier",
+  "synname": "kerry_blue_terrier.n.01"
+}, {
+  "class_idx": 184,
+  "class_idx_1k": 184,
+  "clip_bench_label": "Irish Terrier",
+  "synname": "irish_terrier.n.01"
+}, {
+  "class_idx": 185,
+  "class_idx_1k": 185,
+  "clip_bench_label": "Norfolk Terrier",
+  "synname": "norfolk_terrier.n.01"
+}, {
+  "class_idx": 186,
+  "class_idx_1k": 186,
+  "clip_bench_label": "Norwich Terrier",
+  "synname": "norwich_terrier.n.01"
+}, {
+  "class_idx": 187,
+  "class_idx_1k": 187,
+  "clip_bench_label": "Yorkshire Terrier",
+  "synname": "yorkshire_terrier.n.01"
+}, {
+  "class_idx": 188,
+  "class_idx_1k": 188,
+  "clip_bench_label": "Wire Fox Terrier",
+  "synname": "wire-haired_fox_terrier.n.01"
+}, {
+  "class_idx": 189,
+  "class_idx_1k": 189,
+  "clip_bench_label": "Lakeland Terrier",
+  "synname": "lakeland_terrier.n.01"
+}, {
+  "class_idx": 190,
+  "class_idx_1k": 190,
+  "clip_bench_label": "Sealyham Terrier",
+  "synname": "sealyham_terrier.n.01"
+}, {
+  "class_idx": 191,
+  "class_idx_1k": 191,
+  "clip_bench_label": "Airedale Terrier",
+  "synname": "airedale.n.01"
+}, {
+  "class_idx": 192,
+  "class_idx_1k": 192,
+  "clip_bench_label": "Cairn Terrier",
+  "synname": "cairn.n.02"
+}, {
+  "class_idx": 193,
+  "class_idx_1k": 193,
+  "clip_bench_label": "Australian Terrier",
+  "synname": "australian_terrier.n.01"
+}, {
+  "class_idx": 194,
+  "class_idx_1k": 194,
+  "clip_bench_label": "Dandie Dinmont Terrier",
+  "synname": "dandie_dinmont.n.01"
+}, {
+  "class_idx": 195,
+  "class_idx_1k": 195,
+  "clip_bench_label": "Boston Terrier",
+  "synname": "boston_bull.n.01"
+}, {
+  "class_idx": 196,
+  "class_idx_1k": 196,
+  "clip_bench_label": "Miniature Schnauzer",
+  "synname": "miniature_schnauzer.n.01"
+}, {
+  "class_idx": 197,
+  "class_idx_1k": 197,
+  "clip_bench_label": "Giant Schnauzer",
+  "synname": "giant_schnauzer.n.01"
+}, {
+  "class_idx": 198,
+  "class_idx_1k": 198,
+  "clip_bench_label": "Standard Schnauzer",
+  "synname": "standard_schnauzer.n.01"
+}, {
+  "class_idx": 199,
+  "class_idx_1k": 199,
+  "clip_bench_label": "Scottish Terrier",
+  "synname": "scotch_terrier.n.01"
+}, {
+  "class_idx": 200,
+  "class_idx_1k": 200,
+  "clip_bench_label": "Tibetan Terrier",
+  "synname": "tibetan_terrier.n.01"
+}, {
+  "class_idx": 201,
+  "class_idx_1k": 201,
+  "clip_bench_label": "Australian Silky Terrier",
+  "synname": "silky_terrier.n.01"
+}, {
+  "class_idx": 202,
+  "class_idx_1k": 202,
+  "clip_bench_label": "Soft-coated Wheaten Terrier",
+  "synname": "soft-coated_wheaten_terrier.n.01"
+}, {
+  "class_idx": 203,
+  "class_idx_1k": 203,
+  "clip_bench_label": "West Highland White Terrier",
+  "synname": "west_highland_white_terrier.n.01"
+}, {
+  "class_idx": 204,
+  "class_idx_1k": 204,
+  "clip_bench_label": "Lhasa Apso",
+  "synname": "lhasa.n.02"
+}, {
+  "class_idx": 205,
+  "class_idx_1k": 205,
+  "clip_bench_label": "Flat-Coated Retriever",
+  "synname": "flat-coated_retriever.n.01"
+}, {
+  "class_idx": 206,
+  "class_idx_1k": 206,
+  "clip_bench_label": "Curly-coated Retriever",
+  "synname": "curly-coated_retriever.n.01"
+}, {
+  "class_idx": 207,
+  "class_idx_1k": 207,
+  "clip_bench_label": "Golden Retriever",
+  "synname": "golden_retriever.n.01"
+}, {
+  "class_idx": 208,
+  "class_idx_1k": 208,
+  "clip_bench_label": "Labrador Retriever",
+  "synname": "labrador_retriever.n.01"
+}, {
+  "class_idx": 209,
+  "class_idx_1k": 209,
+  "clip_bench_label": "Chesapeake Bay Retriever",
+  "synname": "chesapeake_bay_retriever.n.01"
+}, {
+  "class_idx": 210,
+  "class_idx_1k": 210,
+  "clip_bench_label": "German Shorthaired Pointer",
+  "synname": "german_short-haired_pointer.n.01"
+}, {
+  "class_idx": 211,
+  "class_idx_1k": 211,
+  "clip_bench_label": "Vizsla",
+  "synname": "vizsla.n.01"
+}, {
+  "class_idx": 212,
+  "class_idx_1k": 212,
+  "clip_bench_label": "English Setter",
+  "synname": "english_setter.n.01"
+}, {
+  "class_idx": 213,
+  "class_idx_1k": 213,
+  "clip_bench_label": "Irish Setter",
+  "synname": "irish_setter.n.01"
+}, {
+  "class_idx": 214,
+  "class_idx_1k": 214,
+  "clip_bench_label": "Gordon Setter",
+  "synname": "gordon_setter.n.01"
+}, {
+  "class_idx": 215,
+  "class_idx_1k": 215,
+  "clip_bench_label": "Brittany dog",
+  "synname": "brittany_spaniel.n.01"
+}, {
+  "class_idx": 216,
+  "class_idx_1k": 216,
+  "clip_bench_label": "Clumber Spaniel",
+  "synname": "clumber.n.01"
+}, {
+  "class_idx": 217,
+  "class_idx_1k": 217,
+  "clip_bench_label": "English Springer Spaniel",
+  "synname": "english_springer.n.01"
+}, {
+  "class_idx": 218,
+  "class_idx_1k": 218,
+  "clip_bench_label": "Welsh Springer Spaniel",
+  "synname": "welsh_springer_spaniel.n.01"
+}, {
+  "class_idx": 219,
+  "class_idx_1k": 219,
+  "clip_bench_label": "Cocker Spaniel",
+  "synname": "cocker_spaniel.n.01"
+}, {
+  "class_idx": 220,
+  "class_idx_1k": 220,
+  "clip_bench_label": "Sussex Spaniel",
+  "synname": "sussex_spaniel.n.01"
+}, {
+  "class_idx": 221,
+  "class_idx_1k": 221,
+  "clip_bench_label": "Irish Water Spaniel",
+  "synname": "irish_water_spaniel.n.01"
+}, {
+  "class_idx": 222,
+  "class_idx_1k": 222,
+  "clip_bench_label": "Kuvasz",
+  "synname": "kuvasz.n.01"
+}, {
+  "class_idx": 223,
+  "class_idx_1k": 223,
+  "clip_bench_label": "Schipperke",
+  "synname": "schipperke.n.01"
+}, {
+  "class_idx": 224,
+  "class_idx_1k": 224,
+  "clip_bench_label": "Groenendael dog",
+  "synname": "groenendael.n.01"
+}, {
+  "class_idx": 225,
+  "class_idx_1k": 225,
+  "clip_bench_label": "Malinois",
+  "synname": "malinois.n.01"
+}, {
+  "class_idx": 226,
+  "class_idx_1k": 226,
+  "clip_bench_label": "Briard",
+  "synname": "briard.n.01"
+}, {
+  "class_idx": 227,
+  "class_idx_1k": 227,
+  "clip_bench_label": "Australian Kelpie",
+  "synname": "kelpie.n.02"
+}, {
+  "class_idx": 228,
+  "class_idx_1k": 228,
+  "clip_bench_label": "Komondor",
+  "synname": "komondor.n.01"
+}, {
+  "class_idx": 229,
+  "class_idx_1k": 229,
+  "clip_bench_label": "Old English Sheepdog",
+  "synname": "old_english_sheepdog.n.01"
+}, {
+  "class_idx": 230,
+  "class_idx_1k": 230,
+  "clip_bench_label": "Shetland Sheepdog",
+  "synname": "shetland_sheepdog.n.01"
+}, {
+  "class_idx": 231,
+  "class_idx_1k": 231,
+  "clip_bench_label": "collie",
+  "synname": "collie.n.01"
+}, {
+  "class_idx": 232,
+  "class_idx_1k": 232,
+  "clip_bench_label": "Border Collie",
+  "synname": "border_collie.n.01"
+}, {
+  "class_idx": 233,
+  "class_idx_1k": 233,
+  "clip_bench_label": "Bouvier des Flandres dog",
+  "synname": "bouvier_des_flandres.n.01"
+}, {
+  "class_idx": 234,
+  "class_idx_1k": 234,
+  "clip_bench_label": "Rottweiler",
+  "synname": "rottweiler.n.01"
+}, {
+  "class_idx": 235,
+  "class_idx_1k": 235,
+  "clip_bench_label": "German Shepherd Dog",
+  "synname": "german_shepherd.n.01"
+}, {
+  "class_idx": 236,
+  "class_idx_1k": 236,
+  "clip_bench_label": "Dobermann",
+  "synname": "doberman.n.01"
+}, {
+  "class_idx": 237,
+  "class_idx_1k": 237,
+  "clip_bench_label": "Miniature Pinscher",
+  "synname": "miniature_pinscher.n.01"
+}, {
+  "class_idx": 238,
+  "class_idx_1k": 238,
+  "clip_bench_label": "Greater Swiss Mountain Dog",
+  "synname": "greater_swiss_mountain_dog.n.01"
+}, {
+  "class_idx": 239,
+  "class_idx_1k": 239,
+  "clip_bench_label": "Bernese Mountain Dog",
+  "synname": "bernese_mountain_dog.n.01"
+}, {
+  "class_idx": 240,
+  "class_idx_1k": 240,
+  "clip_bench_label": "Appenzeller Sennenhund",
+  "synname": "appenzeller.n.01"
+}, {
+  "class_idx": 241,
+  "class_idx_1k": 241,
+  "clip_bench_label": "Entlebucher Sennenhund",
+  "synname": "entlebucher.n.01"
+}, {
+  "class_idx": 242,
+  "class_idx_1k": 242,
+  "clip_bench_label": "Boxer",
+  "synname": "boxer.n.04"
+}, {
+  "class_idx": 243,
+  "class_idx_1k": 243,
+  "clip_bench_label": "Bullmastiff",
+  "synname": "bull_mastiff.n.01"
+}, {
+  "class_idx": 244,
+  "class_idx_1k": 244,
+  "clip_bench_label": "Tibetan Mastiff",
+  "synname": "tibetan_mastiff.n.01"
+}, {
+  "class_idx": 245,
+  "class_idx_1k": 245,
+  "clip_bench_label": "French Bulldog",
+  "synname": "french_bulldog.n.01"
+}, {
+  "class_idx": 246,
+  "class_idx_1k": 246,
+  "clip_bench_label": "Great Dane",
+  "synname": "great_dane.n.01"
+}, {
+  "class_idx": 247,
+  "class_idx_1k": 247,
+  "clip_bench_label": "St. Bernard",
+  "synname": "saint_bernard.n.01"
+}, {
+  "class_idx": 248,
+  "class_idx_1k": 248,
+  "clip_bench_label": "husky",
+  "synname": "eskimo_dog.n.01"
+}, {
+  "class_idx": 249,
+  "class_idx_1k": 249,
+  "clip_bench_label": "Alaskan Malamute",
+  "synname": "malamute.n.01"
+}, {
+  "class_idx": 250,
+  "class_idx_1k": 250,
+  "clip_bench_label": "Siberian Husky",
+  "synname": "siberian_husky.n.01"
+}, {
+  "class_idx": 251,
+  "class_idx_1k": 251,
+  "clip_bench_label": "Dalmatian",
+  "synname": "dalmatian.n.02"
+}, {
+  "class_idx": 252,
+  "class_idx_1k": 252,
+  "clip_bench_label": "Affenpinscher",
+  "synname": "affenpinscher.n.01"
+}, {
+  "class_idx": 253,
+  "class_idx_1k": 253,
+  "clip_bench_label": "Basenji",
+  "synname": "basenji.n.01"
+}, {
+  "class_idx": 254,
+  "class_idx_1k": 254,
+  "clip_bench_label": "pug",
+  "synname": "pug.n.01"
+}, {
+  "class_idx": 255,
+  "class_idx_1k": 255,
+  "clip_bench_label": "Leonberger",
+  "synname": "leonberg.n.01"
+}, {
+  "class_idx": 256,
+  "class_idx_1k": 256,
+  "clip_bench_label": "Newfoundland dog",
+  "synname": "newfoundland.n.01"
+}, {
+  "class_idx": 257,
+  "class_idx_1k": 257,
+  "clip_bench_label": "Great Pyrenees dog",
+  "synname": "great_pyrenees.n.01"
+}, {
+  "class_idx": 258,
+  "class_idx_1k": 258,
+  "clip_bench_label": "Samoyed",
+  "synname": "samoyed.n.03"
+}, {
+  "class_idx": 259,
+  "class_idx_1k": 259,
+  "clip_bench_label": "Pomeranian",
+  "synname": "pomeranian.n.01"
+}, {
+  "class_idx": 260,
+  "class_idx_1k": 260,
+  "clip_bench_label": "Chow Chow",
+  "synname": "chow.n.03"
+}, {
+  "class_idx": 261,
+  "class_idx_1k": 261,
+  "clip_bench_label": "Keeshond",
+  "synname": "keeshond.n.01"
+}, {
+  "class_idx": 262,
+  "class_idx_1k": 262,
+  "clip_bench_label": "brussels griffon",
+  "synname": "brabancon_griffon.n.01"
+}, {
+  "class_idx": 263,
+  "class_idx_1k": 263,
+  "clip_bench_label": "Pembroke Welsh Corgi",
+  "synname": "pembroke.n.01"
+}, {
+  "class_idx": 264,
+  "class_idx_1k": 264,
+  "clip_bench_label": "Cardigan Welsh Corgi",
+  "synname": "cardigan.n.02"
+}, {
+  "class_idx": 265,
+  "class_idx_1k": 265,
+  "clip_bench_label": "Toy Poodle",
+  "synname": "toy_poodle.n.01"
+}, {
+  "class_idx": 266,
+  "class_idx_1k": 266,
+  "clip_bench_label": "Miniature Poodle",
+  "synname": "miniature_poodle.n.01"
+}, {
+  "class_idx": 267,
+  "class_idx_1k": 267,
+  "clip_bench_label": "Standard Poodle",
+  "synname": "standard_poodle.n.01"
+}, {
+  "class_idx": 268,
+  "class_idx_1k": 268,
+  "clip_bench_label": "Mexican hairless dog (xoloitzcuintli)",
+  "synname": "mexican_hairless.n.01"
+}, {
+  "class_idx": 269,
+  "class_idx_1k": 269,
+  "clip_bench_label": "grey wolf",
+  "synname": "timber_wolf.n.01"
+}, {
+  "class_idx": 270,
+  "class_idx_1k": 270,
+  "clip_bench_label": "Alaskan tundra wolf",
+  "synname": "white_wolf.n.01"
+}, {
+  "class_idx": 271,
+  "class_idx_1k": 271,
+  "clip_bench_label": "red wolf or maned wolf",
+  "synname": "red_wolf.n.01"
+}, {
+  "class_idx": 272,
+  "class_idx_1k": 272,
+  "clip_bench_label": "coyote",
+  "synname": "coyote.n.01"
+}, {
+  "class_idx": 273,
+  "class_idx_1k": 273,
+  "clip_bench_label": "dingo",
+  "synname": "dingo.n.01"
+}, {
+  "class_idx": 274,
+  "class_idx_1k": 274,
+  "clip_bench_label": "dhole",
+  "synname": "dhole.n.01"
+}, {
+  "class_idx": 275,
+  "class_idx_1k": 275,
+  "clip_bench_label": "African wild dog",
+  "synname": "african_hunting_dog.n.01"
+}, {
+  "class_idx": 276,
+  "class_idx_1k": 276,
+  "clip_bench_label": "hyena",
+  "synname": "hyena.n.01"
+}, {
+  "class_idx": 277,
+  "class_idx_1k": 277,
+  "clip_bench_label": "red fox",
+  "synname": "red_fox.n.03"
+}, {
+  "class_idx": 278,
+  "class_idx_1k": 278,
+  "clip_bench_label": "kit fox",
+  "synname": "kit_fox.n.01"
+}, {
+  "class_idx": 279,
+  "class_idx_1k": 279,
+  "clip_bench_label": "Arctic fox",
+  "synname": "arctic_fox.n.01"
+}, {
+  "class_idx": 280,
+  "class_idx_1k": 280,
+  "clip_bench_label": "grey fox",
+  "synname": "grey_fox.n.01"
+}, {
+  "class_idx": 281,
+  "class_idx_1k": 281,
+  "clip_bench_label": "tabby cat",
+  "synname": "tabby.n.01"
+}, {
+  "class_idx": 282,
+  "class_idx_1k": 282,
+  "clip_bench_label": "tiger cat",
+  "synname": "tiger_cat.n.02"
+}, {
+  "class_idx": 283,
+  "class_idx_1k": 283,
+  "clip_bench_label": "Persian cat",
+  "synname": "persian_cat.n.01"
+}, {
+  "class_idx": 284,
+  "class_idx_1k": 284,
+  "clip_bench_label": "Siamese cat",
+  "synname": "siamese_cat.n.01"
+}, {
+  "class_idx": 285,
+  "class_idx_1k": 285,
+  "clip_bench_label": "Egyptian Mau",
+  "synname": "egyptian_cat.n.01"
+}, {
+  "class_idx": 286,
+  "class_idx_1k": 286,
+  "clip_bench_label": "cougar",
+  "synname": "cougar.n.01"
+}, {
+  "class_idx": 287,
+  "class_idx_1k": 287,
+  "clip_bench_label": "lynx",
+  "synname": "lynx.n.02"
+}, {
+  "class_idx": 288,
+  "class_idx_1k": 288,
+  "clip_bench_label": "leopard",
+  "synname": "leopard.n.02"
+}, {
+  "class_idx": 289,
+  "class_idx_1k": 289,
+  "clip_bench_label": "snow leopard",
+  "synname": "snow_leopard.n.01"
+}, {
+  "class_idx": 290,
+  "class_idx_1k": 290,
+  "clip_bench_label": "jaguar",
+  "synname": "jaguar.n.01"
+}, {
+  "class_idx": 291,
+  "class_idx_1k": 291,
+  "clip_bench_label": "lion",
+  "synname": "lion.n.01"
+}, {
+  "class_idx": 292,
+  "class_idx_1k": 292,
+  "clip_bench_label": "tiger",
+  "synname": "tiger.n.02"
+}, {
+  "class_idx": 293,
+  "class_idx_1k": 293,
+  "clip_bench_label": "cheetah",
+  "synname": "cheetah.n.01"
+}, {
+  "class_idx": 294,
+  "class_idx_1k": 294,
+  "clip_bench_label": "brown bear",
+  "synname": "brown_bear.n.01"
+}, {
+  "class_idx": 295,
+  "class_idx_1k": 295,
+  "clip_bench_label": "American black bear",
+  "synname": "american_black_bear.n.01"
+}, {
+  "class_idx": 296,
+  "class_idx_1k": 296,
+  "clip_bench_label": "polar bear",
+  "synname": "ice_bear.n.01"
+}, {
+  "class_idx": 297,
+  "class_idx_1k": 297,
+  "clip_bench_label": "sloth bear",
+  "synname": "sloth_bear.n.01"
+}, {
+  "class_idx": 298,
+  "class_idx_1k": 298,
+  "clip_bench_label": "mongoose",
+  "synname": "mongoose.n.01"
+}, {
+  "class_idx": 299,
+  "class_idx_1k": 299,
+  "clip_bench_label": "meerkat",
+  "synname": "meerkat.n.01"
+}, {
+  "class_idx": 300,
+  "class_idx_1k": 300,
+  "clip_bench_label": "tiger beetle",
+  "synname": "tiger_beetle.n.01"
+}, {
+  "class_idx": 301,
+  "class_idx_1k": 301,
+  "clip_bench_label": "ladybug",
+  "synname": "ladybug.n.01"
+}, {
+  "class_idx": 302,
+  "class_idx_1k": 302,
+  "clip_bench_label": "ground beetle",
+  "synname": "ground_beetle.n.01"
+}, {
+  "class_idx": 303,
+  "class_idx_1k": 303,
+  "clip_bench_label": "longhorn beetle",
+  "synname": "long-horned_beetle.n.01"
+}, {
+  "class_idx": 304,
+  "class_idx_1k": 304,
+  "clip_bench_label": "leaf beetle",
+  "synname": "leaf_beetle.n.01"
+}, {
+  "class_idx": 305,
+  "class_idx_1k": 305,
+  "clip_bench_label": "dung beetle",
+  "synname": "dung_beetle.n.01"
+}, {
+  "class_idx": 306,
+  "class_idx_1k": 306,
+  "clip_bench_label": "rhinoceros beetle",
+  "synname": "rhinoceros_beetle.n.01"
+}, {
+  "class_idx": 307,
+  "class_idx_1k": 307,
+  "clip_bench_label": "weevil",
+  "synname": "weevil.n.01"
+}, {
+  "class_idx": 308,
+  "class_idx_1k": 308,
+  "clip_bench_label": "fly",
+  "synname": "fly.n.01"
+}, {
+  "class_idx": 309,
+  "class_idx_1k": 309,
+  "clip_bench_label": "bee",
+  "synname": "bee.n.01"
+}, {
+  "class_idx": 310,
+  "class_idx_1k": 310,
+  "clip_bench_label": "ant",
+  "synname": "ant.n.01"
+}, {
+  "class_idx": 311,
+  "class_idx_1k": 311,
+  "clip_bench_label": "grasshopper",
+  "synname": "grasshopper.n.01"
+}, {
+  "class_idx": 312,
+  "class_idx_1k": 312,
+  "clip_bench_label": "cricket insect",
+  "synname": "cricket.n.01"
+}, {
+  "class_idx": 313,
+  "class_idx_1k": 313,
+  "clip_bench_label": "stick insect",
+  "synname": "walking_stick.n.02"
+}, {
+  "class_idx": 314,
+  "class_idx_1k": 314,
+  "clip_bench_label": "cockroach",
+  "synname": "cockroach.n.01"
+}, {
+  "class_idx": 315,
+  "class_idx_1k": 315,
+  "clip_bench_label": "praying mantis",
+  "synname": "mantis.n.01"
+}, {
+  "class_idx": 316,
+  "class_idx_1k": 316,
+  "clip_bench_label": "cicada",
+  "synname": "cicada.n.01"
+}, {
+  "class_idx": 317,
+  "class_idx_1k": 317,
+  "clip_bench_label": "leafhopper",
+  "synname": "leafhopper.n.01"
+}, {
+  "class_idx": 318,
+  "class_idx_1k": 318,
+  "clip_bench_label": "lacewing",
+  "synname": "lacewing.n.01"
+}, {
+  "class_idx": 319,
+  "class_idx_1k": 319,
+  "clip_bench_label": "dragonfly",
+  "synname": "dragonfly.n.01"
+}, {
+  "class_idx": 320,
+  "class_idx_1k": 320,
+  "clip_bench_label": "damselfly",
+  "synname": "damselfly.n.01"
+}, {
+  "class_idx": 321,
+  "class_idx_1k": 321,
+  "clip_bench_label": "red admiral butterfly",
+  "synname": "admiral.n.02"
+}, {
+  "class_idx": 322,
+  "class_idx_1k": 322,
+  "clip_bench_label": "ringlet butterfly",
+  "synname": "ringlet.n.04"
+}, {
+  "class_idx": 323,
+  "class_idx_1k": 323,
+  "clip_bench_label": "monarch butterfly",
+  "synname": "monarch.n.02"
+}, {
+  "class_idx": 324,
+  "class_idx_1k": 324,
+  "clip_bench_label": "small white butterfly",
+  "synname": "cabbage_butterfly.n.01"
+}, {
+  "class_idx": 325,
+  "class_idx_1k": 325,
+  "clip_bench_label": "sulphur butterfly",
+  "synname": "sulphur_butterfly.n.01"
+}, {
+  "class_idx": 326,
+  "class_idx_1k": 326,
+  "clip_bench_label": "gossamer-winged butterfly",
+  "synname": "lycaenid.n.01"
+}, {
+  "class_idx": 327,
+  "class_idx_1k": 327,
+  "clip_bench_label": "starfish",
+  "synname": "starfish.n.01"
+}, {
+  "class_idx": 328,
+  "class_idx_1k": 328,
+  "clip_bench_label": "sea urchin",
+  "synname": "sea_urchin.n.01"
+}, {
+  "class_idx": 329,
+  "class_idx_1k": 329,
+  "clip_bench_label": "sea cucumber",
+  "synname": "sea_cucumber.n.01"
+}, {
+  "class_idx": 330,
+  "class_idx_1k": 330,
+  "clip_bench_label": "cottontail rabbit",
+  "synname": "wood_rabbit.n.01"
+}, {
+  "class_idx": 331,
+  "class_idx_1k": 331,
+  "clip_bench_label": "hare",
+  "synname": "hare.n.01"
+}, {
+  "class_idx": 332,
+  "class_idx_1k": 332,
+  "clip_bench_label": "Angora rabbit",
+  "synname": "angora.n.03"
+}, {
+  "class_idx": 333,
+  "class_idx_1k": 333,
+  "clip_bench_label": "hamster",
+  "synname": "hamster.n.01"
+}, {
+  "class_idx": 334,
+  "class_idx_1k": 334,
+  "clip_bench_label": "porcupine",
+  "synname": "porcupine.n.01"
+}, {
+  "class_idx": 335,
+  "class_idx_1k": 335,
+  "clip_bench_label": "fox squirrel",
+  "synname": "fox_squirrel.n.01"
+}, {
+  "class_idx": 336,
+  "class_idx_1k": 336,
+  "clip_bench_label": "marmot",
+  "synname": "marmot.n.01"
+}, {
+  "class_idx": 337,
+  "class_idx_1k": 337,
+  "clip_bench_label": "beaver",
+  "synname": "beaver.n.07"
+}, {
+  "class_idx": 338,
+  "class_idx_1k": 338,
+  "clip_bench_label": "guinea pig",
+  "synname": "guinea_pig.n.02"
+}, {
+  "class_idx": 339,
+  "class_idx_1k": 339,
+  "clip_bench_label": "common sorrel horse",
+  "synname": "sorrel.n.05"
+}, {
+  "class_idx": 340,
+  "class_idx_1k": 340,
+  "clip_bench_label": "zebra",
+  "synname": "zebra.n.01"
+}, {
+  "class_idx": 341,
+  "class_idx_1k": 341,
+  "clip_bench_label": "pig",
+  "synname": "hog.n.03"
+}, {
+  "class_idx": 342,
+  "class_idx_1k": 342,
+  "clip_bench_label": "wild boar",
+  "synname": "wild_boar.n.01"
+}, {
+  "class_idx": 343,
+  "class_idx_1k": 343,
+  "clip_bench_label": "warthog",
+  "synname": "warthog.n.01"
+}, {
+  "class_idx": 344,
+  "class_idx_1k": 344,
+  "clip_bench_label": "hippopotamus",
+  "synname": "hippopotamus.n.01"
+}, {
+  "class_idx": 345,
+  "class_idx_1k": 345,
+  "clip_bench_label": "ox",
+  "synname": "ox.n.01"
+}, {
+  "class_idx": 346,
+  "class_idx_1k": 346,
+  "clip_bench_label": "water buffalo",
+  "synname": "water_buffalo.n.01"
+}, {
+  "class_idx": 347,
+  "class_idx_1k": 347,
+  "clip_bench_label": "bison",
+  "synname": "bison.n.01"
+}, {
+  "class_idx": 348,
+  "class_idx_1k": 348,
+  "clip_bench_label": "ram (adult male sheep)",
+  "synname": "ram.n.05"
+}, {
+  "class_idx": 349,
+  "class_idx_1k": 349,
+  "clip_bench_label": "bighorn sheep",
+  "synname": "bighorn.n.02"
+}, {
+  "class_idx": 350,
+  "class_idx_1k": 350,
+  "clip_bench_label": "Alpine ibex",
+  "synname": "ibex.n.01"
+}, {
+  "class_idx": 351,
+  "class_idx_1k": 351,
+  "clip_bench_label": "hartebeest",
+  "synname": "hartebeest.n.01"
+}, {
+  "class_idx": 352,
+  "class_idx_1k": 352,
+  "clip_bench_label": "impala (antelope)",
+  "synname": "impala.n.01"
+}, {
+  "class_idx": 353,
+  "class_idx_1k": 353,
+  "clip_bench_label": "gazelle",
+  "synname": "gazelle.n.01"
+}, {
+  "class_idx": 354,
+  "class_idx_1k": 354,
+  "clip_bench_label": "arabian camel",
+  "synname": "arabian_camel.n.01"
+}, {
+  "class_idx": 355,
+  "class_idx_1k": 355,
+  "clip_bench_label": "llama",
+  "synname": "llama.n.01"
+}, {
+  "class_idx": 356,
+  "class_idx_1k": 356,
+  "clip_bench_label": "weasel",
+  "synname": "weasel.n.02"
+}, {
+  "class_idx": 357,
+  "class_idx_1k": 357,
+  "clip_bench_label": "mink",
+  "synname": "mink.n.03"
+}, {
+  "class_idx": 358,
+  "class_idx_1k": 358,
+  "clip_bench_label": "European polecat",
+  "synname": "polecat.n.02"
+}, {
+  "class_idx": 359,
+  "class_idx_1k": 359,
+  "clip_bench_label": "black-footed ferret",
+  "synname": "black-footed_ferret.n.01"
+}, {
+  "class_idx": 360,
+  "class_idx_1k": 360,
+  "clip_bench_label": "otter",
+  "synname": "otter.n.02"
+}, {
+  "class_idx": 361,
+  "class_idx_1k": 361,
+  "clip_bench_label": "skunk",
+  "synname": "skunk.n.04"
+}, {
+  "class_idx": 362,
+  "class_idx_1k": 362,
+  "clip_bench_label": "badger",
+  "synname": "badger.n.02"
+}, {
+  "class_idx": 363,
+  "class_idx_1k": 363,
+  "clip_bench_label": "armadillo",
+  "synname": "armadillo.n.01"
+}, {
+  "class_idx": 364,
+  "class_idx_1k": 364,
+  "clip_bench_label": "three-toed sloth",
+  "synname": "three-toed_sloth.n.01"
+}, {
+  "class_idx": 365,
+  "class_idx_1k": 365,
+  "clip_bench_label": "orangutan",
+  "synname": "orangutan.n.01"
+}, {
+  "class_idx": 366,
+  "class_idx_1k": 366,
+  "clip_bench_label": "gorilla",
+  "synname": "gorilla.n.01"
+}, {
+  "class_idx": 367,
+  "class_idx_1k": 367,
+  "clip_bench_label": "chimpanzee",
+  "synname": "chimpanzee.n.01"
+}, {
+  "class_idx": 368,
+  "class_idx_1k": 368,
+  "clip_bench_label": "gibbon",
+  "synname": "gibbon.n.02"
+}, {
+  "class_idx": 369,
+  "class_idx_1k": 369,
+  "clip_bench_label": "siamang",
+  "synname": "siamang.n.01"
+}, {
+  "class_idx": 370,
+  "class_idx_1k": 370,
+  "clip_bench_label": "guenon",
+  "synname": "guenon.n.01"
+}, {
+  "class_idx": 371,
+  "class_idx_1k": 371,
+  "clip_bench_label": "patas monkey",
+  "synname": "patas.n.01"
+}, {
+  "class_idx": 372,
+  "class_idx_1k": 372,
+  "clip_bench_label": "baboon",
+  "synname": "baboon.n.01"
+}, {
+  "class_idx": 373,
+  "class_idx_1k": 373,
+  "clip_bench_label": "macaque",
+  "synname": "macaque.n.01"
+}, {
+  "class_idx": 374,
+  "class_idx_1k": 374,
+  "clip_bench_label": "langur",
+  "synname": "langur.n.01"
+}, {
+  "class_idx": 375,
+  "class_idx_1k": 375,
+  "clip_bench_label": "black-and-white colobus",
+  "synname": "colobus.n.01"
+}, {
+  "class_idx": 376,
+  "class_idx_1k": 376,
+  "clip_bench_label": "proboscis monkey",
+  "synname": "proboscis_monkey.n.01"
+}, {
+  "class_idx": 377,
+  "class_idx_1k": 377,
+  "clip_bench_label": "marmoset",
+  "synname": "marmoset.n.01"
+}, {
+  "class_idx": 378,
+  "class_idx_1k": 378,
+  "clip_bench_label": "white-headed capuchin",
+  "synname": "capuchin.n.02"
+}, {
+  "class_idx": 379,
+  "class_idx_1k": 379,
+  "clip_bench_label": "howler monkey",
+  "synname": "howler_monkey.n.01"
+}, {
+  "class_idx": 380,
+  "class_idx_1k": 380,
+  "clip_bench_label": "titi monkey",
+  "synname": "titi.n.03"
+}, {
+  "class_idx": 381,
+  "class_idx_1k": 381,
+  "clip_bench_label": "Geoffroy's spider monkey",
+  "synname": "spider_monkey.n.01"
+}, {
+  "class_idx": 382,
+  "class_idx_1k": 382,
+  "clip_bench_label": "common squirrel monkey",
+  "synname": "squirrel_monkey.n.01"
+}, {
+  "class_idx": 383,
+  "class_idx_1k": 383,
+  "clip_bench_label": "ring-tailed lemur",
+  "synname": "madagascar_cat.n.01"
+}, {
+  "class_idx": 384,
+  "class_idx_1k": 384,
+  "clip_bench_label": "indri",
+  "synname": "indri.n.01"
+}, {
+  "class_idx": 385,
+  "class_idx_1k": 385,
+  "clip_bench_label": "Asian elephant",
+  "synname": "indian_elephant.n.01"
+}, {
+  "class_idx": 386,
+  "class_idx_1k": 386,
+  "clip_bench_label": "African bush elephant",
+  "synname": "african_elephant.n.01"
+}, {
+  "class_idx": 387,
+  "class_idx_1k": 387,
+  "clip_bench_label": "red panda",
+  "synname": "lesser_panda.n.01"
+}, {
+  "class_idx": 388,
+  "class_idx_1k": 388,
+  "clip_bench_label": "giant panda",
+  "synname": "giant_panda.n.01"
+}, {
+  "class_idx": 389,
+  "class_idx_1k": 389,
+  "clip_bench_label": "snoek fish",
+  "synname": "barracouta.n.01"
+}, {
+  "class_idx": 390,
+  "class_idx_1k": 390,
+  "clip_bench_label": "eel",
+  "synname": "eel.n.02"
+}, {
+  "class_idx": 391,
+  "class_idx_1k": 391,
+  "clip_bench_label": "silver salmon",
+  "synname": "coho.n.02"
+}, {
+  "class_idx": 392,
+  "class_idx_1k": 392,
+  "clip_bench_label": "rock beauty fish",
+  "synname": "rock_beauty.n.01"
+}, {
+  "class_idx": 393,
+  "class_idx_1k": 393,
+  "clip_bench_label": "clownfish",
+  "synname": "anemone_fish.n.01"
+}, {
+  "class_idx": 394,
+  "class_idx_1k": 394,
+  "clip_bench_label": "sturgeon",
+  "synname": "sturgeon.n.01"
+}, {
+  "class_idx": 395,
+  "class_idx_1k": 395,
+  "clip_bench_label": "gar fish",
+  "synname": "gar.n.01"
+}, {
+  "class_idx": 396,
+  "class_idx_1k": 396,
+  "clip_bench_label": "lionfish",
+  "synname": "lionfish.n.01"
+}, {
+  "class_idx": 397,
+  "class_idx_1k": 397,
+  "clip_bench_label": "pufferfish",
+  "synname": "puffer.n.02"
+}, {
+  "class_idx": 398,
+  "class_idx_1k": 981,
+  "clip_bench_label": "baseball player",
+  "synname": "ballplayer.n.01"
+}, {
+  "class_idx": 399,
+  "class_idx_1k": 982,
+  "clip_bench_label": "bridegroom",
+  "synname": "groom.n.01"
+}, {
+  "class_idx": 400,
+  "class_idx_1k": 983,
+  "clip_bench_label": "scuba diver",
+  "synname": "scuba_diver.n.01"
+}, {
+  "class_idx": 401,
+  "class_idx_1k": 985,
+  "clip_bench_label": "daisy",
+  "synname": "daisy.n.01"
+}, {
+  "class_idx": 402,
+  "class_idx_1k": 986,
+  "clip_bench_label": "yellow lady's slipper",
+  "synname": "yellow_lady's_slipper.n.01"
+}, {
+  "class_idx": 403,
+  "class_idx_1k": 991,
+  "clip_bench_label": "coral fungus",
+  "synname": "coral_fungus.n.01"
+}, {
+  "class_idx": 404,
+  "class_idx_1k": 992,
+  "clip_bench_label": "agaric",
+  "synname": "agaric.n.02"
+}, {
+  "class_idx": 405,
+  "class_idx_1k": 993,
+  "clip_bench_label": "gyromitra",
+  "synname": "gyromitra.n.01"
+}, {
+  "class_idx": 406,
+  "class_idx_1k": 994,
+  "clip_bench_label": "stinkhorn mushroom",
+  "synname": "stinkhorn.n.01"
+}, {
+  "class_idx": 407,
+  "class_idx_1k": 995,
+  "clip_bench_label": "earth star fungus",
+  "synname": "earthstar.n.01"
+}, {
+  "class_idx": 408,
+  "class_idx_1k": 996,
+  "clip_bench_label": "hen of the woods mushroom",
+  "synname": "hen-of-the-woods.n.01"
+}, {
+  "class_idx": 409,
+  "class_idx_1k": 997,
+  "clip_bench_label": "bolete",
+  "synname": "bolete.n.01"
+}]

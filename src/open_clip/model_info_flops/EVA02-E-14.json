@@ -1,0 +1,13 @@
+{
+  "model": "EVA02-E-14",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 1024,
+  "embed_dim": 1024,
+  "mparams": 4704.589569,
+  "image_mparams": 4350.556928,
+  "text_mparams": 354.03264,
+  "gflops": 2280.535359488,
+  "image_gflops": 2234.026819584,
+  "text_gflops": 46.508539904
+}

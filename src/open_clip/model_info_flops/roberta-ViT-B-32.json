@@ -1,0 +1,13 @@
+{
+  "model": "roberta-ViT-B-32",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 212.723457,
+  "image_mparams": 87.849216,
+  "text_mparams": 124.87424,
+  "gflops": 105.779249152,
+  "image_gflops": 8.72546304,
+  "text_gflops": 97.053786112
+}

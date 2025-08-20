@@ -1,0 +1,7 @@
+# flickr30k_test_karpathy, 1000 datapoints
+task_factory: "contrastive_multitext"
+n_texts_per_image: 5
+dataset:
+    dataset_factory: "clip_benchmark_contrastive_multitext"
+    dataset_name: "flickr30k"
+    dataset_split: "test"

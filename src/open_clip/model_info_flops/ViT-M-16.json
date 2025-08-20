@@ -1,0 +1,13 @@
+{
+  "model": "ViT-M-16",
+  "image_size": 224,
+  "image_width": 512,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 102.015489,
+  "image_mparams": 38.587392,
+  "text_mparams": 63.428096,
+  "gflops": 20.841496576,
+  "image_gflops": 15.027666944,
+  "text_gflops": 5.813829632
+}

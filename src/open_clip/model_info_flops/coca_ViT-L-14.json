@@ -1,0 +1,13 @@
+{
+  "model": "coca_ViT-L-14",
+  "image_size": 224,
+  "image_width": 1024,
+  "text_width": 768,
+  "embed_dim": 768,
+  "mparams": 638.450177,
+  "image_mparams": 306.724864,
+  "text_mparams": 123.651072,
+  "gflops": 206.681407488,
+  "image_gflops": 156.944695296,
+  "text_gflops": 13.081116672
+}

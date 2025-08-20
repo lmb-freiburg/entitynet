@@ -1,0 +1,7 @@
+# iNaturalist 2019 latin label space, val set
+task_factory: "zeroshot_classification"
+clip_zs_template: "openai_imagenet_template"
+dataset:
+    dataset_factory: "clip_benchmark"
+    dataset_name: "inat19-latin"
+    dataset_split: "val"

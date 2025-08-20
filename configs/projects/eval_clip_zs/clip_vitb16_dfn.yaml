@@ -1,0 +1,21 @@
+train_task:
+    loss_name: "clip"
+    task_factory: "contrastive"
+
+model:
+    model_factory: "open_clip"
+    model_ident: "ViT-B-16/dfn2b"
+    vis_preproc:
+        preproc_factory: ${model.model_factory}
+        preproc_ident: ${model.model_ident}
+    context_length: 77
+
+trainer:
+    output_dir: null
+    workers: 4
+    batch_size_eval: 16
+    seed: 0
+    test_task_keys:
+        - task_list::eval_list_all
+    accelerator: "gpu"
+    devices: 1

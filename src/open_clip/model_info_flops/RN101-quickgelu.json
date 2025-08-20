@@ -1,0 +1,13 @@
+{
+  "model": "RN101-quickgelu",
+  "image_size": 224,
+  "image_width": 64,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 119.688033,
+  "image_mparams": 56.259936,
+  "text_mparams": 63.428096,
+  "gflops": 25.335873536,
+  "image_gflops": 19.522043904,
+  "text_gflops": 5.813829632
+}

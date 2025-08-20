@@ -1,0 +1,5 @@
+task_factory: "sugarcrepepp"
+dataset:
+    dataset_factory: "sugarcrepepp"
+    dataset_name: "replace_rel"
+    dataset_split: "test"

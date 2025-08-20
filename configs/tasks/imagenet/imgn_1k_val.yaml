@@ -1,0 +1,7 @@
+# imagenet 1k (all labels), val set
+task_factory: "zeroshot_classification"
+clip_zs_template: "openai_imagenet_template"
+dataset:
+    dataset_factory: "imagenet1k"
+    dataset_name: "default"
+    dataset_split: "val"

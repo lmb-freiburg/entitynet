@@ -1,0 +1,5 @@
+task_factory: "sugarcrepepp"
+dataset:
+    dataset_factory: "sugarcrepepp"
+    dataset_name: "swap_obj"
+    dataset_split: "test"

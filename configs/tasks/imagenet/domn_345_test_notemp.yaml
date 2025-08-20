@@ -1,0 +1,6 @@
+task_factory: "zeroshot_classification"
+clip_zs_template: "none"
+dataset:
+    dataset_factory: "domainnet"
+    dataset_name: "default"
+    dataset_split: "val"

@@ -1,0 +1,13 @@
+{
+  "model": "xlm-roberta-base-ViT-B-32",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 366.121473,
+  "image_mparams": 87.849216,
+  "text_mparams": 278.272256,
+  "gflops": 105.779249152,
+  "image_gflops": 8.72546304,
+  "text_gflops": 97.053786112
+}

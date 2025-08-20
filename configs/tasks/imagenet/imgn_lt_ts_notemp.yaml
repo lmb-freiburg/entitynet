@@ -1,0 +1,7 @@
+# imagenet living things classes only (410 of 1000 classes), ts (trainsmall) set
+task_factory: "zeroshot_classification"
+clip_zs_template: "none"
+dataset:
+    dataset_factory: "imagenet1k"
+    dataset_name: "living_things"
+    dataset_split: "trainsmall"

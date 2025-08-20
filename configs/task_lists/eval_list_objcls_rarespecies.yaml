@@ -1,0 +1,11 @@
+task_keys:
+    - "rarespecies_train_com_inettemp"
+    - "rarespecies_train_com_none"
+    - "rarespecies_train_sci_inettemp"
+    - "rarespecies_train_sci_none"
+    - "rarespecies_train_scicom_inettemp"
+    - "rarespecies_train_scicom_none"
+    - "rarespecies_train_tax_inettemp"
+    - "rarespecies_train_tax_none"
+    - "rarespecies_train_taxcom_inettemp"
+    - "rarespecies_train_taxcom_none"

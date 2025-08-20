@@ -1,0 +1,6 @@
+task_factory: "contrastive_multitext"
+n_texts_per_image: 5
+dataset:
+    dataset_factory: "coco"
+    dataset_name: "default"
+    dataset_split: "val"

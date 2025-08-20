@@ -1,0 +1,7 @@
+# iNaturalist 2021 traindev (new) set, english class names, 100k images, with template
+task_factory: "zeroshot_classification"
+clip_zs_template: "openai_imagenet_template"
+dataset:
+    dataset_factory: "inat21"
+    dataset_name: "inat21-en"
+    dataset_split: "traindev"

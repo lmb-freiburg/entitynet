@@ -1,0 +1,13 @@
+{
+  "model": "ViT-bigG-14",
+  "image_size": 224,
+  "image_width": 1664,
+  "text_width": 1280,
+  "embed_dim": 1280,
+  "mparams": 2539.567105,
+  "image_mparams": 1844.907264,
+  "text_mparams": 694.65984,
+  "gflops": 1043.285868544,
+  "image_gflops": 946.394169344,
+  "text_gflops": 96.8916992
+}

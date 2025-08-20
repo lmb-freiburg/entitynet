@@ -1,0 +1,10 @@
+task_keys:
+    # ---------- object classification, split off inat21 because it takes
+    - "inat21_tdev"
+    - "inat21lat_tdev"
+    - "inat21_tdev_itemp"
+    - "inat21lat_tdev_itemp"
+    - "inat21_val"
+    - "inat21lat_val"
+    - "inat21_val_itemp"
+    - "inat21lat_val_itemp"

@@ -1,0 +1,13 @@
+{
+  "model": "ViT-SO400M-14-SigLIP-384",
+  "image_size": 384,
+  "image_width": 768,
+  "text_width": 1152,
+  "embed_dim": 1152,
+  "mparams": 877.960498,
+  "image_mparams": 428.2256,
+  "text_mparams": 449.734896,
+  "gflops": 656.843000832,
+  "image_gflops": 604.223327232,
+  "text_gflops": 52.6196736
+}

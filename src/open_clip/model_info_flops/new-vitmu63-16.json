@@ -1,0 +1,13 @@
+{
+  "model": "new-vitmu63-16",
+  "image_size": 224,
+  "image_width": 192,
+  "text_width": 128,
+  "embed_dim": 512,
+  "mparams": 10.543233,
+  "image_mparams": 2.953728,
+  "text_mparams": 7.589504,
+  "gflops": 1.285554176,
+  "image_gflops": 1.103757312,
+  "text_gflops": 0.181796864
+}

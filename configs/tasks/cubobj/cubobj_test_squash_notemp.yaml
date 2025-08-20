@@ -1,0 +1,13 @@
+task_factory: "zeroshot_classification"
+clip_zs_template: "none"
+dataset:
+    dataset_factory: "cub"
+    dataset_name: "default"
+    dataset_split: "test"
+vis_preproc:
+    preproc_factory: "${model.vis_preproc.preproc_factory}"
+    preproc_ident: "${model.vis_preproc.preproc_ident}"
+    clip_pp_cfg:
+        resize_mode: "squash"
+        interpolation: "bilinear"
+        antialias: null

@@ -1,0 +1,13 @@
+{
+  "model": "ViT-L-14-280",
+  "image_size": 280,
+  "image_width": 1024,
+  "text_width": 768,
+  "embed_dim": 768,
+  "mparams": 427.763969,
+  "image_mparams": 304.113664,
+  "text_mparams": 123.650304,
+  "gflops": 255.760269312,
+  "image_gflops": 242.67915264,
+  "text_gflops": 13.081116672
+}

@@ -1,0 +1,9 @@
+task_keys:
+    - "inat19_tdev"
+    - "inat19lat_tdev"
+    - "inat19_tdev_itemp"
+    - "inat19lat_tdev_itemp"
+    - "inat19_val"
+    - "inat19lat_val"
+    - "inat19_val_itemp"
+    - "inat19lat_val_itemp"

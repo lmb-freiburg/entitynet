@@ -1,0 +1,13 @@
+{
+  "model": "coca_ViT-B-32",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 253.560065,
+  "image_mparams": 89.164032,
+  "text_mparams": 63.428608,
+  "gflops": 32.459194368,
+  "image_gflops": 9.072279552,
+  "text_gflops": 5.813829632
+}

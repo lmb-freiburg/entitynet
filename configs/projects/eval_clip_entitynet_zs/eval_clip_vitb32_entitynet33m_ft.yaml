@@ -1,0 +1,19 @@
+train_task: null
+
+model:
+    model_factory: "open_clip"
+    model_ident: "hf-hub:lmb-freiburg/CLIP-ViT-B-32-EntityNet-33M-Finetuned"
+    vis_preproc:
+        preproc_factory: ${model.model_factory}
+        preproc_ident: ${model.model_ident}
+    context_length: 32
+
+trainer:
+    output_dir: null
+    workers: 4
+    batch_size_eval: 128
+    seed: 0
+    test_task_keys:
+        - task_list::eval_list_all
+    accelerator: "gpu"
+    devices: 1

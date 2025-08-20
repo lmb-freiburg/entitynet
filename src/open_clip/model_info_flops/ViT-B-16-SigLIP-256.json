@@ -1,0 +1,13 @@
+{
+  "model": "ViT-B-16-SigLIP-256",
+  "image_size": 256,
+  "image_width": 768,
+  "text_width": 768,
+  "embed_dim": 768,
+  "mparams": 203.20205,
+  "image_mparams": 92.930304,
+  "text_mparams": 110.271744,
+  "gflops": 55.277125632,
+  "image_gflops": 44.404310016,
+  "text_gflops": 10.872815616
+}

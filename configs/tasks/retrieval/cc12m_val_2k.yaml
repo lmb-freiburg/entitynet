@@ -1,0 +1,7 @@
+# conceptualcaptions12m, text-image retrieval, unofficial val set
+task_factory: "contrastive"
+dataset:
+    dataset_factory: "conceptualcaptions12m"
+    dataset_name: "default"
+    dataset_split: "val"
+    max_datapoints: 2000

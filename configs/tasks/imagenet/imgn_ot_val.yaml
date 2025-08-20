@@ -1,0 +1,7 @@
+# imagenet other (non-living-things) classes only (590 of 1000 classes), val set
+task_factory: "zeroshot_classification"
+clip_zs_template: "openai_imagenet_template"
+dataset:
+    dataset_factory: "imagenet1k"
+    dataset_name: "not_living_things"
+    dataset_split: "val"

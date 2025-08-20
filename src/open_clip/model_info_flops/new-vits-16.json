@@ -1,0 +1,13 @@
+{
+  "model": "new-vits-16",
+  "image_size": 224,
+  "image_width": 384,
+  "text_width": 256,
+  "embed_dim": 512,
+  "mparams": 44.139521,
+  "image_mparams": 21.862656,
+  "text_mparams": 22.276864,
+  "gflops": 9.935650816,
+  "image_gflops": 8.482062336,
+  "text_gflops": 1.45358848
+}

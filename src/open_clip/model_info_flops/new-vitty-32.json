@@ -1,0 +1,13 @@
+{
+  "model": "new-vitty-32",
+  "image_size": 224,
+  "image_width": 192,
+  "text_width": 128,
+  "embed_dim": 512,
+  "mparams": 14.816193,
+  "image_mparams": 6.037056,
+  "text_mparams": 8.779136,
+  "gflops": 0.952303616,
+  "image_gflops": 0.58884096,
+  "text_gflops": 0.363462656
+}

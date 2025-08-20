@@ -1,0 +1,13 @@
+{
+  "model": "vit_relpos_medium_patch16_cls_224",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 101.941857,
+  "image_mparams": 38.51376,
+  "text_mparams": 63.428096,
+  "gflops": 21.84005632,
+  "image_gflops": 16.026226688,
+  "text_gflops": 5.813829632
+}

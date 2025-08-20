@@ -1,0 +1,8 @@
+task_factory: "contrastive_multitext"
+n_texts_per_image: 1
+dataset:
+    # only 1 text per image, but clip benchmark returns a list anyway for compatibility,
+    # so we just run this as "multitext" contrastive with a text list length 1.
+    dataset_factory: "clip_benchmark_contrastive_multitext"
+    dataset_name: "crossmodal3600"
+    dataset_split: "val"

@@ -1,0 +1,13 @@
+{
+  "model": "mt5-xl-ViT-H-14",
+  "image_size": 224,
+  "image_width": 1280,
+  "text_width": 512,
+  "embed_dim": 1024,
+  "mparams": 2306.754049,
+  "image_mparams": 632.0768,
+  "text_mparams": 1674.677248,
+  "gflops": 503.218634752,
+  "image_gflops": 323.76881152,
+  "text_gflops": 179.449823232
+}

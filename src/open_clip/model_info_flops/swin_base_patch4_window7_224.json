@@ -1,0 +1,13 @@
+{
+  "model": "swin_base_patch4_window7_224",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 640,
+  "embed_dim": 640,
+  "mparams": 178.562105,
+  "image_mparams": 87.398584,
+  "text_mparams": 91.16352,
+  "gflops": 39.945265152,
+  "image_gflops": 30.861156352,
+  "text_gflops": 9.0841088
+}

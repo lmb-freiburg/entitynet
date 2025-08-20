@@ -1,0 +1,13 @@
+{
+  "model": "ViT-M-16-alt",
+  "image_size": 224,
+  "image_width": 512,
+  "text_width": 384,
+  "embed_dim": 384,
+  "mparams": 78.978177,
+  "image_mparams": 38.534144,
+  "text_mparams": 40.444032,
+  "gflops": 18.29781504,
+  "image_gflops": 15.027535872,
+  "text_gflops": 3.270279168
+}

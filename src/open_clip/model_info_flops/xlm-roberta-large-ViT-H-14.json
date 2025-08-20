@@ -1,0 +1,13 @@
+{
+  "model": "xlm-roberta-large-ViT-H-14",
+  "image_size": 224,
+  "image_width": 1280,
+  "text_width": 512,
+  "embed_dim": 1024,
+  "mparams": 1193.014785,
+  "image_mparams": 632.0768,
+  "text_mparams": 560.937984,
+  "gflops": 660.190134272,
+  "image_gflops": 323.76881152,
+  "text_gflops": 336.421322752
+}

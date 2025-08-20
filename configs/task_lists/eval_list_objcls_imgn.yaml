@@ -1,0 +1,13 @@
+task_keys:
+    - "imgn_1k_ts"
+    - "imgn_lt_ts"
+    - "imgn_ot_ts"
+    - "imgn_1k_ts_notemp"
+    - "imgn_lt_ts_notemp"
+    - "imgn_ot_ts_notemp"
+    - "imgn_1k_val"
+    - "imgn_lt_val"
+    - "imgn_ot_val"
+    - "imgn_1k_val_notemp"
+    - "imgn_lt_val_notemp"
+    - "imgn_ot_val_notemp"

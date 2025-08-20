@@ -1,0 +1,13 @@
+task_keys:
+    # ---------- retrieval
+    # - "coco_karp_val"
+    - "coco_karp_test"
+    # - "flickr30k_val"
+    - "flickr30k_test"
+    - "xm3600_test"
+    # # misc below
+    # - "cc12m_test"
+    # - "cubtext_train_ccrop"
+    # - "cubtext_test_ccrop"
+    # - "ltv4text_val5k"
+    # - "en10texthr_val5k"

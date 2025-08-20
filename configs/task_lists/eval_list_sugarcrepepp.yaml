@@ -1,0 +1,6 @@
+task_keys:
+    - "scpp_replace_att"
+    - "scpp_replace_obj"
+    - "scpp_replace_rel"
+    - "scpp_swap_att"
+    - "scpp_swap_obj"

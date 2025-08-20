@@ -1,0 +1,13 @@
+{
+  "model": "ViT-L-14-CLIPA",
+  "image_size": 224,
+  "image_width": 1024,
+  "text_width": 768,
+  "embed_dim": 768,
+  "mparams": 414.210561,
+  "image_mparams": 303.96416,
+  "text_mparams": 110.2464,
+  "gflops": 160.969654272,
+  "image_gflops": 155.53265664,
+  "text_gflops": 5.436997632
+}

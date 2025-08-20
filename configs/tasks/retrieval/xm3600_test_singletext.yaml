@@ -1,0 +1,6 @@
+# other task factory but same dataset and result
+task_factory: "contrastive"
+dataset:
+    dataset_factory: "clip_benchmark_contrastive"
+    dataset_name: "crossmodal3600"
+    dataset_split: "val"

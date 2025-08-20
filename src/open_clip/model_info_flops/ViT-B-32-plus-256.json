@@ -1,0 +1,13 @@
+{
+  "model": "ViT-B-32-plus-256",
+  "image_size": 256,
+  "image_width": 896,
+  "text_width": 640,
+  "embed_dim": 640,
+  "mparams": 210.297473,
+  "image_mparams": 119.133952,
+  "text_mparams": 91.16352,
+  "gflops": 24.466292736,
+  "image_gflops": 15.382183936,
+  "text_gflops": 9.0841088
+}

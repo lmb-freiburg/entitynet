@@ -1,0 +1,13 @@
+{
+  "model": "nllb-clip-base",
+  "image_size": 224,
+  "image_width": 768,
+  "text_width": 512,
+  "embed_dim": 512,
+  "mparams": 501.885185,
+  "image_mparams": 87.849216,
+  "text_mparams": 414.035968,
+  "gflops": 369.50376448,
+  "image_gflops": 8.72546304,
+  "text_gflops": 360.77830144
+}

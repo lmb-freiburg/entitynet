@@ -1,0 +1,6 @@
+task_factory: "zeroshot_classification"
+clip_zs_template: "none"
+dataset:
+    dataset_factory: "clip_benchmark"
+    dataset_name: "imagenet-a"
+    dataset_split: "test"

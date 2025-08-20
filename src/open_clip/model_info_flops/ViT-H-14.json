@@ -1,0 +1,13 @@
+{
+  "model": "ViT-H-14",
+  "image_size": 224,
+  "image_width": 1280,
+  "text_width": 1024,
+  "embed_dim": 1024,
+  "mparams": 986.109441,
+  "image_mparams": 632.0768,
+  "text_mparams": 354.03264,
+  "gflops": 370.277351424,
+  "image_gflops": 323.76881152,
+  "text_gflops": 46.508539904
+}

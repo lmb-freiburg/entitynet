@@ -1,0 +1,22 @@
+packg
+typedparser
+visiontext
+
+lightning
+pandas
+transformers
+huggingface-hub
+datasets
+webdataset
+wandb
+ftfy
+
+# dev
+ipdb
+ipython
+pytest
+pytest-cov
+pytest-timeout
+pylint
+black[jupyter]
+pre-commit

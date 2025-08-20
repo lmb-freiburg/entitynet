@@ -1,0 +1,13 @@
+{
+  "model": "coca_base",
+  "image_size": 288,
+  "image_width": 768,
+  "text_width": 768,
+  "embed_dim": 512,
+  "mparams": 440.337409,
+  "image_mparams": 86.395392,
+  "text_mparams": 134.66112,
+  "gflops": 95.507447808,
+  "image_gflops": 44.039405568,
+  "text_gflops": 13.080723456
+}
