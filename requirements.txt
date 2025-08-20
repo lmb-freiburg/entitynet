@@ -9,7 +9,8 @@ huggingface-hub
 datasets
 webdataset
 wandb
-ftfy
+ftfy  # text cleaner for some of the tokenizers
+timm  # some of the vision models use timm
 
 # dev
 ipdb
