@@ -55,8 +55,9 @@ model, _, preprocess = open_clip.create_model_and_transforms("hf-hub:lmb-freibur
 model.eval()
 tokenizer = open_clip.get_tokenizer('ViT-B-16', context_length=32)
 
-image = preprocess(Image.open("assets/rabbit.jpg")).unsqueeze(0)
-text = tokenizer(["a dog", "a cat", "a rabbit"])
+image = preprocess(Image.open("assets/images_cc0/rabbit.png")).unsqueeze(0)
+texts = ["a dog", "a cat", "a rabbit"]
+tokens = tokenizer(texts)
 
 with torch.no_grad(), torch.autocast("cuda"):
     image_features = model.encode_image(image)
@@ -66,7 +67,7 @@ with torch.no_grad(), torch.autocast("cuda"):
     logits = (model.logit_scale * image_features @ text_features.T)
     pred_class = logits.argmax(-1).item()
 
-print(pred_class)  # prints: 2
+print(texts[pred_class])  # prints: a rabbit
 
 ```
 
@@ -85,7 +86,7 @@ src/
 
 ## Setup
 
-- Currently running with python=3.12 torch=2.7 cuda=12.4
+- Currently running with python=3.12 torch=2.6 cuda=12.4
 - Setup the paths with environment variables `ENTITYNET_DATA_DIR` and `ENTITYNET_OUTPUT_DIR`
 
 ```bash
