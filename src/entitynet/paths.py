@@ -32,20 +32,10 @@ def get_entitynet_data_dir() -> Path:
 
 
 def get_entitynet_output_dir():
-    output_dir = os.environ.get("ENTITYNET_OUTPUT_DIR", get_entitynet_data_dir() / "output")
-    if output_dir is None:
-        raise ValueError(
-            "ENTITYNET_OUTPUT_DIR environment variable not set. Set it, or overwrite function "
-            "get_entitynet_output_dir()"
-        )
+    output_dir = os.environ.get("ENTITYNET_OUTPUT_DIR", get_entitynet_repo_root() / "output")
     return Path(output_dir)
 
 
 def get_entitynet_cache_dir() -> Path:
     cache_dir = os.environ.get("ENTITYNET_CACHE_DIR", get_entitynet_data_dir() / "cache")
-    if cache_dir is None:
-        raise ValueError(
-            "ENTITYNET_CACHE_DIR environment variable not set. Set it, or overwrite function "
-            "get_entitynet_cache_dir()"
-        )
     return Path(cache_dir)
