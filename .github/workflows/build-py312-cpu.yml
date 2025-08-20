@@ -135,7 +135,7 @@ jobs:
 #
     - name: Run pytest
       run: |
-        python -m pytest tests -m "not slow and not cuda"--cov
+        python -m pytest tests -m "not slow and not cuda" --cov
 #
     - name: Run black check
       continue-on-error: true
