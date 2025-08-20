@@ -225,6 +225,7 @@ python -m entitynet.cli.run projects/eval_clip_entitynet_zs/eval_clip_vitb32_ent
 # view results:
 python -m entitynet.cli.view_results -s eval_clip_entitynet_zs
 # use script entitynet.cli.view_results to show the metrics.
+# note that in our paper we test with different prompts and report the best result over all prompts.
 ```
 
 ### Training
