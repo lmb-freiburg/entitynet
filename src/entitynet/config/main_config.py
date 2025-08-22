@@ -85,8 +85,8 @@ class TrainerCfg:
     accum_steps: int = 1
     batch_size_eval: int = 32
     seed: int = 0
-    val_task_keys: list[str] | None = None
-    test_task_keys: list[str] | None = None
+    val_task_keys: list[str] | str | None = None
+    test_task_keys: list[str] | str | None = None
     max_steps: int = -1
     max_epochs: int = -1
     max_epochs_for_scheduler: int | None = None

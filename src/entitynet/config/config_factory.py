@@ -178,8 +178,12 @@ def postprocess_config(config: Config):
         config.eval_tasks = {}
     if config.trainer.val_task_keys is None:
         config.trainer.val_task_keys = []
+    if isinstance(config.trainer.val_task_keys, str):
+        config.trainer.val_task_keys = [config.trainer.val_task_keys]
     if config.trainer.test_task_keys is None:
         config.trainer.test_task_keys = []
+    if isinstance(config.trainer.test_task_keys, str):
+        config.trainer.test_task_keys = [config.trainer.test_task_keys]
 
     # if any of the eval tasks refer to a task list e.g. "task_list::eval_list_objcls_imgn"
     # load the task list from yaml and convert to a list of task keys.

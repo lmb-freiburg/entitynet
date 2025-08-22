@@ -215,10 +215,10 @@ python -m pytest tests/entitynet/test_eval_tasks_xm3600.py -sx
 # start one of the configs. you can either modify the yaml or modify the config on the fly with -o.
 # by default it will run ALL tasks listed in eval_list_all.yaml
 # to run only on one task or a smaller task list, use an argument like:
--o trainer.test_task_keys=imgn_1k_val,
+-o trainer.test_task_keys=imgn_1k_val
 # or:
--o trainer.test_task_keys=task_list::eval_list_objcls_imgn,
-# note the "," at the end, it's necessary to create a list of strings.
+-o trainer.test_task_keys=task_list::eval_list_objcls_imgn
+# use comma to separate multiple task keys.
 
 python -m entitynet.cli.run projects/eval_clip_entitynet_zs/eval_clip_vitb32_entitynet33m.yaml --run_id e1 --test_only
 
