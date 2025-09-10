@@ -3,7 +3,7 @@
 <a href="https://arxiv.org/pdf/2505.02746">paper</a> —
 <a href="https://arxiv.org/abs/2505.02746">arXiv</a> —
 <a href="https://entity-net.github.io">project page</a> —
-<a href="https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca">🤗 models</a>
+<a href="https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca">🤗 models</a> —
 <a href="https://huggingface.co/datasets/lmb-freiburg/entitynet">🤗 dataset</a>
 </div>
 
