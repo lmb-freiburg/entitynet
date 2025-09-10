@@ -1,7 +1,10 @@
 <div align="center">
 <img src='https://raw.githubusercontent.com/lmb-freiburg/entitynet/refs/heads/main/assets/logo_cv_small.png' alt='Computer Vision, University of Freiburg' title='Computer Vision, University of Freiburg'/><br/>
-<a href="https://arxiv.org/abs/2505.02746">arXiv preprint</a> —
-<a href="https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca">🤗 Hugging Face models</a>
+<a href="https://arxiv.org/pdf/2505.02746">paper</a> —
+<a href="https://arxiv.org/abs/2505.02746">arXiv</a> —
+<a href="https://entity-net.github.io">project page</a> —
+<a href="https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca">🤗 models</a>
+<a href="https://huggingface.co/datasets/lmb-freiburg/entitynet">🤗 dataset</a>
 </div>
 
 # EntityNet
@@ -277,7 +280,7 @@ Please refer to our paper's acknowledgement section. Additionally we would like 
 Citation will be updated after the conference proceedings are released.
 
 ```bibtex
-@inproceedings{ging2025,
+@inproceedings{ging2025entitynet,
   author    = {Simon Ging and Sebastian Walter and Jelena Bratulić and Johannes Dienert and Hannah Bast and Thomas Brox},
   title     = {Using Knowledge Graphs to Harvest Datasets for Efficient CLIP Model Training},
   booktitle = {Pattern Recognition - 46th {DAGM} German Conference, {DAGM} {GCPR} 2025, Freiburg, Germany, September 23-26, 2025, Proceedings), 2025},
