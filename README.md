@@ -33,6 +33,8 @@ Stay tuned for the dataset release.
 - [x] Upload CLIP models on huggingface
 - [x] Add evaluation code
 - [ ] Add training dataset
+  - [X] Add code to download images from URLs and create webdataset
+  - [ ] Add dataloader for the webdataset
 - [ ] Add model training code
 
 ## Models
@@ -208,6 +210,18 @@ python -m pytest tests/entitynet/test_eval_tasks_xm3600.py -sx
 #     images/*.jpg
 #   crossmodal3600_captions-en.json
 
+```
+
+### Setup EntityNet dataset from URLs
+
+Note that the default settings for the scripts below is to download the validation set only.
+
+Use `--splits val,test,minitrain,train` to download all splits.
+
+```bash
+python -m entitynet.cli.urlbuild_step1_metadata
+python -m entitynet.cli.urlbuild_step2_images
+python -m entitynet.cli.urlbuild_step3_tars
 ```
 
 ## Usage
