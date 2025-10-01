@@ -46,8 +46,11 @@ class CustomModelCheckpoint(ModelCheckpoint):
     def _save_checkpoint(self, trainer: "pl.Trainer", filepath: str) -> None:
         """
         Try making the checkpointing more robust to disk or other problems.
+
+        Every failed save fills up /tmp so we cannot just try to save every 60 seconds.
+        So we wait exponentially longer each time.
         """
-        sleep = 60
+        sleep = 15 * 60  # initial sleep 15 minutes
         while True:
             try:
                 trainer.save_checkpoint(filepath, self.save_weights_only)
@@ -58,6 +61,7 @@ class CustomModelCheckpoint(ModelCheckpoint):
                     f"Will try again in {sleep} seconds"
                 )
                 time.sleep(sleep)
+                sleep = min(sleep * 4, 16 * 3600)  # quadruple sleep time to max 16 hours
 
         self._last_global_step_saved = trainer.global_step
         self._last_checkpoint_saved = filepath
