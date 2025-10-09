@@ -12,6 +12,8 @@ wandb
 ftfy  # text cleaner for some of the tokenizers
 timm  # some of the vision models use timm
 
+pillow-avif-plugin  # support parsing .avif images
+
 # dev
 ipdb
 ipython

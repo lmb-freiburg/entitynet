@@ -216,7 +216,7 @@ python -m pytest tests/entitynet/test_eval_tasks_xm3600.py -sx
 
 Note that the default settings for the scripts below is to download the validation set only.
 
-Use `--splits val,test,minitrain,train` to download all splits.
+Use `--splits val,test,minitrain,train` to download all splits. Default is to download only `minitrain,val`.
 
 ```bash
 python -m entitynet.cli.urlbuild_step1_metadata
