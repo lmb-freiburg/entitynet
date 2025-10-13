@@ -17,10 +17,11 @@ We show that this dataset can be used to train a generic CLIP model in a short a
 Using a 10M-image subset focused on living organisms, we train domain expert models that excel
 at fine-grained classification of animals, plants, and fungi.
 
-Stay tuned for the dataset release.
+**Dataset and training code are released!**
 
 ## News
 
+- 10 October 2025: Uploaded last part of **training dataset and code**
 - 19 August 2025: Added **evaluation code**
 - 06 May 2025: **Models** on [Hugging Face](https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca)
 - 05 May 2025: **Preprint** on [arXiv](https://arxiv.org/abs/2505.02746)
@@ -32,10 +33,12 @@ Stay tuned for the dataset release.
 - [x] Publish preprint
 - [x] Upload CLIP models on huggingface
 - [x] Add evaluation code
-- [ ] Add training dataset
+- [X] Add training dataset
   - [X] Add code to download images from URLs and create webdataset
-  - [ ] Add dataloader for the webdataset
-- [ ] Add model training code
+  - [X] Add dataloader for the webdataset
+- [X] Add model training code
+- [ ] Code to download images using image search
+- [ ] Code to download entities from WikiData
 
 ## Models
 
@@ -247,12 +250,13 @@ python -m entitynet.cli.view_results -s eval_clip_entitynet_zs
 
 ### Training
 
-TBD setup of the training dataset
+Assuming you have built EntityNet from the given URLs as described above.
 
 ```bash
 # start the experiment and give it a unique run id
 # the run id will determine the subfolder and names it in the online logger
-python -m entitynet.cli.run configs/projects/subdirectory/config_name.yaml --run_id myrun123
+python -m entitynet.cli.run configs/projects/subdirectory/config_name.yaml --run_id myrun123 --vislogger wandb
+
 # result will be in path
 cd ${ENTITYNET_OUTPUT_DIR}/experiments/subdirectory/config_name/myrun123
 
@@ -264,6 +268,7 @@ cd ${ENTITYNET_OUTPUT_DIR}/experiments/subdirectory/config_name/myrun123
 -o train_task.dataset.max_shards=32  # smaller train set, minimum is n_gpus * n_dataloader_workers
 -o train_task.test_task_keys=imgn_1k_val,  # only test on imagenet. note the , at the end to make it a list
 
+--vislogger csv  # to log locally instead of wandb
 --run_val  # evaluate epoch 0 and exit, useful for finetuning
 --test_only  # disable creating the train dataset and just run the test
 ```
