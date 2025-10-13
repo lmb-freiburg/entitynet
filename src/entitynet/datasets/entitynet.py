@@ -1,7 +1,25 @@
+"""
+some central constants and helpers for entitynet dataset.
+
+Example metadata entry:
+{
+'qh': ['9sLPl-FNQ08Cl4tqylOS3ynd1lhqqEkiiEc2zA'],
+'texts': ['The Online Zoo - White-crowned Pigeon'],
+'images_link': ['https://www.theonlinezoo.com/img/14/toz14382l.jpg'],
+'images_contextlink': ['https://theonlinezoo.com/pages/white-crowned_pigeon.html'],
+'images_width': [1600],
+'images_height': [1200],
+'img': 'images_raw/test-00000-of-00001/test000004582.jpg',
+'height': 512,
+'width': 683
+}
+"""
+
+from pathlib import Path
 from attr import define
 from entitynet.paths import get_entitynet_data_dir
-from datasets import load_dataset
 from packg.system.systemcall import systemcall_with_assert
+from packg.typext import PathType
 from typedparser import VerboseQuietArgs, add_argument
 
 from attrs import define
@@ -13,17 +31,18 @@ from loguru import logger
 LEGAL_SPLITS = {"train", "val", "test", "minitrain"}
 ENTITYNET_HF_URL = "https://huggingface.co/datasets/lmb-freiburg/entitynet"
 MAX_SIDE = 512
-N_SHARDS_V10 = {
+N_SHARDS = {
     "train": 2048,
     "val": 32,
     "test": 32,
     "minitrain": 64,
 }
 
+
 @define
 class EntityNetUrlBuildArgs(VerboseQuietArgs):
     splits: str = add_argument(
-        default="val",
+        default="val,minitrain",
         help="Which splits to download, comma-separated for multiple.",
     )
     workers: int = add_argument(
@@ -42,6 +61,7 @@ def parse_args_for_url_build(args: EntityNetUrlBuildArgs):
         if s not in LEGAL_SPLITS:
             raise ValueError(f"Invalid split: {s}. Must be one of {', '.join(LEGAL_SPLITS)}.")
     return entitynet_dir, split_list
+
 
 def ensure_entitynet_huggingface():
     """

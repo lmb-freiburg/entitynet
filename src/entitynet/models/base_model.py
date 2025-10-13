@@ -6,6 +6,7 @@ import math
 from abc import ABC, abstractmethod
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 
 import lightning as lit
 import numpy as np
@@ -69,6 +70,7 @@ class LitBaseModel(lit.LightningModule, ABC):
 
         steps_per_epoch = None
         if self.trainer.max_epochs is None:
+            # TODO training step-based instead of epoch-based was never tested and will likely break
             total_steps = self.trainer.max_steps
             total_steps_for_scheduler = total_steps
             assert (
@@ -78,6 +80,13 @@ class LitBaseModel(lit.LightningModule, ABC):
             steps_per_epoch, total_steps, total_steps_for_scheduler = (
                 self.calculate_steps_from_epochs()
             )
+            if steps_per_epoch < self.config.trainer.accum_steps:
+                raise ValueError(
+                    f"Dataset size and batch size results in {steps_per_epoch=} which is smaller "
+                    f"than {self.config.trainer.accum_steps=}. So optimizer.step() will never be "
+                    f"reached, therefore no checkpoint will be written and the validation code "
+                    f"will fail."
+                )
         # calculate lr scheduler
         if opt_cfg.warmup_steps is None:
             if opt_cfg.warmup_epochs is None:
@@ -287,7 +296,7 @@ class LitBaseModel(lit.LightningModule, ABC):
             raise RuntimeError(f"{len(self._eval_finished)=} {len(self.test_tasks)=}")
         logger.debug(f"Done testing {len(self.test_tasks)} tasks")
 
-    def run_eval_epoch_end(self, task: BaseTask, output: list[any], dataset: any):
+    def run_eval_epoch_end(self, task: BaseTask, output: list[Any], dataset: Any):
         metric_prefix = self.eval_phase
         task_key = task.task_key
         if len(output) == 0:

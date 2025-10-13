@@ -98,7 +98,6 @@ class DatasetCfg:
     batch_size_eval: int | None = None
     max_datapoints: int | None = None
     max_shards: int | None = None  # webdataset only
-    base_dir: Path | None = None
     eval_type: str = "default"
     deterministic_seed: int | None = None
     # TODO consider creating separate configs for separate dataset types
@@ -119,7 +118,6 @@ class EntityNetTextReturnMode(Const):
 
 @define(auto_attribs=True, kw_only=True)
 class EntityNetTextAugCfg:
-    aug_version: str = "v4"
     n_texts_per_image: int = 0  # >0 = returns list of str, 0 = single str
     return_mode: str = EntityNetTextReturnMode.SAMPLE
     replace_noun_synonym_chance: float = 0.0

@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
-from typing import Union
+from typing import Any, Union
 
 import numpy as np
 from torch import Tensor
 
 from entitynet.config.task_config import BaseTaskCfg
 
-EVAL_OUTPUT_TYPE = dict[str, Union[Tensor, any]] | None
+EVAL_OUTPUT_TYPE = dict[str, Union[Tensor, Any]] | None
 
 
 class BaseTask(ABC):

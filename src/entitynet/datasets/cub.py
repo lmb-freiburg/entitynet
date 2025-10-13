@@ -7,7 +7,6 @@ from torch.utils.data import Dataset
 from packg.iotools import yield_lines_from_file
 from packg.iotools.jsonext import dump_json, load_json
 from packg.log import logger
-from visiontext.distutils import barrier_safe, get_rank
 
 from entitynet.paths import get_entitynet_data_dir
 
@@ -42,10 +41,9 @@ class Cub(Dataset):
     ):
         root, ann_root = get_cub_dirs(root)
         cached_ann_file = root / f"cached_annotations.json"
-        if not cached_ann_file.is_file() and get_rank() == 0:
+        if not cached_ann_file.is_file():
             ann_data = load_cub_annotations_from_txt(ann_root)
             dump_json(ann_data, cached_ann_file, indent=2)
-        barrier_safe()
         ann_data = load_json(cached_ann_file)
         # categories: name_cleaned, name
         # attributes: name (e.g. "has_back_pattern::spotted")

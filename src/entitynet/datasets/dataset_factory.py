@@ -12,6 +12,8 @@ from loguru import logger
 from torch.utils.data import DataLoader, Dataset
 from webdataset.utils import pytorch_worker_info
 
+from entitynet.datasets.entitynet_indexable import EntityNetUrlIndexable
+from entitynet.datasets.entitynet_webds import build_entityneturl_webdataset
 from packg import Const
 
 from entitynet.config.main_config import Config
@@ -31,7 +33,7 @@ from entitynet.preprocessor.preprocessor_factory import build_vis_preprocessor_f
 
 
 class DatasetFactoryC(Const):
-    ENTITYNET = "entitynet"
+    ENTITYNETURL = "entityneturl"
     CLIP_BENCHMARK = "clip_benchmark"
     CLIP_BENCHMARK_CONTRASTIVE = "clip_benchmark_contrastive"
     CLIP_BENCHMARK_CONTRASTIVE_MULTITEXT = "clip_benchmark_contrastive_multitext"
@@ -98,7 +100,6 @@ def build_dataset_from_config(
     dataset_split = dataset_cfg.dataset_split
     max_datapoints = dataset_cfg.max_datapoints
     max_shards = dataset_cfg.max_shards
-    base_dir = dataset_cfg.base_dir
     text_aug = dataset_cfg.text_aug
     eval_type = dataset_cfg.eval_type
     deterministic_seed = dataset_cfg.deterministic_seed
@@ -117,6 +118,40 @@ def build_dataset_from_config(
             is_train,
             seed,
         )
+
+    if dataset_factory == DatasetFactoryC.ENTITYNETURL:
+        if dataset_name == "indexable":
+            if filter_dict is not None:
+                raise NotImplementedError(
+                    "Filtering not implemented for indexable dataset, use webdataset or implement."
+                )
+            ds = EntityNetUrlIndexable(
+                dataset_split,
+                transform=transform,
+                max_datapoints=max_datapoints,
+                text_aug=text_aug,
+                eval_type=eval_type,
+                deterministic_seed=deterministic_seed,
+            )
+        elif dataset_name == "webdataset":
+            ds, loader = build_entityneturl_webdataset(
+                dataset_split,
+                transform=transform,
+                max_shards=max_shards,
+                max_datapoints=max_datapoints,
+                text_aug=text_aug,
+                eval_type=eval_type,
+                filter_op=filter_op,
+                filter_dict=filter_dict,
+                epoch=0,
+                is_train=is_train,
+                seed=seed,
+                batch_size=batch_size,
+                workers=workers,
+                world_size=world_size,
+            )
+        else:
+            raise ValueError(f"Unknown dataset factory: {dataset_factory}")
 
     if dataset_factory.startswith(DatasetFactoryC.CLIP_BENCHMARK):
         # note that the clip_benchmark builder will call the function
@@ -197,8 +232,6 @@ def build_dataset_from_config(
 
     if dataset_factory == DatasetFactoryC.DOMAINNET:
         domainnet_dir = None
-        if base_dir is not None:
-            domainnet_dir = base_dir / "imagenet1k/imagenet-d"
         ds = DomainNetCaptions(
             domainnet_path=domainnet_dir, split=dataset_split, transform=transform
         )
@@ -299,12 +332,13 @@ class ClipBenchmarkWrapper(Dataset):
             print(f"Limiting dataset to {max_datapoints} datapoints from {len(self.dataset)}")
             self.dataset_len = max_datapoints
 
+        dataset_name = type(dataset).__name__
         if task == "zeroshot_classification":
             self.classes = dataset.classes
             self.templates = dataset.templates
-            logger.info(f"Created ClipBenchmark {dataset} with classes {self.classes[:5]}...")
+            logger.info(f"Created ClipBenchmark {dataset_name} with classes {self.classes[:5]}...")
         else:
-            logger.info(f"Created ClipBenchmark {dataset} with task {task}")
+            logger.info(f"Created ClipBenchmark {dataset_name} with task {task}")
 
     def __len__(self):
         return self.dataset_len

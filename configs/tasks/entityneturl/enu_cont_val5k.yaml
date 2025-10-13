@@ -1,0 +1,30 @@
+# living-things v4 default contrastive evaluation
+task_factory: "contrastive"
+# loss_name_appdx: "_cont_val"  # this one we want logged as val_loss and test_loss without appendix
+dataset:
+    dataset_factory: "entityneturl"
+    dataset_name: "indexable"
+    dataset_split: "val"
+    eval_type: "default"  # default: random text, alttext: only alttext
+    # this does NOT change the sampling, it only excludes non-alttext datapoints.    
+    max_datapoints: 5000  # eval set doesn't need to be huge
+    deterministic_seed: 0  # fixed augmentation (constant image-text pairs)
+    text_aug:
+        replace_noun_synonym_chance: 0.6
+        replace_noun_definition_chance: 0.1
+        replace_noun_hierarchy_chance: 0.2
+        replace_noun_hierarchy_chance_living: 0.1
+        alt_text_chance: 0.5  # how often to use alt-text vs query
+        attronly_keep_query: 1.0
+        attronly_replace_query_with_synonym: 0.2
+        attronly_build_pseudo_query: 0.2
+        attronly_strgf_replace_entity: 0.2
+        attronly_attribute_only: 0.2
+        attronly_replace_with_definition: 0.05
+        attrnoun_keep_query: 1.0
+        attrnoun_replace_query_with_synonym: 0.2
+        attrnoun_build_pseudo_query: 0.2
+        attrnoun_strgf_replace_entity: 0.2
+        attrnoun_attribute_only: 0.2
+        attrnoun_replace_with_definition: 0.05
+        n_texts_per_image: 0  # 0 = return "text" as str, otherwise returns list of str

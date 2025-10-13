@@ -1,4 +1,5 @@
 import torch
+from torch import nn
 from lightning.pytorch.core.optimizer import LightningOptimizer
 from lightning.pytorch.utilities.types import STEP_OUTPUT
 from loguru import logger
@@ -118,7 +119,7 @@ class LitOpenClip(LitBaseModel):
         self.context_length = cm.context_length
 
         self.epoch_identifier = "pretrained"
-        self.loss = None
+        self.loss: nn.Module | None = None
         self.config = config
 
     def setup(self, stage: str) -> None:
@@ -233,12 +234,37 @@ class LitOpenClip(LitBaseModel):
             self.manual_backward(loss)
             if self.config.trainer.check_for_nans:
                 self.check_for_nans()
+
+            if self.config.optimizer.clip_grad_norm is not None:
+                grad_norm = torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), self.config.optimizer.clip_grad_norm
+                )
+                self.log("train_grad_norm", grad_norm, on_step=True, on_epoch=False)
+                
             opt: LightningOptimizer = self.optimizers()
             opt.step()
             opt.zero_grad()
             lr_sched: LRScheduler = self.lr_schedulers()
             lr_sched.step()
             self.log("train_loss", loss, batch_size=batch_size, on_step=True, on_epoch=False)
+            if wi.is_global_zero:
+                self.log(
+                    "train_logit_scale",
+                    out_dict["logit_scale"],
+                    batch_size=batch_size,
+                    on_step=True,
+                    on_epoch=False,
+                    rank_zero_only=True,
+                )
+                if "logit_bias" in out_dict:
+                    self.log(
+                        "train_logit_bias",
+                        out_dict["logit_bias"],
+                        batch_size=batch_size,
+                        on_step=True,
+                        on_epoch=False,
+                        rank_zero_only=True,
+                    )
             return
 
         # ---------- accumulate gradients over multiple steps
@@ -283,6 +309,26 @@ class LitOpenClip(LitBaseModel):
                 images = self.accum_images[j]
                 tokens = self.accum_tokens[j]
                 out_dict = self.model(images, tokens)
+                if j == 0 and wi.is_global_zero:
+                    # logit scale depends on model weights, so only logging it once per accum
+                    # and only on GPU 0 is sufficient
+                    self.log(
+                        "train_logit_scale",
+                        out_dict["logit_scale"],
+                        batch_size=batch_size,
+                        on_step=True,
+                        on_epoch=False,
+                        rank_zero_only=True,
+                    )
+                    if "logit_bias" in out_dict:
+                        self.log(
+                            "train_logit_bias",
+                            out_dict["logit_bias"],
+                            batch_size=batch_size,
+                            on_step=True,
+                            on_epoch=False,
+                            rank_zero_only=True,
+                        )
                 inputs_no_accum = {"logit_scale": out_dict.pop("logit_scale")}
                 if "logit_bias" in out_dict:
                     inputs_no_accum["logit_bias"] = out_dict.pop("logit_bias")
@@ -303,6 +349,11 @@ class LitOpenClip(LitBaseModel):
                 # self.check_for_nans()
                 total_loss += loss
 
+            if self.config.optimizer.clip_grad_norm is not None:
+                grad_norm = torch.nn.utils.clip_grad_norm_(
+                    self.model.parameters(), self.config.optimizer.clip_grad_norm
+                )
+                self.log("train_grad_norm", grad_norm, on_step=True, on_epoch=False)
             opt: LightningOptimizer = self.optimizers()
             opt.step()
             opt.zero_grad()

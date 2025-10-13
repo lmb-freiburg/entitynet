@@ -520,8 +520,6 @@ class CustomTextCLIP(nn.Module):
         model_loss_name: str = "clip",  # NEW add model loss name, required in some scenarios
     ):
         super().__init__()
-        if model_loss_name != "clip":  # NEW sanity check
-            raise ValueError(f"CustomTextCLIP only supports clip loss, got {model_loss_name}")
         self.embed_dim = embed_dim  # NEW save embed dim, very useful to know
         self.output_dict = output_dict
         self.visual = _build_vision_tower(embed_dim, vision_cfg, quick_gelu, cast_dtype)

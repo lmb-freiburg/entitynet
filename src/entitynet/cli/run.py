@@ -16,7 +16,6 @@ from lightning import seed_everything
 from lightning.pytorch.loggers import CSVLogger, NeptuneLogger, WandbLogger
 from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from loguru import logger
-from neptune.utils import stringify_unsupported
 
 from packg.debugging import connect_to_pycharm_debug_server
 from packg.iotools import dump_yaml, dumps_yaml, yield_lines_from_file
@@ -154,6 +153,8 @@ def main():
 
     # ----- setup metric logger
     if args.vislogger == "neptune":
+        from neptune.utils import stringify_unsupported
+
         logger.warning(
             f"***********************************************\n"
             f"neptune will crash your run if the internet connection breaks. use wandb instead.\n"
@@ -201,11 +202,16 @@ def main():
     elif args.vislogger == "csv":
         wlogger = CSVLogger(config.trainer.output_dir)
     elif args.vislogger == "wandb":
+        import wandb
+
         project = os.environ.get("WANDB_PROJECT", config.trainer.project_name)
         if project is None:
             raise ValueError(
-                "Either set WANDB_PROJECT environment variable or config.trainer.project_name."
+                "Either set WANDB_PROJECT environment variable or set config.trainer.project_name"
             )
+        if not wandb.api.api_key:
+            logger.warning("wandb API key not found. Attempting to login...")
+            wandb.login()
         wlogger = WandbLogger(
             save_dir=config.trainer.output_dir / "wandb",
             project=project,

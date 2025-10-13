@@ -6,7 +6,7 @@ pandas/io/formats/style_render.py StyleRenderer.format
 
 import math
 from copy import deepcopy
-from typing import Callable
+from typing import Any, Callable
 
 from attrs import define
 
@@ -42,7 +42,7 @@ FORMAT_DEFS = {
     },
 }
 
-FORMAT_DEFS_T = dict[str, dict[str, any]] | None
+FORMAT_DEFS_T = dict[str, dict[str, Any]] | None
 
 
 @define

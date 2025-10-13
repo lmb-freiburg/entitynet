@@ -4,7 +4,7 @@ Logic to consolidate results from running evaluation on multiple GPUs.
 
 import os
 from pathlib import Path
-from typing import Union
+from typing import Any, Callable, Union
 
 import lightning as lit
 import torch
@@ -21,7 +21,7 @@ def _no_print(*args, **kwargs):  # type: ignore  # noqa: F821  # pylint: disable
     pass
 
 
-def consolidate_outputs(list_of_dict_of_outputs: list[dict[str, any]]) -> dict[str, any]:
+def consolidate_outputs(list_of_dict_of_outputs: list[dict[str, Any]]) -> dict[str, Any]:
     """
     Concatenates a list of dictionaries with identical keys into a single dictionary.
     Handles torch.Tensor, list, and scalar (int/float/str) values appropriately.
@@ -61,8 +61,8 @@ def consolidate_outputs(list_of_dict_of_outputs: list[dict[str, any]]) -> dict[s
 
 
 def deduplicate_outputs(
-    dict_of_outputs: dict[str, Union[torch.Tensor, any]], deduplicate_field: str
-) -> dict[str, Union[torch.Tensor, any]]:
+    dict_of_outputs: dict[str, Union[torch.Tensor, Any]], deduplicate_field: str
+) -> dict[str, Union[torch.Tensor, Any]]:
     """
     Removes duplicate entries from a dictionary based on values in deduplicate_field.
     Preserves the first occurrence of each unique value and updates all fields accordingly.
@@ -93,7 +93,7 @@ def deduplicate_outputs(
     return dict_of_outputs
 
 
-def gather_object(obj, global_rank, world_size, group=None) -> list[any]:
+def gather_object(obj, global_rank, world_size, group=None) -> list[Any]:
     """
     Gathers objects from all processes to rank 0 using PyTorch distributed.
     Returns gathered list on rank 0, None on other ranks.
@@ -117,7 +117,7 @@ def gather_object(obj, global_rank, world_size, group=None) -> list[any]:
 
 def gather_object_on_filesystem(
     obj, global_rank, world_size, base_dir, trainer=None, timeout_seconds=1800
-) -> list[any]:
+) -> list[Any] | None:
     """
     Gathers objects from all processes to rank 0 using the filesystem.
 
@@ -142,8 +142,8 @@ def gather_object_on_filesystem(
     # Each rank dumps its object
     filename_template = "temp_obj_{}_of_{}.json"
     obj_file = base_path / filename_template.format(global_rank, world_size)
-    wi.print_with_rank(f"Dumping {obj_file}")
-    dump_json(obj, obj_file, indent=2, custom_format_nan_to_none=True, verbose=True)
+    # wi.print_with_rank(f"Dumping {obj_file}")
+    dump_json(obj, obj_file, indent=2, custom_format_nan_to_none=True, verbose=False)
     wi.barrier_safe()  # first barrier ensures all files are written
 
     if global_rank == 0:
@@ -167,7 +167,7 @@ def gather_object_on_filesystem(
 def save_outputs(
     trainer: lit.Trainer | None,
     test_outputs: list[dict[str, torch.Tensor]],
-    all_gather_fn: callable,  # all_gather reference: lightning.pytorch.core.module # line 666
+    all_gather_fn: Callable,  # all_gather reference: lightning.pytorch.core.module # line 666
     target_file: PathType,
     target_file_extras: PathType | None,
     extra_output_keys: list[str] | None = None,
@@ -190,7 +190,7 @@ def save_outputs(
         extra_output_keys = []
     wi = WorldInfo(trainer)
     # ---------- consolidate the outputs on all processes individually
-    merged_outputs: dict[str, any] = consolidate_outputs(test_outputs)
+    merged_outputs: dict[str, Any] = consolidate_outputs(test_outputs)
     # print_with_rank(f"Test outputs: {merged_outputs['idx'].shape} {merged_outputs['idx'].device}")
 
     # ---------- gather the outputs from all processes.

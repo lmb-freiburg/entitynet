@@ -98,6 +98,8 @@ class EntityNetUrlBuildStep1Multiprocessor(Dataset):
 
 def _download_key(key, urls, download_dir: Path):
     out_file = download_dir / f"{key}.jpg"
+    if out_file.is_file():
+        return key, out_file, "exists"
     success = False
     for url in urls:
         target_rgb_img, _target_alpha_img, _exif, _err = download_image_with_retry_only_once(

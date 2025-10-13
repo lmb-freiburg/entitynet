@@ -239,12 +239,13 @@ def verify_config(config: Config):
         for loss_name, task_keys in lossname2task.items():
             if len(task_keys) > 1:
                 raise ValueError(
-                    f"Misconfig: Multiple tasks will log the same metric {loss_name} - tasks "
-                    f"{task_keys}. Solution is to change the task config and either: "
-                    f"1) set loss_name_appdx to non-empty string for all "
-                    f"except one task, so loss will be logged under different names. "
-                    f"2) Set disable_loss_logging=True for all but one task. "
-                    f"3) Disable tasks until one is left."
+                    f"""\
+Misconfig: Multiple tasks will log the same metric '{loss_name}' which will break lightning. 
+Tasks: {task_keys}. Solution is to change the task config and either: 
+1) Set 'loss_name_appdx' to a non-empty string for all "except one task, so the loss will be logged\
+under different names."
+2) Set disable_loss_logging=True for all but one task.
+3) Disable tasks until one is left."""
                 )
 
 

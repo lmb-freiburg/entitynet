@@ -12,8 +12,7 @@ import os
 from pathlib import Path
 from attrs import define
 from loguru import logger
-from crx.datasets.livingthings.get_query_df import N_SHARDS_V10
-from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
+from entitynet.datasets.entitynet import N_SHARDS, EntityNetUrlBuildArgs, parse_args_for_url_build
 from packg.iotools import dump_json, load_json
 from packg.misc import uncollate
 from packg.tqdmext import tqdm_max_ncols
@@ -84,8 +83,8 @@ def main():
 
         # compute the "temporary *.tar.json" files with metadata (what to write to tars)
         nimg_per_shard_file = entitynet_dir / f"num_images_per_shard-wds_{split}.json"
-        metadata_file_format = entitynet_dir / f"temp_tar_{split}" / "temporary_%05d.tar.json"
-        n_shards = N_SHARDS_V10[split]
+        metadata_file_format = entitynet_dir / f"temp_data_{split}" / "temporary_%05d.tar.json"
+        n_shards = N_SHARDS[split]
         if not nimg_per_shard_file.is_file():
             logger.info(f"Compute metadata of shards for {split=}")
             n_datapoints = len(all_jpegs)
@@ -120,11 +119,18 @@ def main():
             assert n_datapoints == len(all_jpegs), f"{n_datapoints}!={len(all_jpegs)}, {sol}"
             assert n_shards_file == n_shards, f"{n_shards_file}!={n_shards}, {sol}"
 
+        if (entitynet_dir / f"data_{split}").is_dir():
+            logger.error(
+                f"Folder {entitynet_dir / f'data_{split}'} already exists. Not creating any tars. "
+                f"This current tarwriting process is not implemented to be resumable. "
+                f"Please restart."
+            )
+            continue
         # write the tars
         to_process = []
         for shard_id in list(range(n_shards)):
             metadata_file = metadata_file_format.as_posix() % shard_id
-            tgt_tarfile = (entitynet_dir / f"tar_{split}/shard_{shard_id:05d}.tar").as_posix()
+            tgt_tarfile = (entitynet_dir / f"data_{split}/shard_{shard_id:05d}.tar").as_posix()
             to_process.append((metadata_file, tgt_tarfile))
         logger.info(f"Prepared {len(to_process)} tar files to write for {split=}")
         logger.info(f"Files per shard: {per_shard}")

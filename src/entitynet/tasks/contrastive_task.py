@@ -1,5 +1,6 @@
 from pprint import pformat
 from timeit import default_timer
+from typing import Any
 
 import torch
 from attr import asdict
@@ -150,7 +151,7 @@ def chunked_pairwise_cosine_similarity(
     return output
 
 
-def compute_retrieval_cosine(dot: torch.Tensor) -> tuple[dict[str, float], dict[str, any]]:
+def compute_retrieval_cosine(dot: torch.Tensor) -> tuple[dict[str, float], dict[str, Any]]:
     """
     Args:
         dot: cosine similarity computed as image @ text.T with shape (N, N)
