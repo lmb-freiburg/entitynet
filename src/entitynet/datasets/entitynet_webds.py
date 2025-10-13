@@ -1,4 +1,3 @@
-
 """
 webdataset for training of entitynet
 """

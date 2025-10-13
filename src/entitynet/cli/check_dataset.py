@@ -24,7 +24,7 @@ class Args(VerboseQuietArgs):
     config_file: str | None = add_argument(shortcut="-c", type=str, help="Path to config file")
     options: list[str] | None = add_argument(shortcut="-o", action="append", help="Override config")
     val_set: str | None = add_argument(type=str, help="Check validation set with this name")
-    n_show:int = add_argument(type=int, default=10, help="Number of samples to show")
+    n_show: int = add_argument(type=int, default=10, help="Number of samples to show")
 
 
 def main():

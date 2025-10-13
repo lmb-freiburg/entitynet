@@ -240,7 +240,7 @@ class LitOpenClip(LitBaseModel):
                     self.model.parameters(), self.config.optimizer.clip_grad_norm
                 )
                 self.log("train_grad_norm", grad_norm, on_step=True, on_epoch=False)
-                
+
             opt: LightningOptimizer = self.optimizers()
             opt.step()
             opt.zero_grad()

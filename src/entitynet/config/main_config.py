@@ -28,7 +28,7 @@ from entitynet.config.task_config import BaseTaskCfg
 @define(auto_attribs=True, kw_only=True)
 class Config:
     model: BaseModelCfg = None
-    trainer: TrainerCfg = None 
+    trainer: TrainerCfg = None
     eval_tasks: dict[str, BaseTaskCfg] | None = None  # used to define new eval tasks on the fly
     train_task: BaseTaskCfg | None = None
     optimizer: OptimizerCfg | None = None
