@@ -50,7 +50,6 @@ class DatasetFactoryC(Const):
     SUGARCREPEPP = "sugarcrepepp"
 
 
-
 def build_eval_datasets(config: Config):
     """Build eval datasets given config.eval_tasks"""
     eval_datasets_dict = {}
@@ -292,10 +291,8 @@ def build_dataset_from_config(
             dataset_name, transform=transform, return_dict=True, max_datapoints=max_datapoints
         )
 
-
     if ds is None:
         raise ValueError(f"Unknown dataset factory name: {dataset_factory}")
-
 
     if loader is None:
         if batch_size is None:
@@ -368,8 +365,6 @@ class ClipBenchmarkWrapper(Dataset):
 def worker_init_fn_verbose(worker_id):
     print(f"worker_init_fn with worker_id {worker_id} worker {pytorch_worker_info()}")
     return worker_id
-
-
 
 
 def build_merged_dataset(

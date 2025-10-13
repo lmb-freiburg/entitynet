@@ -210,8 +210,6 @@ def mac_siglip_loss_old(batch_size, dim):
     return macs
 
 
-
-
 def mac_CLIPLoss(batch_size, dim):
     # update logit_scale b*d to b*b
     # get logits: scale * img_features@text_features.T + scale * text_features@img_features.T
@@ -375,4 +373,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

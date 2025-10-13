@@ -46,7 +46,6 @@ class ClipContrastiveMultiTextCfg(BaseTaskCfg):
     n_texts_per_image: int = None
 
 
-
 # ---------- Definition of task types and their mapping to config classes ----------
 
 
@@ -55,7 +54,6 @@ class ClipTaskC(Const):
     CONTRASTIVE = "contrastive"
     CONTRASTIVE_MULTITEXT = "contrastive_multitext"  # 1 image <-> N texts
     SUGARCREPEPP = "sugarcrepepp"
-
 
 
 ClipTaskConfigs = {
@@ -140,7 +138,6 @@ class EntityNetTextAugCfg:
     attrnoun_replace_with_definition: float = 0.0
     combine_synonym_and_parentsynonym: float = 0.0  # does not look so good for now.
     clip_prompts: float = 0.0  # use clip prompts for nouns
-
 
 
 # ---------- Utility functions for task yamls and task list yamls ----------

@@ -12,4 +12,6 @@ def test_imports_from_source(module: str) -> None:
         print(f"Skipping import: {module}")
         return
     print(f"Importing: {module}")
-    apply_visitor(module=module, visitor=ImportFromSourceChecker(module, ignore_modules=ignore_modules))
+    apply_visitor(
+        module=module, visitor=ImportFromSourceChecker(module, ignore_modules=ignore_modules)
+    )

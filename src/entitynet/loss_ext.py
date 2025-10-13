@@ -21,5 +21,3 @@ def get_init_logits_for_loss_name(loss_name: str) -> tuple[float, float]:
         init_logit_scale = np.log(10)
         init_logit_bias = -10
     return init_logit_scale, init_logit_bias
-
-

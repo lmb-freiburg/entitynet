@@ -109,8 +109,7 @@ def load_eval_results_for_run(
     run_dir_rel: PathType,
     filter_dict: dict[str, list[str] | None] | None = None,
     allow_nans: bool = True,
-    allow_nans_always: tuple[str] | None = (
-    ),
+    allow_nans_always: tuple[str] | None = (),
     datasets: list[str] | None = None,
     remove_corrupt_jsons: bool = False,
 ) -> pd.DataFrame | None:
