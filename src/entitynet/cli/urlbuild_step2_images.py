@@ -34,6 +34,8 @@ example_datapoint = {
 from collections import defaultdict
 import os
 from pathlib import Path
+from tracemalloc import start
+from attrs import define
 from loguru import logger
 from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
 from packg.misc import uncollate
@@ -43,6 +45,7 @@ from packg.typext import PathType
 from typedparser import TypedParser
 from torch.utils.data import Dataset
 import pandas as pd
+from typedparser import add_argument
 from visiontext.image_downloader import download_image_with_retry_only_once, random_sleep
 from torch.utils.data import DataLoader
 
@@ -50,9 +53,17 @@ N_RETRIES = 3
 SLEEP_SEC = 1
 
 
+@define
+class EntityNetUrlBuildArgsImages(EntityNetUrlBuildArgs):
+    start_shard: int = add_argument(type=int, default=0, help="Start shard index (inclusive)")
+    end_shard: int = add_argument(
+        type=int, default=-1, help="End shard index (exclusive), -1 ignore"
+    )
+
+
 def main():
-    parser = TypedParser.create_parser(EntityNetUrlBuildArgs, description=__doc__)
-    args: EntityNetUrlBuildArgs = parser.parse_args()
+    parser = TypedParser.create_parser(EntityNetUrlBuildArgsImages, description=__doc__)
+    args: EntityNetUrlBuildArgsImages = parser.parse_args()
     logger.info(f"{args}")
     entitynet_dir, split_list = parse_args_for_url_build(args)
     metadata_dir = entitynet_dir / "images_metadata"
@@ -61,6 +72,11 @@ def main():
     for split in split_list:
         parquets = sorted(list(metadata_dir.glob(f"{split}-*.parquet")))
         assert len(parquets) > 0, f"No parquets found for {split=} in {metadata_dir}"
+        start_shard, end_shard = args.start_shard, args.end_shard
+        if end_shard == -1:
+            end_shard = len(parquets)
+        parquets = parquets[start_shard:end_shard]
+        logger.info(f"Processing {len(parquets)=} {split=} from {start_shard=} to {end_shard=}")
         for parquet in parquets:
             logger.info(f"Process {split=} parquet {parquet.name}")
             df = pd.read_parquet(parquet)

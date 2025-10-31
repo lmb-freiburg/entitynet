@@ -58,10 +58,19 @@ def load_config_from_file(
     # determine experiment name and output directory from the file name
     if config.trainer.experiment_name is None:
         cfg_path_rel = "configs/projects"
-        if config_file.is_absolute():
-            new_name = config_file.relative_to(get_entitynet_repo_root() / cfg_path_rel).as_posix()
-        else:
-            new_name = config_file.relative_to(cfg_path_rel).as_posix()
+        try:
+            if config_file.is_absolute():
+                new_name = config_file.relative_to(
+                    get_entitynet_repo_root() / cfg_path_rel
+                ).as_posix()
+            else:
+                new_name = config_file.relative_to(cfg_path_rel).as_posix()
+        except ValueError as e:
+            raise ValueError(
+                f"Cannot determine experiment name from config file path {config_file} - "
+                f"Either put the file inside '{cfg_path_rel}' or set 'trainer.experiment_name' in "
+                f"the config."
+            ) from e
         new_name = ".".join(new_name.split(".")[:-1])  # remove .yaml
         config.trainer.experiment_name = new_name
     if config.trainer.output_dir is None:

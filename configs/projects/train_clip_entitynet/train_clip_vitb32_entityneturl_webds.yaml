@@ -1,0 +1,82 @@
+train_task:
+    task_factory: "contrastive"
+    dataset:
+        dataset_factory: "entityneturl"
+        dataset_name: "webdataset"
+        dataset_split: "train"
+        text_aug:
+            replace_noun_synonym_chance: 0.6
+            replace_noun_definition_chance: 0.1
+            replace_noun_hierarchy_chance: 0.2
+            replace_noun_hierarchy_chance_living: 0.1
+            alt_text_chance: 0.5  # how often to use alt-text vs query
+            attronly_keep_query: 1.0
+            attronly_replace_query_with_synonym: 0.2
+            attronly_build_pseudo_query: 0.2
+            attronly_strgf_replace_entity: 0.2
+            attronly_attribute_only: 0.2
+            attronly_replace_with_definition: 0.05
+            attrnoun_keep_query: 1.0
+            attrnoun_replace_query_with_synonym: 0.2
+            attrnoun_build_pseudo_query: 0.2
+            attrnoun_strgf_replace_entity: 0.2
+            attrnoun_attribute_only: 0.2
+            attrnoun_replace_with_definition: 0.05
+            n_texts_per_image: 0  # 0 = return "text" as str, otherwise returns list of str
+    vis_preproc:
+        preproc_factory: ${model.vis_preproc.preproc_factory}
+        preproc_ident: ${model.vis_preproc.preproc_ident}
+        aug_cfg:
+            scale: [ 0.4, 1.0 ]
+            ratio: [ 0.9, 1.111 ]
+    loss_name: "clip"
+    loss_local: true
+    loss_gather_with_grad: true
+
+model:
+    model_factory: "open_clip"
+    model_ident: "ViT-B-32/none"
+    context_length: 32
+    vis_preproc:
+        preproc_factory: ${model.model_factory}
+        preproc_ident: "ViT-B-32/openai"
+    force_patch_dropout: 0.0
+
+trainer:
+    output_dir: null
+    workers: 4
+    batch_size: 1024
+    accum_steps: 1
+    batch_size_eval: 256
+    seed: 0
+    val_task_keys:
+        - "enu_cont_val5k"
+        - "imgn_1k_ts"
+        - "inat19_tdev"
+    test_task_keys:
+        - "imgn_1k_val"
+        # - "task_list::eval_list_all"
+    test_last: true
+    max_epochs: 18
+    max_steps: -1
+    val_check_interval: null
+    check_val_every_n_epoch: 1
+    num_sanity_val_steps: 0
+    set_float32_matmul_precision: "medium"
+    ckpt:
+        verbose: true
+        monitor: "val_loss"
+        save_top_k: -1
+    accelerator: "gpu"
+    devices: 8
+    precision: "bf16-mixed"  # 32-true, 16-mixed, bf16-mixed
+
+optimizer:
+    opt_name: "adamw"
+    hparams:
+        lr: 5e-4
+        betas: [ 0.9, 0.98 ]
+        eps: 1e-8
+        weight_decay: 0.2
+    scheduler_name: "cosine"
+    warmup_epochs: 2
