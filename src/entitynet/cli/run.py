@@ -332,6 +332,7 @@ def main():
     # ----- prepare test checkpoints
     ckpts_to_test = []
     last_ckpt, best_ckpt, _ = find_checkpoints(ckpt_dir)
+    logger.info(f"Found {last_ckpt=} {best_ckpt=}")
     if last_ckpt is None:
         logger.warning(f"trainer.fit was called, but no last checkpoint exists in {ckpt_dir}")
     if config.trainer.test_last and last_ckpt is not None:

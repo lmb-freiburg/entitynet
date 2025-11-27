@@ -10,13 +10,13 @@ import numpy as np
 import pandas as pd
 from attr import asdict
 
-from entitynet.paths import get_entitynet_data_dir
 from packg.log import logger
 from packg.strings import hash_object
 from packg.typext import PathType
 
 from clip_benchmark.datasets.en_zeroshot_classification_templates import EN_ZSCLS_TEMPLATES
 from entitynet.config.task_config import EntityNetTextAugCfg, EntityNetTextReturnMode
+from entitynet.paths import get_entitynet_data_dir
 
 TEXTTYPE2FIELDS = {
     "synonyms": ["aliases", "name", "common_names", "taxon_names"],

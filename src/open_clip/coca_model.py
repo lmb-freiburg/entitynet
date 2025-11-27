@@ -10,6 +10,8 @@ from .model import CLIPTextCfg, CLIPVisionCfg, _build_text_tower, _build_vision_
 from .transformer import LayerNorm, LayerNormFp32, MultimodalTransformer, QuickGELU
 
 try:
+    # note that these imports are outdated as of 2025-11
+    # code would need to be fixed to work with current transformers
     from transformers import (
         BeamSearchScorer,
         EosTokenCriteria,

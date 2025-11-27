@@ -22,7 +22,7 @@ from entitynet.results.checkpoint_finder import find_checkpoints
 
 ExperimentTuple = tuple[Path, str, str, str, str, pd.DataFrame]
 
-DEFAULT_METRICS_FILTER_STR = "*acc1,*_r1,*_r5,*_meanr,*all_ap,*ap_all"
+DEFAULT_METRICS_FILTER_STR = "*acc1,*_r1,*_r5,*_meanr,*all_ap,*ap_all,*loss"
 DEFAULT_METRICS_FILTER_LIST = DEFAULT_METRICS_FILTER_STR.split(",")
 # TODO unify id_columns, in case they are also defined elsewhere.
 ID_COLUMNS = ["project", "experiment", "run", "neptune_id", "phase", "epoch", "step"]

@@ -1,0 +1,15 @@
+# Used to find instances, we did not use any instances in our dataset
+# Kept for reference.
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+SELECT ?ent ?links ?label WHERE {
+  ?ent wdt:P31/wdt:P279* %TYPE% .
+  ?ent @en@rdfs:label ?label .
+  ?ent ^schema:about/wikibase:sitelinks ?links .
+  FILTER(?links >= %LINKS%)
+  %ADDITIONAL%
+}
+ORDER BY DESC(?links)

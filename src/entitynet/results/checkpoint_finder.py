@@ -67,6 +67,9 @@ def find_checkpoints(
 ) -> tuple[dict | None, dict | None, list[dict]]:
     ckpt_dir: Path = Path(ckpt_dir)
     last_ckpt_file = ckpt_dir / "last.ckpt"
+    last_ckpt_nos_file = ckpt_dir / "last-nooptstates.ckpt"
+    if last_ckpt_nos_file.is_file() and not last_ckpt_file.is_file():
+        last_ckpt_file = last_ckpt_nos_file
     if last_ckpt_file.is_file():
         last_json_file = ckpt_dir / "last.json"
         if not last_json_file.is_file():
@@ -94,14 +97,32 @@ def find_checkpoints(
     else:
         last_ckpt = None
 
+    # load other checkpoint files, prefering with opt state over without opt state.
     other_ckpts = sorted(ckpt_dir.glob("*.ckpt"))
+    # Remove last.ckpt files and create dict with opt state preference
+    other_ckpts_dict = {}
+    for ckpt in other_ckpts:
+        if ckpt.name in {"last.ckpt", "last-nooptstates.ckpt"}:
+            continue
+        # Extract base name (without -nooptstates suffix)
+        base_name = ckpt.name.replace("-nooptstates", "")
+        has_opt_states = "-nooptstates" not in ckpt.name
+        # Keep ckpt with opt states if available, otherwise keep without
+        if base_name not in other_ckpts_dict:
+            other_ckpts_dict[base_name] = ckpt
+        elif has_opt_states:
+            # Replace with version that has opt states
+            other_ckpts_dict[base_name] = ckpt
+    other_ckpts = sorted(other_ckpts_dict.values(), key=lambda p: p.name)
+    print(f"{other_ckpts=}")
+
     all_ckpts = []
     mode_final = None
     metric_name_final = None
     for other_ckpt_file in other_ckpts:
-        if other_ckpt_file == last_ckpt_file:
+        if other_ckpt_file.name in set(["last.ckpt", "last-nooptstates.ckpt"]):
             continue
-        msplits = other_ckpt_file.name.split("-")
+        msplits = other_ckpt_file.name.replace("-nooptstates", "").split("-")
         if len(msplits) == 5:
             # e.g. 10-7645-min-val_loss-0.810585.ckpt
             epoch, global_step, mode, metric_name, metric_value = msplits

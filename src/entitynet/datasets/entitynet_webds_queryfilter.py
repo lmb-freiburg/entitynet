@@ -8,11 +8,11 @@ from collections import defaultdict
 
 from pyparsing import Any
 
-from entitynet.datasets.entitynet_load_metadata import load_entitynet_metadata_cached
-from entitynet.datasets.entitynet_textloader import QUERY_TYPES
 from packg.iotools import dump_json, load_json
 from packg.log import logger
 
+from entitynet.datasets.entitynet_load_metadata import load_entitynet_metadata_cached
+from entitynet.datasets.entitynet_textloader import QUERY_TYPES
 from entitynet.paths import get_entitynet_annotations_dir, get_entitynet_data_dir
 
 

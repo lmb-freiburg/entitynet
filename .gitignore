@@ -1,6 +1,11 @@
 /output/
 /temp*
 TEMP*
+llm-text-generation/
+
+kgraph/entity_cache/
+kgraph/wikidata_living/
+kgraph/wikidata_world/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

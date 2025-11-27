@@ -1,0 +1,26 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <http://schema.org/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT
+    ?ent
+    ?label
+    ?desc
+    ?links
+    (GROUP_CONCAT(DISTINCT ?alias; SEPARATOR=";;;") AS ?aliases)
+    (GROUP_CONCAT(DISTINCT ?image; SEPARATOR=";;;") AS ?images)
+WHERE {
+  ?ent wdt:P279* %TYPE% .
+  ?ent rdfs:label ?label .
+  ?ent ^schema:about/wikibase:sitelinks ?links .
+  OPTIONAL { ?ent schema:description ?desc . FILTER(LANG(?desc) = "en") }
+  OPTIONAL { ?ent skos:altLabel ?alias . FILTER(LANG(?alias) = "en") }
+  OPTIONAL { ?ent wdt:P18 ?image }
+  FILTER(LANG(?label) = "en")
+  FILTER(?links >= %LINKS%)
+  %ADDITIONAL%
+}
+GROUP BY ?ent ?label ?desc ?links
+ORDER BY DESC(?links)

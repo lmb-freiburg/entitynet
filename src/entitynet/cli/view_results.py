@@ -32,8 +32,10 @@ from entitynet.results.results_loader import (
 )
 from entitynet.results.results_viewer_utils import (
     DEFAULT_OUTPUT_COLUMNS_KEY,
+    DEFAULT_VAL_LOSS_FIELD,
     OUTPUT_COLUMNS_DICT,
     RENAME_COLUMNS,
+    VAL_LOSS_FIELDS,
 )
 
 
@@ -133,7 +135,9 @@ def main():
     # print("\n".join(df_unfiltered.columns.tolist()))
 
     # filter and sort columns again
-    columns = OUTPUT_COLUMNS_DICT[args.columns]
+    val_loss_field = VAL_LOSS_FIELDS.get(args.columns, DEFAULT_VAL_LOSS_FIELD)
+    columns = OUTPUT_COLUMNS_DICT[args.columns] + [val_loss_field]
+
     df_sorted = sort_and_filter_columns_in_result_df(df_metrics_as_cols, columns)
     for column in df_sorted.columns:
         metric_type = get_type_for_metric(column)
@@ -161,11 +165,18 @@ def main():
             else:
                 combo_mask = df_sorted[group_cols[0]] == combo
 
-            # assuming the test is only run on the zero, best, and last epoch, we can assume
-            # the epochs we have here are (0, best, last) or (0, best=last)
+            # find best epoch using the val loss
+            check_phase = args.filter_phase
+            if check_phase is None:
+                check_phase = "test"
+            find_best_epoch_df = df_sorted[combo_mask & (df_sorted["phase"] == check_phase)]
+            best_index = int(find_best_epoch_df[val_loss_field].argmin())
+            best_epoch = find_best_epoch_df.iloc[best_index]["epoch"]
+            last_epoch = find_best_epoch_df["epoch"].max()
+
             combo_epochs = sorted(df_sorted[combo_mask]["epoch"].unique().tolist())
-            best_epoch = combo_epochs[-2] if len(combo_epochs) > 1 else combo_epochs[0]
-            last_epoch = combo_epochs[-1]
+            # best_epoch = combo_epochs[-2] if len(combo_epochs) > 1 else combo_epochs[0]
+            # last_epoch = combo_epochs[-1]
 
             if args.mode == "zero":  # show only epoch zero
                 epochs_to_remove = [e for e in combo_epochs if e != 0]

@@ -5,16 +5,19 @@ Modify lightning ModelCheckpoint
 import os
 import time
 from pathlib import Path
-from typing import Dict
+from types import new_class
+from typing import Dict, List
 from weakref import proxy
 
 import lightning.pytorch as pl
+import torch
 from lightning.pytorch.callbacks import ModelCheckpoint
 from torch import Tensor
 
 from packg.iotools import dumps_json
 from packg.log import logger
 from packg.misc import format_exception
+from packg.typext import PathType
 
 
 class CustomModelCheckpoint(ModelCheckpoint):
@@ -70,3 +73,48 @@ class CustomModelCheckpoint(ModelCheckpoint):
         if trainer.is_global_zero:
             for tlogger in trainer.loggers:
                 tlogger.after_save_checkpoint(proxy(self))
+
+
+def save_checkpoint_without_optimizer_states(path: PathType) -> Path:
+    """
+    Load a torch checkpoint, drop the optimizer states, and save it under
+    "<original>-nooptstates<suffix>".
+    """
+    ckpt_path = Path(path)
+    if not ckpt_path.is_file():
+        raise FileNotFoundError(f"Checkpoint {ckpt_path} not found")
+
+    new_name = f"{ckpt_path.stem}-nooptstates{ckpt_path.suffix}"
+    new_path = ckpt_path.with_name(new_name)
+    if new_path.is_file():
+        logger.info(f"Checkpoint without optimizer states already exists at {new_path}")
+        return new_path
+
+    checkpoint = torch.load(ckpt_path, map_location="cpu")
+    if "optimizer_states" in checkpoint:
+        del checkpoint["optimizer_states"]
+    else:
+        logger.warning(f"No optimizer_states found in {ckpt_path}")
+    torch.save(checkpoint, new_path)
+    logger.info(f"Saved checkpoint without optimizer states to {new_path}")
+    return new_path
+
+
+def strip_optimizer_states_in_folder(folder: PathType, pattern: str = "**/*.ckpt") -> List[Path]:
+    """
+    Apply optimizer state stripping to every checkpoint in a folder that matches the glob.
+    """
+    folder_path = Path(folder)
+    if not folder_path.is_dir():
+        raise FileNotFoundError(f"Folder {folder_path} not found")
+
+    new_paths: List[Path] = []
+    for ckpt_path in folder_path.glob(pattern):
+        if ckpt_path.is_file():
+            if "-nooptstates" in ckpt_path.name:
+                logger.info(f"Skipping checkpoint already without optimizer states: {ckpt_path}")
+                continue
+            new_paths.append(save_checkpoint_without_optimizer_states(ckpt_path))
+    if not new_paths:
+        logger.warning(f"No checkpoints matched pattern '{pattern}' in {folder_path}")
+    return new_paths

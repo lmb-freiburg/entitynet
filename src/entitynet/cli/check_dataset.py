@@ -9,11 +9,11 @@ Either by
 from attrs import define
 from loguru import logger
 
-from entitynet.config.config_factory import load_config_from_file
 from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
 from typedparser import TypedParser, VerboseQuietArgs, add_argument, attrs_from_dict
 from visiontext.configutils import load_dotlist
 
+from entitynet.config.config_factory import load_config_from_file
 from entitynet.config.task_config import DatasetCfg
 from entitynet.datasets.dataset_factory import build_dataset_from_config
 from entitynet.preprocessor.preprocessor_factory import get_simple_transform_to_tensor

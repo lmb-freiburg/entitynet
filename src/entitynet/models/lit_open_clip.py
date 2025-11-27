@@ -1,8 +1,8 @@
 import torch
-from torch import nn
 from lightning.pytorch.core.optimizer import LightningOptimizer
 from lightning.pytorch.utilities.types import STEP_OUTPUT
 from loguru import logger
+from torch import nn
 from torch.optim.lr_scheduler import LRScheduler
 
 from packg.typext import PathType

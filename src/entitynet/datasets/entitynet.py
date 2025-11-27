@@ -16,17 +16,17 @@ Example metadata entry:
 """
 
 from pathlib import Path
+
 from attr import define
-from entitynet.paths import get_entitynet_data_dir
+from attrs import define
+from loguru import logger
+
+from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
 from packg.system.systemcall import systemcall_with_assert
 from packg.typext import PathType
 from typedparser import VerboseQuietArgs, add_argument
 
-from attrs import define
-from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
-from typedparser import VerboseQuietArgs, add_argument
-from loguru import logger
-
+from entitynet.paths import get_entitynet_data_dir
 
 LEGAL_SPLITS = {"train", "val", "test", "minitrain"}
 ENTITYNET_HF_URL = "https://huggingface.co/datasets/lmb-freiburg/entitynet"

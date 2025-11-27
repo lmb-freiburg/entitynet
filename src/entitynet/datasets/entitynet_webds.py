@@ -10,10 +10,6 @@ from typing import Any
 import webdataset as wds
 from webdataset import DataPipeline, WebLoader, reraise_exception
 
-from entitynet.datasets.entitynet import N_SHARDS
-from entitynet.datasets.entitynet_textloader import EntityNetUrlTextLoader
-from entitynet.datasets.entitynet_webds_queryfilter import EntityNetQueryFilter
-from entitynet.paths import get_entitynet_data_dir
 from packg.iotools import load_json
 from packg.log import logger
 from packg.typext import PathType
@@ -36,6 +32,10 @@ from visiontext.webdataset_pipeline_separate_metadata import (
 )
 
 from entitynet.config.task_config import EntityNetTextAugCfg, EntityNetTextReturnMode
+from entitynet.datasets.entitynet import N_SHARDS
+from entitynet.datasets.entitynet_textloader import EntityNetUrlTextLoader
+from entitynet.datasets.entitynet_webds_queryfilter import EntityNetQueryFilter
+from entitynet.paths import get_entitynet_data_dir
 from entitynet.preprocessor.preprocessor_factory import get_simple_transform_to_tensor
 
 

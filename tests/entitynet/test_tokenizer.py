@@ -1,4 +1,4 @@
-from typedparser._typedattr import attrs_from_dict
+from typedparser.typedattr import attrs_from_dict
 
 from entitynet.config.model_config import ClipModelCfg
 from entitynet.models.tokenizer_factory import build_tokenizer_from_config

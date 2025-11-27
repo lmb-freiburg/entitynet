@@ -11,15 +11,15 @@ import torch
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset, get_worker_info
 
-from entitynet.datasets.entitynet import N_SHARDS
-from entitynet.datasets.entitynet_load_metadata import load_entitynet_metadata_cached
-from entitynet.datasets.entitynet_textloader import EntityNetUrlTextLoader
-from entitynet.paths import get_entitynet_data_dir
 from packg.log import logger
 from typedparser.objects import print_datapoint
 from visiontext.iotools.tar_lookup import TarLookup
 
 from entitynet.config.task_config import EntityNetTextAugCfg, EntityNetTextReturnMode
+from entitynet.datasets.entitynet import N_SHARDS
+from entitynet.datasets.entitynet_load_metadata import load_entitynet_metadata_cached
+from entitynet.datasets.entitynet_textloader import EntityNetUrlTextLoader
+from entitynet.paths import get_entitynet_data_dir
 from entitynet.preprocessor.preprocessor_factory import get_simple_transform_to_tensor
 
 

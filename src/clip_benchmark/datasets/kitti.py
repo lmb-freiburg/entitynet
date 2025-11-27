@@ -18,12 +18,11 @@
 from __future__ import absolute_import, division, print_function
 
 import numpy as np
+import tensorflow.compat.v1 as tf
+import tensorflow_datasets as tfds
 
 import task_adaptation.data.base as base
 from task_adaptation.registry import Registry
-
-import tensorflow.compat.v1 as tf
-import tensorflow_datasets as tfds
 
 
 def _count_all_pp(x):

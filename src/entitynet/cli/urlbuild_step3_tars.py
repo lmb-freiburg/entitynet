@@ -10,21 +10,23 @@ Deduplication within the training set, text processing, deduplication with downs
 import io
 import os
 from pathlib import Path
+
+import pandas as pd
 from attrs import define
 from loguru import logger
-from entitynet.datasets.entitynet import N_SHARDS, EntityNetUrlBuildArgs, parse_args_for_url_build
+from PIL import Image
+from torch.utils.data import DataLoader, Dataset
+from webdataset.writer import TarWriter
+
 from packg.iotools import dump_json, load_json
 from packg.misc import uncollate
 from packg.tqdmext import tqdm_max_ncols
-from typedparser import TypedParser
-from torch.utils.data import Dataset, DataLoader
-import pandas as pd
-from typedparser import add_argument
+from typedparser import TypedParser, add_argument
+from visiontext.images import scale_image_smaller_side
 from visiontext.iotools.single_tar_lookup import SingleTarLookup
 from visiontext.mathutils import distribute_evenly
-from webdataset.writer import TarWriter
-from PIL import Image
-from visiontext.images import scale_image_smaller_side
+
+from entitynet.datasets.entitynet import N_SHARDS, EntityNetUrlBuildArgs, parse_args_for_url_build
 
 
 @define

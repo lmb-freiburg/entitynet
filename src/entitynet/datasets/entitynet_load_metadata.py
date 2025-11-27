@@ -3,13 +3,14 @@
 
 """
 
-from natsort import natsorted
 import torch
 from loguru import logger
+from natsort import natsorted
+
+from packg.iotools import dump_json, load_json
+from packg.tqdmext import tqdm_max_ncols
 
 from entitynet.paths import get_entitynet_data_dir
-from packg.iotools import load_json, dump_json
-from packg.tqdmext import tqdm_max_ncols
 
 
 class _MetadataDataset(torch.utils.data.Dataset):

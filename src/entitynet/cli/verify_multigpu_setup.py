@@ -3,9 +3,10 @@ Basic example to check if multi-GPU setup is working correctly with Lightning.
 """
 
 import argparse
+
+import lightning as L
 import torch
 import torch.nn as nn
-import lightning as L
 from lightning.pytorch.strategies import DDPStrategy
 from torch.utils.data import DataLoader, TensorDataset
 

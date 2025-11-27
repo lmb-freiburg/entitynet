@@ -2,7 +2,6 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-
 try:
     import torch.distributed.nn
     from torch import distributed as dist

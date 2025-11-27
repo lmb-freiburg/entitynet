@@ -31,23 +31,24 @@ example_datapoint = {
 
 """
 
-from collections import defaultdict
 import os
+from collections import defaultdict
 from pathlib import Path
 from tracemalloc import start
+
+import pandas as pd
 from attrs import define
 from loguru import logger
-from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
+from torch.utils.data import DataLoader, Dataset
+
 from packg.misc import uncollate
 from packg.strings.formatters import dict_to_str_comma_equals
 from packg.tqdmext import tqdm_max_ncols
 from packg.typext import PathType
-from typedparser import TypedParser
-from torch.utils.data import Dataset
-import pandas as pd
-from typedparser import add_argument
+from typedparser import TypedParser, add_argument
 from visiontext.image_downloader import download_image_with_retry_only_once, random_sleep
-from torch.utils.data import DataLoader
+
+from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
 
 N_RETRIES = 3
 SLEEP_SEC = 1

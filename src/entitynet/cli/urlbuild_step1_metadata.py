@@ -3,8 +3,10 @@ Build entitynet from URLS, step 1: download EntityNet metadata from huggingface
 """
 
 from loguru import logger
-from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
+
 from typedparser import TypedParser
+
+from entitynet.datasets.entitynet import EntityNetUrlBuildArgs, parse_args_for_url_build
 
 N_RETRIES = 3
 SLEEP_SEC = 1

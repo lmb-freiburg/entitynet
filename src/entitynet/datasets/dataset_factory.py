@@ -12,8 +12,6 @@ from loguru import logger
 from torch.utils.data import DataLoader, Dataset
 from webdataset.utils import pytorch_worker_info
 
-from entitynet.datasets.entitynet_indexable import EntityNetUrlIndexable
-from entitynet.datasets.entitynet_webds import build_entityneturl_webdataset
 from packg import Const
 
 from entitynet.config.main_config import Config
@@ -23,6 +21,8 @@ from entitynet.datasets.coco import MSCocoKarpathy
 from entitynet.datasets.converted_vtab_dataset import build_converted_vtab_dataset
 from entitynet.datasets.cub import Cub
 from entitynet.datasets.domainnet import DomainNetCaptions
+from entitynet.datasets.entitynet_indexable import EntityNetUrlIndexable
+from entitynet.datasets.entitynet_webds import build_entityneturl_webdataset
 from entitynet.datasets.imagenet import Imagenet
 from entitynet.datasets.inat21 import iNat21
 from entitynet.datasets.inat21_webdataset import build_inat21_webdataset

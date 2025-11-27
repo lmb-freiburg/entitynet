@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <title>Find missing types</title>
+  </head>
+  <body>
+    <h1>Find missing types</h1>
+    <textarea id="types" rows="10" cols="50" onkeyup="findTypesForLine(event)" onmouseup="this.onkeyup()" style="overflow-y: scroll"></textarea>
+    <p>Hold CTRL and click on a line to find entities with that type.</p>
+    <p>A click on the following button will open a new tab with a SPARQL query
+    that finds all entities, ordered by number of sitelinks, that have no type
+    from the list in the text area (manual changes of that list in the in the
+    text are are considered).</p>
+    <p><input type="button" value="Find missing types" onclick="findMissingTypes()"></p>
+    <script>
+      // Get types and write them in the `types` textarea.
+      let include_types = [];
+      let exclude_types = [];
+      let all_types = [];
+      const text = `wikidata,name,include
+Q729,animal,1
+Q756,plant,1
+Q34379,musical instrument,1
+Q41176,building,1
+Q42889,vehicle,1
+Q2095,food,1
+Q14745,furniture,1
+Q11460,clothing,1
+Q747883,physical activity,1
+Q17442446,Wikidata internal item,0
+Q6256,country,0
+Q5107,continent,0
+Q34770,language,0
+Q515,city,0
+Q47461344,written work,0
+Q634,planet,0
+Q523,star,0
+Q43229,organization,0
+Q9174,religion,0
+Q315,language,0
+Q336,science,0
+Q309,history,0
+Q10683158,substance,1
+Q1047113,speciality,0
+Q26907166,temporal entity,0
+Q115537581,imaginary character,0
+Q712378,organ,1
+Q6999,astronomical object,0
+Q15324,body of water,1
+Q7048977,abstract entity,0
+Q151885,concept,0
+Q39546,physical tool,1
+Q4164871,role,0
+Q618123,geographical feature,1
+Q838948,work of art,0
+Q214609,material,1
+Q25257,precipitation,1
+Q13226383,facility,1
+Q811979,architectural structure,1
+Q4936952,anatomical structure,1
+Q2424752,product,1
+Q1639378,social system,0
+Q1272626,representation,0
+Q13418847,historical event,0
+Q796194,medical procedure,0
+Q11663,weather,1`;
+        document.getElementById("types").value = text
+        // Get Wikidata IDs from text area (first column, except first line,
+        // comment lines, and empty lines), prepend `wd:` to each ID, and
+        // join them with spaces.
+        const types = text
+          .split("\n").slice(1).filter((line) => line && !line.startsWith("#"))
+          .map((line) => {
+            let parts = line.split(",").map((part) => part.trim());
+            parts[0] = "wd:" + parts[0];
+            return parts;
+          });
+        include_types = types.filter((parts) => parts[2] == "1")
+          .map((parts) => parts[0]);
+        exclude_types = types.filter((parts) => parts[2] == "0")
+          .map((parts) => parts[0]);
+        all_types = include_types.concat(exclude_types);
+      // Template for SPARQL query.
+      const missing_types_query = `
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX schema: <http://schema.org/>
+SELECT ?subject ?subject_label ?sitelinks WHERE {
+  { SELECT *  WHERE { ?subject ^schema:about/wikibase:sitelinks ?sitelinks FILTER (?sitelinks >= 10) } }
+  MINUS {
+    VALUES ?type { %TYPES% }
+	?subject wdt:P31?/wdt:P279* ?type
+  }
+  ?subject @en@rdfs:label ?subject_label
+}
+ORDER BY DESC(?sitelinks)
+      `
+      // Find missing types.
+      function findMissingTypes() {
+        // Replace `%TYPES%` in the SPARQL query with the types from the text
+        // area, url-encode the query, and open a new tab with the query.
+        const query = missing_types_query.replace("%TYPES%", all_types.join(" "));
+        const query_url = "https://qlever.cs.uni-freiburg.de/wikidata/?query="
+                            + encodeURIComponent(query) + "&exec=true";
+        window.open(query_url, "_blank")
+      }
+      const types_query = `
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?ent ?ent_label ?sitelinks WHERE {
+  ?ent wdt:P31?/wdt:P279* %TYPE% .
+  ?ent @en@rdfs:label ?ent_label .
+  ?ent ^schema:about/wikibase:sitelinks ?sitelinks
+  FILTER(?sitelinks >= 10)
+}
+ORDER BY DESC(?sitelinks)
+`
+      function findTypes(typ) {
+        const query = types_query.replace("%TYPE%", typ);
+        const query_url = "https://qlever.cs.uni-freiburg.de/wikidata/?query="
+                            + encodeURIComponent(query) + "&exec=true";
+        window.open(query_url, "_blank")
+      }
+
+      function findTypesForLine(e) {
+        e = e || window.event;
+        if (!e.ctrlKey) {
+          return;
+        }
+        const textarea = e.target || e.srcElement;
+        const linesBefore = textarea.value.substr(0, textarea.selectionStart).split("\n");
+        const lineNum = linesBefore.length - 1;
+        if (lineNum < 1) {
+          return;
+        }
+        const line = textarea.value.split("\n")[lineNum];
+        if (!line || line.startsWith("#")) {
+          return;
+        }
+        const parts = line.split(",").map((part) => part.trim());
+        if (parts.length != 3) {
+          return;
+        }
+        findTypes("wd:" + parts[0]);
+      }
+    </script>
+  </body>
+</html>

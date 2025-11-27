@@ -21,6 +21,7 @@ at fine-grained classification of animals, plants, and fungi.
 
 ## News
 
+- 27 November 2025: Uploaded **knowledge graph querying** and query generation
 - 10 October 2025: Uploaded last part of **training dataset and code**
 - 19 August 2025: Added **evaluation code**
 - 06 May 2025: **Models** on [Hugging Face](https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca)
@@ -38,7 +39,7 @@ at fine-grained classification of animals, plants, and fungi.
   - [X] Add dataloader for the webdataset
 - [X] Add model training code
 - [ ] Code to download images using image search
-- [ ] Code to download entities from WikiData
+- [X] Code to download entities from WikiData
 
 ## Models
 
@@ -109,6 +110,25 @@ pip install -U -r requirements.txt
 pip install -e .
 
 python -m entitynet.cli.print_paths
+```
+
+### Build EntityNet dataset from scratch
+
+- See the [kgraph](kgraph/README.md) directory on how to query the knowledge graph for the entities,
+and how to build search queries using the entities.
+- Next, feed the search queries into an image search engine, download images and alt texts,
+deduplicate images, and remove contamination with downstream test sets (code to be released)
+
+### Setup EntityNet dataset from URLs
+
+Note that the default settings for the scripts below is to download the validation set only.
+
+Use `--splits val,test,minitrain,train` to download all splits. Default is to download only `minitrain,val`.
+
+```bash
+python -m entitynet.cli.urlbuild_step1_metadata
+python -m entitynet.cli.urlbuild_step2_images
+python -m entitynet.cli.urlbuild_step3_tars
 ```
 
 ### Prepare evaluation datasets
@@ -213,18 +233,6 @@ python -m pytest tests/entitynet/test_eval_tasks_xm3600.py -sx
 #     images/*.jpg
 #   crossmodal3600_captions-en.json
 
-```
-
-### Setup EntityNet dataset from URLs
-
-Note that the default settings for the scripts below is to download the validation set only.
-
-Use `--splits val,test,minitrain,train` to download all splits. Default is to download only `minitrain,val`.
-
-```bash
-python -m entitynet.cli.urlbuild_step1_metadata
-python -m entitynet.cli.urlbuild_step2_images
-python -m entitynet.cli.urlbuild_step3_tars
 ```
 
 ## Usage
