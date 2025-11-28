@@ -6,6 +6,7 @@ llm-text-generation/
 kgraph/entity_cache/
 kgraph/wikidata_living/
 kgraph/wikidata_world/
+kgraph/hierarchy_living/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
