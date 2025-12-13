@@ -9,7 +9,7 @@ DEFAULT_KEY_PARENTS = "livingthingsandparents"
 
 
 def load_wordnet_noun_queries(key=DEFAULT_KEY) -> list[str]:
-    queries = load_json(get_entitynet_annotations_dir() / "wordnet/{key}.json")
+    queries = load_json(get_entitynet_annotations_dir() / f"wordnet/{key}.json")
     queries = list(map(str.lower, queries))
     return queries
 

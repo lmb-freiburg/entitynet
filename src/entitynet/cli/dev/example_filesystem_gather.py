@@ -17,7 +17,7 @@ from visiontext.distutils import WorldInfo
 
 from entitynet.litext.distributed_gathering import save_outputs
 
-TEMP_DIR = "/ihome/gings/repos/workspace/clip_project/TEMP_ALLGATHER"
+TEMP_DIR = Path.home() / "TEMP_ALLGATHER"
 
 
 class DummyDataset(Dataset):

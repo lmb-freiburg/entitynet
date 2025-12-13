@@ -6,7 +6,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from crx.datasets.livingthings.wikidata_loader import simplify_wikidata_id
+from entitynet.datasets.wikidata.wikidata_hierarchies_loader import simplify_wikidata_id
 from llm_text_generation import TextGenerator
 from packg.iotools import load_json
 

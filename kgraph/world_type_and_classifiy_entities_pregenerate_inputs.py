@@ -10,23 +10,10 @@ from re import escape
 import requests
 from tqdm import tqdm
 
-from crx.datasets.livingthings.wikidata_loader import simplify_wikidata_id
+from entitynet.datasets.wikidata.wikidata_hierarchies_loader import simplify_wikidata_id
+from entitynet.datasets.wikidata.wikidata_utils import strip_label
 from packg.iotools import load_json, dump_json
-
-QLEVER_URL = "https://qlever.cs.uni-freiburg.de/api/wikidata"
-
-
-def query_qlever(query: str) -> list[list[str]]:
-    response = requests.post(
-        QLEVER_URL,
-        headers={
-            "Content-type": "application/sparql-query",
-            "Accept": "text/tab-separated-values",
-        },
-        data=query,
-    )
-    assert response.status_code == 200, f"query failed: {response.text}"
-    return [line.decode().split("\t") for line in response.iter_lines()][1:]
+from entitynet.datasets.wikidata.qleverutils import query_qlever
 
 
 def get_super_types(entity: str) -> list[str]:
@@ -79,8 +66,9 @@ LIMIT {top_k}
     output = []
     for ent, label, desc, aliases, score in query_qlever(query):
         ent = "wd:" + ent.split("/")[-1][:-1]  # strip > at the end
-        label = label[1:-4]  # strip " and "@en
-        desc = clip(desc[1:-4])  # strip " and "@en
+        label = strip_label(label)
+        desc = strip_label(desc)
+        desc = clip(desc)
         aliases = [clip(alias) for alias in aliases[1:-1].split(";;;") if alias]
         if len(aliases) > 1:
             aliases = random.sample(aliases, 1)

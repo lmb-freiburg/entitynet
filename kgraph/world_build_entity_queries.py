@@ -4,6 +4,8 @@ from collections import Counter, defaultdict
 import json
 import sys
 
+from entitynet.datasets.wikidata.wikidata_utils import strip_label
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -63,8 +65,7 @@ def build(args: argparse.Namespace):
             ignored += 1
             continue
 
-        assert name.startswith('"') and name.endswith('"@en')
-        name = name[1:-4]
+        name = strip_label(name)
         typ_id = type_and_class["natural_type"]["id"]
         typ_name = type_and_class["natural_type"]["name"]
         types[typ_id] = typ_name

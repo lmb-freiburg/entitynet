@@ -10,6 +10,7 @@ from typing import Iterable, Iterator
 from pydantic import BaseModel, ValidationError
 from tqdm import tqdm
 
+from entitynet.datasets.wikidata.wikidata_utils import strip_label
 from packg import format_exception
 from packg.web.robust_request import send_robust_post_request
 
@@ -396,7 +397,7 @@ GROUP BY ?attLabel"""
     next(result_iter)
     for line in result_iter:
         att, vals = line.decode().split("\t")
-        att = att[1:-4]  # strip " and "@en
+        att = strip_label(att)
         vals = [v for v in vals[1:-1].split(";;;") if v]
         if not vals:
             continue
@@ -590,16 +591,11 @@ def main(args: argparse.Namespace) -> None:
         # prepare and yield formatted entities
         for entity, label, desc, _, aliases, *_ in entities:
             if len(label) > 0:
-                assert label[0] == '"' and label[-4:] == '"@en', label
-                label = label[1:-4]
+                label = strip_label(label)
             if len(desc) > 0:
-                assert desc[0] == '"' and desc[-4:] == '"@en', desc
-                desc = desc[1:-4]
+                desc = strip_label(desc)
             if len(aliases) > 0:
-                if aliases[-3:] == "@en":
-                    aliases = aliases[:-3]
-                assert aliases[0] == '"' and aliases[-1] == '"', aliases
-                aliases = aliases[1:-1]
+                aliases = strip_label(aliases)
             aliases = {alias for alias in aliases.split(";;;") if alias and alias != label}
             yield entity, label, desc, aliases
 

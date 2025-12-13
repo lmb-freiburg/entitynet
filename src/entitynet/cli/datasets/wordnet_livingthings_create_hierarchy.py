@@ -98,7 +98,7 @@ def main():
     print(f"Got {i} synnames with multiple parents")
     base_dir = args.output_dir
     os.makedirs(base_dir, exist_ok=True)
-    outf = base_dir / "hierarchy_livingthings.json"
+    outf = base_dir / "hierarchy_wikidata_livingthings.json"
     if outf.is_file():
         print(f"File {outf} exists")
     else:

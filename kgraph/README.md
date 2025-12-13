@@ -21,6 +21,10 @@ Scripts:
 python -m entitynet.cli.datasets.wordnet_load_example
 python -m entitynet.cli.datasets.wordnet_create_hierarchy
 python -m entitynet.cli.datasets.wordnet_create_queries
+python -m entitynet.cli.datasets.wordnet_show_query
+
+# create html graph of wordnet
+python -m entitynet.cli.datasets.create_wordnet_graph --output_dir wordnet_graph
 ```
 
 ## Setup LLM text generation library (required for Wikidata queries)
@@ -45,8 +49,8 @@ cd ..
 
 ### Missing entities
 
-Some entities may end up missing and must be queried manually, see
-`world_request_missing_entities.txt` and `living_request_missing_entities.txt` 
+Some entities may end up missing and must be queried manually, see query definitions in
+`src/entitynet/datasets/qleverutils.py`
 on how such a request looks like.
 If you get problems where entity ids are missing (e.g. Q330284), collect all of them,
 request them and concatenate the result to the appropriate tsv.
@@ -313,6 +317,9 @@ bash living_download_taxons.sh > wikidata_living/taxons.tsv
 # find all possible taxon ranks:
 # https://qlever.cs.uni-freiburg.de/wikidata/t0g3YH
 
+# convert entity tsvs into a simpler dictionarty
+python -m entitynet.cli.datasets.wikidata_convert_entities
+
 # avg_number_of_attributes:
 # for all attributes files (ending with .attributes.tsv)
 # calculate the average number of attributes per entity
@@ -334,3 +341,22 @@ cut -f 3 -d "	" wikidata_living/${MODELBN}/${TYPLONG}.types.tsv | sort | uniq -c
 import pandas as pd
 df = pd.read_csv("wikidata_living/animals.tsv", sep="\t", header=None)
 ```
+
+### Taxon hierarchy of animals and plants (unused)
+
+```bash
+# print hierarchy for a single entity
+python -m entitynet.cli.datasets.wikidata_print_hierarchy_tree_simple \
+kgraph/wikidata_living/animals.hierarchy.tsv kgraph/wikidata_living/animals.hierarchy.json \
+Q38280
+
+# download entities from wikidata, that are currently missing in the hierarchy
+python -m entitynet.cli.datasets.wikidata_find_missing
+
+# build the final hierarchy representation
+python -m entitynet.cli.datasets.wikidata_convert_hierarchy
+
+# test the hierarchy loader
+python -m entitynet.cli.datasets.wikidata_run_loader
+```
+
