@@ -248,7 +248,7 @@ python -m pytest tests/entitynet/test_eval_tasks_xm3600.py -sx
 -o trainer.test_task_keys=task_list::eval_list_objcls_imgn
 # use comma to separate multiple task keys.
 
-python -m entitynet.cli.run projects/eval_clip_entitynet_zs/eval_clip_vitb32_entitynet33m.yaml --run_id e1 --test_only
+python -m entitynet.cli.run configs/projects/eval_clip_entitynet_zs/eval_clip_vitb32_entitynet33m.yaml --run_id e1 --test_only
 
 # view results:
 python -m entitynet.cli.view_results -s eval_clip_entitynet_zs
