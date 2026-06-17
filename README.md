@@ -95,15 +95,14 @@ src/
 
 ## Setup
 
-- Currently running with python=3.12 torch=2.6 cuda=12.4
+- Tested with python=3.12 torch=2.6 cuda=12.4
 - Setup the paths with environment variables `ENTITYNET_DATA_DIR` and `ENTITYNET_OUTPUT_DIR`
+- In case of install problems try `frozen_pip_requirements.txt` instead.
 
 ```bash
 # 0. setup conda environment
 conda update conda -n base -y
 
-conda deactivate
-conda env remove -n entitynet -y
 conda create -n entitynet python=3.12 -y
 conda activate entitynet
 pip install -U setuptools wheel
