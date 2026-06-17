@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 import numpy as np
-from lightning.pytorch.loggers import CSVLogger, NeptuneLogger, WandbLogger
+from lightning.pytorch.loggers import CSVLogger, WandbLogger
 from lightning.pytorch.loggers.logger import DummyLogger
 from loguru import logger
 from PIL import Image
@@ -58,6 +58,30 @@ def log_image_tensor(
             pil_images[b].save(image_path)
         return
 
+    if isinstance(metric_logger, WandbLogger):
+        import wandb  # type: ignore
+
+        images = []
+        for b in range(image_tensor.shape[0]):
+            # image is shape (B, C, H, W)
+            # "Note : torch.Tensor images are normalized. PIL Image is not." -> we already
+            # denormalized so we can convert to PIL Image
+            img_np = image_tensor[b].permute(1, 2, 0).cpu().numpy()
+            # Convert to uint8 and create PIL Image
+            img_np = (img_np * 255).astype(np.uint8)
+            img = Image.fromarray(img_np)
+            caption = descriptions[b] if descriptions is not None else f"Image {b}"
+            images.append(wandb.Image(img, caption=caption))
+        metric_logger.experiment.log({key: images})
+        return
+    if isinstance(metric_logger, DummyLogger):
+        logger.warning(
+            f"DummyLogger called to save image '{key}' shape {image_tensor.shape} description "
+            f"{descriptions}."
+        )
+        return
+    
+    from lightning.pytorch.loggers import NeptuneLogger
     if isinstance(metric_logger, NeptuneLogger):
         from neptune.attributes import FileSeries  # type: ignore
         from neptune.handler import Handler  # type: ignore
@@ -87,27 +111,5 @@ def log_image_tensor(
                     File.as_image(image_tensor[b].permute(1, 2, 0).cpu().numpy()),
                     description=description,
                 )
-        return
-    if isinstance(metric_logger, WandbLogger):
-        import wandb  # type: ignore
-
-        images = []
-        for b in range(image_tensor.shape[0]):
-            # image is shape (B, C, H, W)
-            # "Note : torch.Tensor images are normalized. PIL Image is not." -> we already
-            # denormalized so we can convert to PIL Image
-            img_np = image_tensor[b].permute(1, 2, 0).cpu().numpy()
-            # Convert to uint8 and create PIL Image
-            img_np = (img_np * 255).astype(np.uint8)
-            img = Image.fromarray(img_np)
-            caption = descriptions[b] if descriptions is not None else f"Image {b}"
-            images.append(wandb.Image(img, caption=caption))
-        metric_logger.experiment.log({key: images})
-        return
-    if isinstance(metric_logger, DummyLogger):
-        logger.warning(
-            f"DummyLogger called to save image '{key}' shape {image_tensor.shape} description "
-            f"{descriptions}."
-        )
-        return
+        return    
     raise NotImplementedError(f"Image saving not implemented for logger {metric_logger}")

@@ -20,7 +20,7 @@ from torch import nn
 from packg import format_exception
 from packg.iotools import dump_json
 from packg.strings import format_pseudo_table
-from visiontext.torchutils import group_params_and_shapes_for_display, show_param_groups_dict
+from visiontext.torchutils import group_params_and_data_for_display, show_param_groups_dict
 
 from entitynet.config.main_config import Config, OptimizerCfg
 from entitynet.litext.distributed_gathering import save_outputs
@@ -449,7 +449,8 @@ def show_clip_param_groups_dict(param_groups_dict):
                 n_params_by_tower["visual"] += n_params
             else:
                 n_params_by_tower["other"] += n_params
-        new_names, new_shapes = group_params_and_shapes_for_display(param_names, param_shapes)
+        new_names, new_data = group_params_and_data_for_display(param_names, param_shapes)
+        new_shapes = [d.shape for d in new_data]
         for param_name, param_shape in zip(new_names, new_shapes):
             logger.info(f"    {str(param_shape):20s} {param_name}")
         logger.info("")

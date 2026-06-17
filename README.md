@@ -102,9 +102,11 @@ src/
 # 0. setup conda environment
 conda update conda -n base -y
 
-_ENV=entitynet
+conda deactivate
+conda env remove -n entitynet -y
 conda create -n entitynet python=3.12 -y
 conda activate entitynet
+pip install -U setuptools wheel
 pip install torch torchvision
 pip install -U -r requirements.txt
 pip install -e .

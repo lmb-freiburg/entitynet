@@ -6,7 +6,8 @@ lightning
 pandas
 transformers
 huggingface-hub
-datasets
+datasets>=2.20
+pyarrow>=15
 webdataset
 wandb
 ftfy  # text cleaner for some of the tokenizers

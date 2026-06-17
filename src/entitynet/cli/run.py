@@ -13,7 +13,7 @@ import lightning as lit
 import torch
 from attrs import asdict, define
 from lightning import seed_everything
-from lightning.pytorch.loggers import CSVLogger, NeptuneLogger, WandbLogger
+from lightning.pytorch.loggers import CSVLogger, WandbLogger
 from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from loguru import logger
 
@@ -154,6 +154,7 @@ def main():
     # ----- setup metric logger
     if args.vislogger == "neptune":
         from neptune.utils import stringify_unsupported
+        from lightning.pytorch.loggers import NeptuneLogger
 
         logger.warning(
             f"***********************************************\n"
