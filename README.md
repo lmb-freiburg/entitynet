@@ -307,13 +307,13 @@ Please refer to our paper's acknowledgement section. Additionally we would like 
 If you use the dataset, code, or results, please cite:
 
 ```bibtex
-@inproceedings{ging2025entitynet,
+@inproceedings{ging2026entitynet,
   author    = {Simon Ging and Sebastian Walter and Jelena Bratuli{\'c} and Johannes Dienert and Hannah Bast and Thomas Brox},
   title     = {Using Knowledge Graphs to Harvest Datasets for Efficient {CLIP} Model Training},
   booktitle = {Pattern Recognition, 47th {DAGM} German Conference, {DAGM} {GCPR} 2025, Freiburg, Germany, September 23--26, 2025, Proceedings},
   series    = {Lecture Notes in Computer Science},
   publisher = {Springer Nature Switzerland},
-  year      = {2025},
+  year      = {2026},
   pages     = {287--302},
   isbn      = {978-3-032-12840-9},
   doi       = {10.1007/978-3-032-12840-9_19}
