@@ -5,6 +5,10 @@
 <a href="https://entity-net.github.io">project page</a> —
 <a href="https://huggingface.co/collections/lmb-freiburg/entitynet-6810b98ea9288fef9b6c09ca">🤗 models</a> —
 <a href="https://huggingface.co/datasets/lmb-freiburg/entitynet">🤗 dataset</a>
+<br/>
+<a href="https://github.com/lmb-freiburg/entitynet/actions/workflows/build-py312-cpu.yml">
+  <img alt="build 3.12 status" title="build 3.12 status" src="https://img.shields.io/github/actions/workflow/status/lmb-freiburg/entitynet/build-py312-cpu.yml?branch=main&label=build%203.12%20cpu" />
+</a>
 </div>
 
 # EntityNet
