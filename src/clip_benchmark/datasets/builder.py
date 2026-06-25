@@ -183,6 +183,8 @@ def build_dataset(
             "test",
         ), f"Only `train` and `test` split available for {dataset_name}"
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             print(f"WARN: Downloading imagenet to {root}")
             download_imagenet(root)
         ds = ImageNet(root=root, split="train" if train else "val", transform=transform, **kwargs)
@@ -196,6 +198,8 @@ def build_dataset(
         from torchvision.transforms import CenterCrop, Normalize
 
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_imagenet(root)
         index_normalize = None
         crop_size = None
@@ -220,6 +224,8 @@ def build_dataset(
         ), f"Only `train` and `test` split available for {dataset_name}"
         # babel ImageNet from https://github.com/gregor-ge/Babel-ImageNet
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_imagenet(root)
         classnames = json.load(open(os.path.join(current_folder, "babel_imagenet.json")))
         assert (
@@ -256,6 +262,8 @@ def build_dataset(
         # Downloadable from https://drive.google.com/open?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA
         # or https://huggingface.co/datasets/songweig/imagenet_sketch/resolve/main/data/ImageNet-Sketch.zip
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_path = Path(root).parent / "temp_downloads"
             os.makedirs(download_path, exist_ok=True)
             print(f"Downloading imagenet_sketch in {download_path} and moving to {root}")
@@ -276,6 +284,8 @@ def build_dataset(
         assert split == "test", f"Only `test` split available for {dataset_name}"
         # Downloadable from https://people.eecs.berkeley.edu/~hendrycks/imagenet-a.tar
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_path = Path(root).parent / "temp_downloads"
             os.makedirs(download_path, exist_ok=True)
             print(f"Downloading imagenet-a in {download_path} and moving to {root}")
@@ -294,6 +304,8 @@ def build_dataset(
         assert split == "test", f"Only `test` split available for {dataset_name}"
         # downloadable from https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_path = Path(root).parent / "temp_downloads"
             os.makedirs(download_path, exist_ok=True)
             print(f"Downloading imagenet-r in {download_path} and moving to {root}")
@@ -312,6 +324,8 @@ def build_dataset(
         assert split == "test", f"Only `test` split available for {dataset_name}"
         # downloadable from https://people.eecs.berkeley.edu/~hendrycks/imagenet-o.tar
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_path = Path(root).parent / "temp_downloads"
             os.makedirs(download_path, exist_ok=True)
             print(f"Downloading imagenet-o in {download_path} and moving to {root}")
@@ -330,6 +344,8 @@ def build_dataset(
         assert split == "test", f"Only `test` split available for {dataset_name}"
         # downloadable from https://objectnet.dev/downloads/objectnet-1.0.zip or https://www.dropbox.com/s/raw/cxeztdtm16nzvuw/objectnet-1.0.zip
         if not os.path.exists(root):
+            if not download:
+                raise RuntimeError(f"{dataset_name=} not found in {root=} and {download=}")
             download_path = Path(root).parent / "temp_downloads"
             os.makedirs(download_path, exist_ok=True)
             print(f"Downloading objectnet in {download_path} and moving to {root}")

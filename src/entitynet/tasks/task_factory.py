@@ -45,6 +45,7 @@ def build_train_and_val_tasks(
         )
 
     # build train dataset
+    logger.debug(f"---------- Building train dataset ----------")
     train_vis_preproc = build_vis_preprocessor_from_config(config.train_task.vis_preproc)
     logger.info(f"Train vis preprocessor: {train_vis_preproc}")
     batch_size = config.trainer.batch_size
@@ -63,6 +64,7 @@ def build_train_and_val_tasks(
     train_task = create_task_from_config("train_task", config.train_task)
 
     # build validation tasks
+    logger.debug(f"---------- Building validation tasks (datasets are already built) ----------")
     val_task_keys = config.trainer.val_task_keys
     val_loaders, val_task_cfgs, val_tasks, val_datasets = [], [], [], []
     for val_task_key in val_task_keys:

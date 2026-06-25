@@ -26,38 +26,40 @@ def log_image_tensor(
     log_data_locally: bool = False,
     local_dir: PathType = None,
 ):
-    # try to denormalize the image back to 0-1
-    normed = False
+    # try to find denormalizer from dataset to denormalize the image back to 0-1
+    denorm = None
     if transform is not None:
         mean, std = find_mean_and_std_for_denormalization(transform)
         if mean is not None and std is not None:
             denorm = Denormalize(mean, std)
-            image_tensor = denorm(image_tensor)
-            normed = True
 
-    if not normed:
-        # jointly normalize all channels to [0, 1] for each image separately
-        min_ = image_tensor.amin(dim=(1, 2, 3), keepdim=True)
-        max_ = image_tensor.amax(dim=(1, 2, 3), keepdim=True)
+    # jointly normalize all channels to [0, 1] for each image separately
+    min_ = image_tensor.amin(dim=(1, 2, 3), keepdim=True)
+    max_ = image_tensor.amax(dim=(1, 2, 3), keepdim=True)
+    if denorm is None:
         image_tensor = (image_tensor - min_) / (max_ - min_)
-        # add the normalization info to the descriptions
-        for i in range(image_tensor.shape[0]):
-            min_here = min_[i, 0, 0, 0].item()
-            max_here = max_[i, 0, 0, 0].item()
-            descriptions[i] = f"{descriptions[i]} (min={min_here:.3f}, max={max_here:.3f})"
+        norm_info = f"minmax"
+    else:
+        image_tensor = denorm(image_tensor)
+        norm_info = f"denorm"
+
+    # add the normalization info to the descriptions
+    for i in range(image_tensor.shape[0]):
+        min_here = min_[i, 0, 0, 0].item()
+        max_here = max_[i, 0, 0, 0].item()
+        descriptions[i] = f"{descriptions[i]} (min={min_here:.3f}, max={max_here:.3f} {norm_info})"
 
     if isinstance(metric_logger, CSVLogger) or log_data_locally:
         assert (
             local_dir is not None
         ), "local_dir must be provided when using CSVLogger or log_data_locally=True"
-        image_log_dir = Path(local_dir) / "image_log"
+        image_log_dir = Path(local_dir) / f"image_log_{key.replace('/', '_')}"
         os.makedirs(image_log_dir, exist_ok=True)
         pil_images = visualize_image_text_pairs_from_tensor(image_tensor, descriptions)
         for b in range(image_tensor.shape[0]):
             image_path = image_log_dir / f"{b:04d}.png"
             pil_images[b].save(image_path)
         return
-
     if isinstance(metric_logger, WandbLogger):
         import wandb  # type: ignore
 
@@ -80,7 +82,6 @@ def log_image_tensor(
             f"{descriptions}."
         )
         return
-
     from lightning.pytorch.loggers import NeptuneLogger
 
     if isinstance(metric_logger, NeptuneLogger):

@@ -15,7 +15,7 @@ from attrs import define
 from loguru import logger
 
 from packg.dtime import get_timestamp_for_filename
-from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
+from packg.log import SHORTER_FORMAT, configure_logger, get_logger_level_from_args
 from typedparser import TypedParser, VerboseQuietArgs, add_argument
 from visiontext.pandatools import full_pandas_display
 
@@ -69,7 +69,7 @@ class Args(VerboseQuietArgs):
 def main():
     parser = TypedParser.create_parser(Args, description=__doc__)
     args: Args = parser.parse_args()
-    configure_logger(level=get_logger_level_from_args(args), format=SHORTEST_FORMAT)
+    configure_logger(level=get_logger_level_from_args(args), format=SHORTER_FORMAT)
     logger.info(f"{args}")
 
     # determine filename to dump the files
@@ -170,9 +170,16 @@ def main():
             if check_phase is None:
                 check_phase = "test"
             find_best_epoch_df = df_sorted[combo_mask & (df_sorted["phase"] == check_phase)]
-            best_index = int(find_best_epoch_df[val_loss_field].argmin())
-            best_epoch = find_best_epoch_df.iloc[best_index]["epoch"]
-            last_epoch = find_best_epoch_df["epoch"].max()
+            if len(find_best_epoch_df) == 0:
+                logger.warning(
+                    f"No rows found to find best epoch for combo {combo} in phase {check_phase}"
+                )
+                best_epoch = None
+                last_epoch = None
+            else:
+                best_index = int(find_best_epoch_df[val_loss_field].argmin())
+                best_epoch = find_best_epoch_df.iloc[best_index]["epoch"]
+                last_epoch = find_best_epoch_df["epoch"].max()
 
             combo_epochs = sorted(df_sorted[combo_mask]["epoch"].unique().tolist())
             # best_epoch = combo_epochs[-2] if len(combo_epochs) > 1 else combo_epochs[0]

@@ -26,13 +26,11 @@ https://www.nltk.org/howto/wordnet.html
 
 # to build smaller graphs than the full 70k nouns, pass the wordnet ids
 # restrict to only living things:
-python -m crx.run.wordnet.wordnet_graph -r crx/annotations/queries/livingthings-v2_synnames.json
+python -m entitynet.cli.datasets.create_wordnet_graph -r crx/annotations/queries/livingthings-v2_synnames.json
 # private/wordnet/livingthings-v1/index.html
 
 # without restricting max leafs
-python -m crx.run.wordnet.wordnet_graph -l 0
-
-
+python -m entitynet.cli.datasets.create_wordnet_graph -l 0
 """
 
 import os

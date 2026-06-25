@@ -6,8 +6,6 @@ Note: Preprocessing can also be different for different pretrained weights.
 
 from pathlib import Path
 
-from loguru import logger
-
 from packg.iotools import load_json
 
 from entitynet.models.clip_misc_utils import make_hf_model_name_safe
@@ -26,6 +24,15 @@ def load_open_clip_preprocessor(
         pp_cfg = PreprocessCfg(**pp_cfg_dict)
     except Exception as e:
         raise RuntimeError(f"{pp_cfg_dict=} {model_name=} {pretrained=}") from e
+    return image_transform_v2(pp_cfg, is_train=is_train, aug_cfg=aug_cfg)
+
+
+def load_open_clip_preprocessor_manually(aug_cfg=None, is_train=False, **kwargs):
+    pp_cfg_dict = {k: v for k, v in kwargs.items() if v is not None}
+    try:
+        pp_cfg = PreprocessCfg(**pp_cfg_dict)
+    except Exception as e:
+        raise RuntimeError(f"{pp_cfg_dict=}") from e
     return image_transform_v2(pp_cfg, is_train=is_train, aug_cfg=aug_cfg)
 
 

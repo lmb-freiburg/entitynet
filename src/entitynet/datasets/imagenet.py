@@ -23,12 +23,15 @@ class Imagenet(Dataset):
         self.return_dict = return_dict
         self.data_dir = get_entitynet_data_dir()
         self.base_dir_rel = "imagenet1k"
-        for check_subdir in ["train", "val"]:
-            if not (self.data_dir / self.base_dir_rel / check_subdir).is_dir():
-                raise FileNotFoundError(
-                    f"Directory not found: {self.data_dir / self.base_dir_rel / check_subdir} - "
-                    f"ImageNet image folders train and val must be downloaded and extracted first."
-                )
+        if split == "val":
+            check_subdir = "val"
+        else:
+            check_subdir = "train"
+        if not (self.data_dir / self.base_dir_rel / check_subdir).is_dir():
+            raise FileNotFoundError(
+                f"Directory not found: {self.data_dir / self.base_dir_rel / check_subdir} - "
+                f"ImageNet image folders train and val must be downloaded and extracted first."
+            )
 
         # load image annotations
         ann_dir = get_entitynet_annotations_dir() / "imagenet"

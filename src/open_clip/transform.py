@@ -1,11 +1,12 @@
 import numbers
 import random
-import warnings
 from dataclasses import asdict, dataclass
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 import torch
 import torchvision.transforms.functional as F
+from loguru import logger
+from PIL import Image
 from torchvision.transforms import (
     CenterCrop,
     ColorJitter,
@@ -13,7 +14,6 @@ from torchvision.transforms import (
     Grayscale,
     InterpolationMode,
     Normalize,
-    RandomResizedCrop,
     Resize,
     ToTensor,
 )
@@ -86,6 +86,171 @@ class AugmentationCfg:
     # params for simclr_jitter_gray
     color_jitter_prob: float = None
     gray_scale_prob: float = None
+
+
+def image_transform(
+    image_size: Union[int, Tuple[int, int]],
+    is_train: bool,
+    mean: Optional[Tuple[float, ...]] = None,
+    std: Optional[Tuple[float, ...]] = None,
+    resize_mode: Optional[str] = None,
+    interpolation: Optional[str] = None,
+    fill_color: int = 0,
+    antialias: bool = True,
+    aug_cfg: Optional[Union[Dict[str, Any], AugmentationCfg]] = None,
+):
+    mean = mean or OPENAI_DATASET_MEAN
+    if not isinstance(mean, (list, tuple)):
+        mean = (mean,) * 3
+
+    std = std or OPENAI_DATASET_STD
+    if not isinstance(std, (list, tuple)):
+        std = (std,) * 3
+
+    interpolation = interpolation or "bicubic"
+    assert interpolation in ["bicubic", "bilinear", "random"]
+    # NOTE random is ignored for interpolation_mode, so defaults to BICUBIC for inference if set
+    interpolation_mode = (
+        InterpolationMode.BILINEAR if interpolation == "bilinear" else InterpolationMode.BICUBIC
+    )
+
+    resize_mode = resize_mode or "shortest"
+    assert resize_mode in ("shortest", "longest", "squash", "none")
+
+    if isinstance(aug_cfg, dict):
+        aug_cfg = AugmentationCfg(**aug_cfg)
+    else:
+        aug_cfg = aug_cfg or AugmentationCfg()
+
+    normalize = Normalize(mean=mean, std=std)
+
+    if is_train:
+        logger.error(
+            f"Called image_transform() with is_train=True but Train transforms are now built "
+            f"using build_train_aug_cfg() instead. transform will be None."
+        )
+        return None
+    # if is_train:
+    #     aug_cfg_dict = {k: v for k, v in asdict(aug_cfg).items() if v is not None}
+    #     use_timm = aug_cfg_dict.pop("use_timm", False)
+    #     if use_timm:
+    #         from timm.data import create_transform  # timm can still be optional
+
+    #         if isinstance(image_size, (tuple, list)):
+    #             assert len(image_size) >= 2
+    #             input_size = (3,) + image_size[-2:]
+    #         else:
+    #             input_size = (3, image_size, image_size)
+
+    #         aug_cfg_dict.setdefault("color_jitter", None)  # disable by default
+    #         # drop extra non-timm items
+    #         aug_cfg_dict.pop("color_jitter_prob", None)
+    #         aug_cfg_dict.pop("gray_scale_prob", None)
+
+    #         train_transform = create_transform(
+    #             input_size=input_size,
+    #             is_training=True,
+    #             hflip=0.0,
+    #             mean=mean,
+    #             std=std,
+    #             re_mode="pixel",
+    #             interpolation=interpolation,
+    #             **aug_cfg_dict,
+    #         )
+    #     else:
+    #         if resize_mode == "none":
+    #             train_transform = [
+    #                 _convert_to_rgb,
+    #             ]
+    #             logger.info(
+    #                 f"Creating CLIP train transform. {resize_mode=}, images must be pre-resized."
+    #             )
+    #         else:
+    #             logger.info(
+    #                 f"Creating CLIP train transform. {resize_mode=} but using RandomResizedCrop "
+    #                 f"due to train flag."
+    #             )
+    #             train_transform = [
+    #                 RandomResizedCrop(
+    #                     image_size,
+    #                     scale=aug_cfg_dict.pop("scale"),
+    #                     interpolation=InterpolationMode.BICUBIC,
+    #                     antialias=antialias,
+    #                 ),
+    #                 _convert_to_rgb,
+    #             ]
+    #         if aug_cfg.color_jitter_prob:
+    #             assert aug_cfg.color_jitter is not None and len(aug_cfg.color_jitter) == 4
+    #             train_transform.extend(
+    #                 [color_jitter(*aug_cfg.color_jitter, p=aug_cfg.color_jitter_prob)]
+    #             )
+    #         if aug_cfg.gray_scale_prob:
+    #             train_transform.extend([gray_scale(aug_cfg.gray_scale_prob)])
+    #         train_transform.extend(
+    #             [
+    #                 ToTensor(),
+    #                 normalize,
+    #             ]
+    #         )
+    #         train_transform = Compose(train_transform)
+    #         # if aug_cfg_dict:
+    #         #     warnings.warn(
+    #         #         f"Unused augmentation cfg items, specify `use_timm` to use ({list(aug_cfg_dict.keys())})."
+    #         #     )
+    #     return train_transform
+    # else:
+    if resize_mode == "longest":
+        transforms = [
+            ResizeKeepRatio(
+                image_size, interpolation=interpolation_mode, longest=1, antialias=antialias
+            ),
+            CenterCropOrPad(image_size, fill=fill_color),
+        ]
+    elif resize_mode == "squash":
+        if isinstance(image_size, int):
+            image_size = (image_size, image_size)
+        transforms = [
+            Resize(image_size, interpolation=interpolation_mode, antialias=antialias),
+        ]
+    elif resize_mode == "none":
+        transforms = []
+        logger.info(f"Creating CLIP transform with {resize_mode=}, images must be pre-resized.")
+    elif resize_mode == "shortest":
+        if not isinstance(image_size, (tuple, list)):
+            image_size = (image_size, image_size)
+        if image_size[0] == image_size[1]:
+            # simple case, use torchvision built-in Resize w/ shortest edge mode (scalar size arg)
+            transforms = [
+                Resize(image_size[0], interpolation=interpolation_mode, antialias=antialias)
+            ]
+        else:
+            # resize shortest edge to matching target dim for non-square target
+            transforms = [
+                ResizeKeepRatio(image_size, interpolation=interpolation_mode, antialias=antialias)
+            ]
+        transforms += [CenterCrop(image_size)]
+    else:
+        raise ValueError(f"Unknown resize_mode: {resize_mode}")
+    transforms.extend([_convert_to_rgb, ToTensor(), normalize])
+    return Compose(transforms)
+
+
+def image_transform_v2(
+    cfg: PreprocessCfg,
+    is_train: bool,
+    aug_cfg: Optional[Union[Dict[str, Any], AugmentationCfg]] = None,
+):
+    return image_transform(
+        image_size=cfg.size,
+        is_train=is_train,
+        mean=cfg.mean,
+        std=cfg.std,
+        interpolation=cfg.interpolation,
+        resize_mode=cfg.resize_mode,
+        fill_color=cfg.fill_color,
+        antialias=cfg.antialias,
+        aug_cfg=aug_cfg,
+    )
 
 
 def _setup_size(size, error_msg):
@@ -297,155 +462,3 @@ class gray_scale(object):
             return self.transf(img)
         else:
             return img
-
-
-def image_transform(
-    image_size: Union[int, Tuple[int, int]],
-    is_train: bool,
-    mean: Optional[Tuple[float, ...]] = None,
-    std: Optional[Tuple[float, ...]] = None,
-    resize_mode: Optional[str] = None,
-    interpolation: Optional[str] = None,
-    fill_color: int = 0,
-    antialias: bool = True,
-    aug_cfg: Optional[Union[Dict[str, Any], AugmentationCfg]] = None,
-):
-    mean = mean or OPENAI_DATASET_MEAN
-    if not isinstance(mean, (list, tuple)):
-        mean = (mean,) * 3
-
-    std = std or OPENAI_DATASET_STD
-    if not isinstance(std, (list, tuple)):
-        std = (std,) * 3
-
-    interpolation = interpolation or "bicubic"
-    assert interpolation in ["bicubic", "bilinear", "random"]
-    # NOTE random is ignored for interpolation_mode, so defaults to BICUBIC for inference if set
-    interpolation_mode = (
-        InterpolationMode.BILINEAR if interpolation == "bilinear" else InterpolationMode.BICUBIC
-    )
-
-    resize_mode = resize_mode or "shortest"
-    assert resize_mode in ("shortest", "longest", "squash")
-
-    if isinstance(aug_cfg, dict):
-        aug_cfg = AugmentationCfg(**aug_cfg)
-    else:
-        aug_cfg = aug_cfg or AugmentationCfg()
-
-    normalize = Normalize(mean=mean, std=std)
-
-    if is_train:
-        aug_cfg_dict = {k: v for k, v in asdict(aug_cfg).items() if v is not None}
-        use_timm = aug_cfg_dict.pop("use_timm", False)
-        if use_timm:
-            from timm.data import create_transform  # timm can still be optional
-
-            if isinstance(image_size, (tuple, list)):
-                assert len(image_size) >= 2
-                input_size = (3,) + image_size[-2:]
-            else:
-                input_size = (3, image_size, image_size)
-
-            aug_cfg_dict.setdefault("color_jitter", None)  # disable by default
-            # drop extra non-timm items
-            aug_cfg_dict.pop("color_jitter_prob", None)
-            aug_cfg_dict.pop("gray_scale_prob", None)
-
-            train_transform = create_transform(
-                input_size=input_size,
-                is_training=True,
-                hflip=0.0,
-                mean=mean,
-                std=std,
-                re_mode="pixel",
-                interpolation=interpolation,
-                **aug_cfg_dict,
-            )
-        else:
-            train_transform = [
-                RandomResizedCrop(
-                    image_size,
-                    scale=aug_cfg_dict.pop("scale"),
-                    interpolation=InterpolationMode.BICUBIC,
-                    antialias=antialias,
-                ),
-                _convert_to_rgb,
-            ]
-            if aug_cfg.color_jitter_prob:
-                assert aug_cfg.color_jitter is not None and len(aug_cfg.color_jitter) == 4
-                train_transform.extend(
-                    [color_jitter(*aug_cfg.color_jitter, p=aug_cfg.color_jitter_prob)]
-                )
-            if aug_cfg.gray_scale_prob:
-                train_transform.extend([gray_scale(aug_cfg.gray_scale_prob)])
-            train_transform.extend(
-                [
-                    ToTensor(),
-                    normalize,
-                ]
-            )
-            train_transform = Compose(train_transform)
-            # if aug_cfg_dict:
-            #     warnings.warn(
-            #         f"Unused augmentation cfg items, specify `use_timm` to use ({list(aug_cfg_dict.keys())})."
-            #     )
-        return train_transform
-    else:
-        if resize_mode == "longest":
-            transforms = [
-                ResizeKeepRatio(
-                    image_size, interpolation=interpolation_mode, longest=1, antialias=antialias
-                ),
-                CenterCropOrPad(image_size, fill=fill_color),
-            ]
-        elif resize_mode == "squash":
-            if isinstance(image_size, int):
-                image_size = (image_size, image_size)
-            transforms = [
-                Resize(image_size, interpolation=interpolation_mode, antialias=antialias),
-            ]
-        else:
-            assert resize_mode == "shortest"
-            if not isinstance(image_size, (tuple, list)):
-                image_size = (image_size, image_size)
-            if image_size[0] == image_size[1]:
-                # simple case, use torchvision built-in Resize w/ shortest edge mode (scalar size arg)
-                transforms = [
-                    Resize(image_size[0], interpolation=interpolation_mode, antialias=antialias)
-                ]
-            else:
-                # resize shortest edge to matching target dim for non-square target
-                transforms = [
-                    ResizeKeepRatio(
-                        image_size, interpolation=interpolation_mode, antialias=antialias
-                    )
-                ]
-            transforms += [CenterCrop(image_size)]
-
-        transforms.extend(
-            [
-                _convert_to_rgb,
-                ToTensor(),
-                normalize,
-            ]
-        )
-        return Compose(transforms)
-
-
-def image_transform_v2(
-    cfg: PreprocessCfg,
-    is_train: bool,
-    aug_cfg: Optional[Union[Dict[str, Any], AugmentationCfg]] = None,
-):
-    return image_transform(
-        image_size=cfg.size,
-        is_train=is_train,
-        mean=cfg.mean,
-        std=cfg.std,
-        interpolation=cfg.interpolation,
-        resize_mode=cfg.resize_mode,
-        fill_color=cfg.fill_color,
-        antialias=cfg.antialias,
-        aug_cfg=aug_cfg,
-    )

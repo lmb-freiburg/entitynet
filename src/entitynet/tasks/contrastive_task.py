@@ -7,7 +7,7 @@ from attr import asdict
 from lightning.fabric.utilities.exceptions import MisconfigurationException
 
 from packg.log import logger
-from visiontext.distutils import WorldInfo
+from visiontext.distutils import WorldInfo, print_with_rank
 
 from entitynet.config.task_config import ClipContrastiveTaskCfg
 from entitynet.models.base_model import LitBaseModel
@@ -23,28 +23,13 @@ class ContrastiveRetrievalTask(BaseTask):
         batch_size = batch["image"].shape[0]
         out_dict = model.model(batch["image"], batch["tokens"])
         result = {}
+        print_with_rank(f"contrastive eval task with loss {model.loss}")
         if model.loss is not None:
             model.loss.is_val = True
             loss = model.loss(**out_dict, output_dict=False)
-            # if multiple tasks return losses, all but one of those tasks must be given some loss
-            # appendix name, to avoid the error: multiple values for same name and step logged
-            loss_key = f"{model.eval_phase}_loss{self.task_cfg.loss_name_appdx}"
-            if not task_cfg.disable_loss_logging:
-                try:
-                    model.log(
-                        loss_key,
-                        loss,
-                        batch_size=batch_size,
-                        add_dataloader_idx=False,
-                        sync_dist=True,
-                    )
-                except MisconfigurationException as e:
-                    raise MisconfigurationException(
-                        f"Offending config: {pformat(asdict(self.task_cfg))}\n"
-                        f"Multiple eval tasks logged {loss_key} which is not allowed. "
-                        f"Either 1) Configure eval_tasks.<task_key>.loss_name_appdx to a unique value. "
-                        f"Or 2) disable loss computation for the 2nd task, 3) Disable the 2nd task."
-                    ) from e
+            loss_key = f"{model.eval_phase}_loss"
+            new_name = model.log_with_auto_rename(loss_key, loss, batch_size, task_cfg.task_key)
+            # print_with_rank(f"logged loss {loss} as {new_name=} {task_cfg.task_key=}")
             # the result dict expects one entry per datapoint, so we repeat the averaged loss.
             result = {"loss": [loss.detach().cpu().item()] * batch_size}
         if not task_cfg.run_retrieval:

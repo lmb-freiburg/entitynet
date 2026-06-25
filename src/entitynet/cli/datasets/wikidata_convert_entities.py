@@ -16,7 +16,6 @@ import math
 from pprint import pprint
 
 import pandas as pd
-from crx.paths import get_crx_annotations_dir
 from loguru import logger
 
 from packg.iotools import dump_json

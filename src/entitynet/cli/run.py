@@ -24,7 +24,7 @@ from packg.strings import format_pseudo_table
 from typedparser import TypedParser, VerboseQuietArgs, add_argument
 from visiontext.distutils import WorldInfo, get_world_info
 
-from entitynet.config.config_factory import load_config_from_file, verify_config
+from entitynet.config.config_factory import load_config_from_file
 from entitynet.datasets.dataset_factory import build_eval_datasets
 from entitynet.litext.ckpts import CustomModelCheckpoint
 from entitynet.litext.cleanup_train_outputs import CleanupOutputsCallback
@@ -40,6 +40,20 @@ from entitynet.trainutils import figure_out_world_size, setup_loguru_train_loggi
 warnings.filterwarnings(
     "ignore", message=r"It is recommended to use `self\.log\('val/.*, sync_dist=True.*"
 )
+
+# warnings.filterwarnings(
+#     "error",
+#     category=UserWarning,
+#     message=r"Using a non-tuple sequence for multidimensional indexing is deprecated.*",
+# )
+
+# # limit memory
+# import resource
+
+# LIMM = 48 * 1024**3
+# soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+# resource.setrlimit(resource.RLIMIT_AS, (LIMM, hard))
+# resource.setrlimit(resource.RLIMIT_DATA, (LIMM, hard))
 
 
 @define
@@ -84,15 +98,13 @@ def main():
 
     # ----- load config and setup output dir
     config = load_config_from_file(args.config_file, merge_dotlist=args.options)
-    verify_config(config)
+    run_id = args.run_id if args.run_id is not None else "defaultrun"
+    long_id = f"{config.trainer.experiment_name.split('/')[-1]}-{args.run_id}"
     if args.test_last:
         config.trainer.test_last = True
     trcfg = config.trainer
     trcfg.output_dir = Path(trcfg.output_dir)
-    if args.run_id is not None:
-        trcfg.output_dir = trcfg.output_dir / args.run_id
-    else:
-        trcfg.output_dir = trcfg.output_dir / "defaultrun"
+    trcfg.output_dir = trcfg.output_dir / run_id
     if args.fast_dev_run:
         trcfg.output_dir = trcfg.output_dir.parent / f"fastdevrun-{trcfg.output_dir.name}"
     new_world_size = figure_out_world_size(config)
@@ -137,6 +149,7 @@ def main():
 
     # build all evaluation datasets
     eval_datasets_dict, eval_loader_dict = build_eval_datasets(config)
+
     train_task, train_dataset, train_dataloader = None, None, None
     val_task_keys, val_task_cfgs, val_tasks, val_datasets, val_loaders = (None,) * 5
     if not args.test_only:
@@ -216,9 +229,9 @@ def main():
         wlogger = WandbLogger(
             save_dir=config.trainer.output_dir / "wandb",
             project=project,
-            name=args.run_id,
-            version=args.run_id,
-            id=args.run_id,
+            name=long_id,
+            version=long_id,
+            id=long_id,
             resume="allow",
             # settings=wandb.Settings(...),
         )
@@ -325,7 +338,6 @@ def main():
 
     # ----- fit
     if not args.test_only:
-        # we cannot run trainer.validate because it doesn't properly setup distributed training
         world_info.print_with_rank(f"Call trainer.fit")
         trainer.fit(model, train_dataloader, val_loaders, ckpt_path=r_ckpt_file)
         world_info.print_with_rank(f"Done with trainer.fit")
@@ -396,6 +408,16 @@ def main():
         if len(test_tasks) == 0:
             logger.warning(f"No tasks to test for {ckpt_to_test}")
             continue
+        else:
+            logger.info(f"Testing tasks: {test_task_keys}")
+
+        # # cannot delete it this easily, because it might be required in multiple checkpoints
+        # logger.info(f"RAM before deleting unused test datasets: {profile_ram_to_str()}")
+        # del test_dict
+        # gc.collect()
+        # torch.cuda.empty_cache()
+        # time.sleep(0.1)
+        # logger.info(f"RAM now after deleting unused test datasets: {profile_ram_to_str()}")
 
         model.setup_test_tasks(test_tasks, test_datasets)
         world_info.print_with_rank(f"Testing!")

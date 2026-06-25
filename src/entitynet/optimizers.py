@@ -9,6 +9,10 @@ def create_optimizer_from_config(params, opt_cfg: OptimizerCfg):
     logger.info(f"Creating optimizer {opt_name} with params {opt_cfg.hparams}")
     if opt_cfg.opt_name == "adamw":
         opt = torch.optim.AdamW(params, **opt_cfg.hparams)
+    elif opt_cfg.opt_name == "adafactor":
+        from transformers import Adafactor
+
+        opt = Adafactor(params, **opt_cfg.hparams)
     else:
         raise ValueError(f"Unknown optimizer: {opt_cfg.opt_name}")
     return opt

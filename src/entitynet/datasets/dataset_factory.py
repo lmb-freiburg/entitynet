@@ -55,6 +55,7 @@ def build_eval_datasets(config: Config):
     eval_datasets_dict = {}
     eval_loader_dict = {}
     for task_key, task_cfg in config.eval_tasks.items():
+        logger.debug(f"---------- Build eval dataset for task: {task_key} ----------")
         workers = config.trainer.workers
         dataset, loader = build_eval_dataset_for_task(task_key, task_cfg, workers)
         eval_datasets_dict[task_key] = dataset
@@ -66,6 +67,7 @@ def build_eval_dataset_for_task(
     task_key: str,
     task_cfg: BaseTaskCfg,
     workers: int = 0,
+    download=True,
 ) -> tuple[Dataset, DataLoader]:
     # create preprocessor
     eval_vis_preproc = build_vis_preprocessor_from_config(task_cfg.vis_preproc)
@@ -81,6 +83,7 @@ def build_eval_dataset_for_task(
         batch_size=batch_size,
         workers=workers,
         is_train=False,
+        download=download,
     )
     return dataset, loader
 
@@ -93,6 +96,7 @@ def build_dataset_from_config(
     is_train: bool = False,
     seed: int = 42,
     world_size: int = 1,
+    download=True,
 ) -> tuple[Dataset, DataLoader]:
     dataset_factory = dataset_cfg.dataset_factory
     dataset_name = dataset_cfg.dataset_name
@@ -153,8 +157,6 @@ def build_dataset_from_config(
             raise ValueError(f"Unknown dataset factory: {dataset_factory}")
 
     if dataset_factory.startswith(DatasetFactoryC.CLIP_BENCHMARK):
-        # note that the clip_benchmark builder will call the function
-        # crx/datasets/clip_benchmark_extension.py build_dataset_for_clip_benchmark()
         from clip_benchmark.datasets.builder import build_dataset
 
         root = get_entitynet_data_dir() / "clip_benchmark" / dataset_name.replace("/", "_")
@@ -184,6 +186,7 @@ def build_dataset_from_config(
                 dataset_name,
                 root=Path(root).as_posix(),
                 split=dataset_split,
+                download=download,
                 transform=transform,
                 task=task,
             )
@@ -296,7 +299,7 @@ def build_dataset_from_config(
 
     if loader is None:
         if batch_size is None:
-            logger.warning(f"batch_size is None, not creating a DataLoader.")
+            logger.info(f"batch_size is None, not creating a DataLoader.")
         else:
             loader = DataLoader(
                 ds,
@@ -374,7 +377,7 @@ def build_merged_dataset(
     is_train: bool,
     seed: int,
 ) -> "MergedDataset":
-    """Build a merged dataset from multiple dataset configurations."""
+    """Build a merged dataset from boxbkup.multiple dataset configurations."""
     datasets = []
     for dataset_key, dataset_cfg in merge_datasets.items():
         # Use specific transform if available, otherwise use default

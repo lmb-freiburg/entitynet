@@ -22,8 +22,6 @@ class BaseTaskCfg:
     task_factory: str = None
     dataset: DatasetCfg | None = None
     vis_preproc: PreprocCfg | None = None  # in case the task needs different preproc than the model
-    loss_name_appdx: str = ""  # if multiple tasks return val_loss, all except one must set this
-    disable_loss_logging: bool = False
 
 
 @define(auto_attribs=True, kw_only=True)

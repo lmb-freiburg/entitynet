@@ -45,7 +45,7 @@ def load_config_from_file(
     Returns:
         Config object.
     """
-    logger.debug(f"Loading yaml into structure of crx/config.py - {config_file}")
+    logger.debug(f"Loading yaml into structure of config.py - {config_file}")
     config_file = Path(config_file)
     conf: DictConfig = OmegaConf.load(config_file.as_posix())
     if merge_dotlist is not None:
@@ -230,30 +230,6 @@ def postprocess_config(config: Config):
             eval_task.vis_preproc = deepcopy(config.model.vis_preproc)
 
     return config
-
-
-def verify_config(config: Config):
-    for phase_name, keys in [
-        ("val", config.trainer.val_task_keys),
-        ("test", config.trainer.test_task_keys),
-    ]:
-        lossname2task = defaultdict(list)
-        for key in keys:
-            task_cfg = config.eval_tasks[key]
-            if isinstance(task_cfg, ClipContrastiveTaskCfg):
-                # it's a task that will log a loss
-                loss_full_name = f"{phase_name}_loss{task_cfg.loss_name_appdx}"
-                lossname2task[loss_full_name].append(key)
-        lossname2task = dict(lossname2task)
-        for loss_name, task_keys in lossname2task.items():
-            if len(task_keys) > 1:
-                raise ValueError(f"""\
-Misconfig: Multiple tasks will log the same metric '{loss_name}' which will break lightning. 
-Tasks: {task_keys}. Solution is to change the task config and either: 
-1) Set 'loss_name_appdx' to a non-empty string for all "except one task, so the loss will be logged\
-under different names."
-2) Set disable_loss_logging=True for all but one task.
-3) Disable tasks until one is left.""")
 
 
 def load_sub_config(

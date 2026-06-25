@@ -1,6 +1,9 @@
+"""
+Delete everything except best and last checkpoint
+"""
+
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
 from typing import Iterable
 
@@ -11,11 +14,6 @@ from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_a
 from typedparser import TypedParser, VerboseQuietArgs, add_argument
 
 from entitynet.results.checkpoint_finder import find_checkpoints
-
-
-def _normalize_path(path: Path) -> Path:
-    """Return a normalized absolute path for stable comparisons."""
-    return path.resolve(strict=False)
 
 
 @define
@@ -106,6 +104,11 @@ def remove_extra_checkpoints(ckpt_dir: Path, *, dry_run: bool) -> None:
         # else:
         path.unlink()
         logger.info(f"Removed file {path}")
+
+
+def _normalize_path(path: Path) -> Path:
+    """Return a normalized absolute path for stable comparisons."""
+    return path.resolve(strict=False)
 
 
 if __name__ == "__main__":

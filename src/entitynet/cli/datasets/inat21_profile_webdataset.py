@@ -4,10 +4,10 @@ Create Webdataset for iNat21
 
 from timeit import default_timer
 
-from crx.datasets.inat21 import iNat21
 from torch.utils.data import DataLoader
 from torchvision.transforms import transforms
 
+from entitynet.datasets.inat21 import iNat21
 from entitynet.datasets.inat21_webdataset import build_inat21_webdataset
 
 

@@ -20,10 +20,13 @@ from torch import nn
 from packg import format_exception
 from packg.iotools import dump_json
 from packg.strings import format_pseudo_table
+from packg.typext import PathType
+from visiontext.distutils import WorldInfo
 from visiontext.torchutils import group_params_and_data_for_display, show_param_groups_dict
 
 from entitynet.config.main_config import Config, OptimizerCfg
 from entitynet.litext.distributed_gathering import save_outputs
+from entitynet.litext.logwrapper import log_image_tensor
 from entitynet.optimizers import create_optimizer_from_config
 from entitynet.results.metrics_formatter import format_metric
 from entitynet.schedulers import create_scheduler
@@ -80,10 +83,10 @@ class LitBaseModel(lit.LightningModule, ABC):
             steps_per_epoch, total_steps, total_steps_for_scheduler = (
                 self.calculate_steps_from_epochs()
             )
-            if steps_per_epoch < self.config.trainer.accum_steps:
+            if steps_per_epoch < 1:
                 raise ValueError(
-                    f"Dataset size and batch size results in {steps_per_epoch=} which is smaller "
-                    f"than {self.config.trainer.accum_steps=}. So optimizer.step() will never be "
+                    f"Dataset size and batch size results in {steps_per_epoch=} < 1. "
+                    f"So optimizer.step() will never be "
                     f"reached, therefore no checkpoint will be written and the validation code "
                     f"will fail."
                 )
@@ -129,16 +132,16 @@ class LitBaseModel(lit.LightningModule, ABC):
             opt_cfg.warmup_steps,
             opt_cfg.constant_steps,
         )
-        return {
-            "optimizer": opt,
-            "lr_scheduler": {
+        ret = {"optimizer": opt}
+        if scheduler is not None:
+            ret["lr_scheduler"] = {
                 "scheduler": scheduler,
                 "interval": "step",
                 "frequency": 1,
                 # "monitor": self.config.trainer.ckpt.monitor,  # only needed for ReduceLROnPlateau etc.
                 # "strict": True,
-            },
-        }
+            }
+        return ret
 
     def calculate_steps_from_epochs(self) -> int:
         # calculate the number of steps per epoch here
@@ -184,6 +187,8 @@ class LitBaseModel(lit.LightningModule, ABC):
             i_opt_str = "" if i_opt == 0 else f"_o{i_opt}"
             for i_pg, pg in enumerate(opt.param_groups):
                 i_pg_str = "" if i_pg == 0 else f"_g{i_pg}"
+                if pg["lr"] is None:
+                    continue
                 self.log(f"lr{i_opt_str}{i_pg_str}", pg["lr"])
                 # print(f"Step {self.global_step} LR {pg['lr']:.6f}")
 
@@ -204,12 +209,48 @@ class LitBaseModel(lit.LightningModule, ABC):
             self.config.trainer.output_dir, self.eval_phase, self.epoch_identifier, task_key, suffix
         )
 
+    def on_fit_start(self):
+        eval_mods = [(n, m.__class__.__name__) for n, m in self.named_modules() if not m.training]
+        if len(eval_mods) > 0:
+            print(f"eval modules: {len(eval_mods)}")
+            for n, cls in eval_mods[:50]:
+                print("  ", n, cls)
+            raise RuntimeError(f"Some modules are in eval mode at fit start, see above")
+
     def on_train_epoch_start(self) -> None:
         # for deterministic shard shuffling the webdataset loader needs to know the current epoch,
         # to allow for a different but deterministic shuffle each epoch.
         if hasattr(self.train_dataset, "shared_epoch"):
             # print_with_rank(f"Set current epoch on dataloader: {self.current_epoch}")
             self.train_dataset.shared_epoch.set_value(self.current_epoch)
+
+    def validation_step(self, batch, batch_idx, dataloader_idx=0) -> STEP_OUTPUT:
+        """
+        Validation logic. Lightning calls this hook inside the validation loop.
+
+        This function then depending on the current batch number runs the start, step and end
+        of the validation task.
+
+        Reason for doing it this way:
+        If we would use "on_test_epoch_start" and "..._end" to start and stop the task,
+        that would start all tasks, then run all tasks, then stop all tasks.
+        However each task requires significant memory to store embeddings, outputs etc. and
+        this will run oom. So instead we start on batch_idx 0 and end on batch_idx -1 here.
+        """
+        task = self.val_tasks[dataloader_idx]
+        dataset = self.val_datasets[dataloader_idx]
+        if batch_idx == 0:  # start of val task
+            self.val_output = []
+            self._eval_steps = get_total_val_batches(self.trainer, dataloader_idx)
+            logger.debug(f"Starting validation {batch_idx} {dataloader_idx}")
+            task.on_eval_start(self, dataset)
+        # run single val task step
+        self.run_eval_step(batch, batch_idx, task, self.val_output, dataloader_idx)
+        if batch_idx == self._eval_steps - 1:  # end of val task
+            self._eval_finished.append(True)
+            self.run_eval_epoch_end(task, self.val_output, dataset)
+        if batch_idx >= self._eval_steps:  # sanity check
+            raise RuntimeError(f"{batch_idx=} {self._eval_steps - 1=} {dataloader_idx=} {task=}")
 
     def on_validation_epoch_start(self) -> None:
         """See on_test_epoch_start documentation. Same thing applies here."""
@@ -239,24 +280,21 @@ class LitBaseModel(lit.LightningModule, ABC):
             output_list: List to append step outputs to
             dataloader_idx: Index of the current dataloader (default: 0)
         """
+        wi = WorldInfo(self.trainer)
+        if batch_idx == 0 and wi.is_global_zero and self.config.trainer.log_eval_images:
+            key = f"{self.eval_phase}/image_{task.task_key}"
+            logger.info(f"Logging images for {key} at step {self.global_step}")
+            log_batch_images(
+                batch,
+                self.logger,
+                None,
+                self.config.trainer.n_images_to_save,
+                self.config.trainer.log_data_locally,
+                self.config.trainer.output_dir,
+                key=f"{self.eval_phase}/image_{task.task_key}",
+            )
         result = task.run_eval_step(self, batch)
         output_list.append(result)
-
-    def validation_step(self, batch, batch_idx, dataloader_idx=0) -> STEP_OUTPUT:
-        task = self.val_tasks[dataloader_idx]
-        dataset = self.val_datasets[dataloader_idx]
-        if batch_idx == 0:  # start of val task
-            self.val_output = []
-            self._eval_steps = get_total_val_batches(self.trainer, dataloader_idx)
-            logger.debug(f"Starting validation {batch_idx} {dataloader_idx}")
-            task.on_eval_start(self, dataset)
-        # run single val task step
-        self.run_eval_step(batch, batch_idx, task, self.val_output, dataloader_idx)
-        if batch_idx == self._eval_steps - 1:  # end of val task
-            self._eval_finished.append(True)
-            self.run_eval_epoch_end(task, self.val_output, dataset)
-        if batch_idx >= self._eval_steps:  # sanity check
-            raise RuntimeError(f"{batch_idx=} {self._eval_steps - 1=} {dataloader_idx=} {task=}")
 
     def on_validation_epoch_end(self) -> None:
         if len(self._eval_finished) != len(self.val_tasks):  # sanity check all tasks are done
@@ -271,10 +309,7 @@ class LitBaseModel(lit.LightningModule, ABC):
 
     def test_step(self, batch, batch_idx, dataloader_idx=0) -> STEP_OUTPUT:
         """
-        Note: we cannot use "on_test_epoch_start" and "..._end" to start and stop the task,
-        because that would start all tasks, then run all tasks, then stop all tasks.
-        However each task requires significant memory to store embeddings, outputs etc. and
-        this will run oom. So instead we start on batch_idx 0 and end on batch_idx -1 here.
+        Test logic. See validation_step for an explanation.
         """
         task = self.test_tasks[dataloader_idx]
         dataset = self.test_datasets[dataloader_idx]
@@ -392,6 +427,24 @@ class LitBaseModel(lit.LightningModule, ABC):
             trainer = None
         return trainer
 
+    def log_with_auto_rename(self, metric_name, metric_value, batch_size, task_name):
+        existing_metrics = self.trainer._logger_connector.logged_metrics
+        if metric_name in existing_metrics:
+            new_name = f"{metric_name}_{task_name}"
+            logger.debug(
+                f"Metric name {metric_name} already exists. Logging to {new_name} instead. "
+                f"Value: {metric_value}"
+            )
+            metric_name = new_name
+        self.log(
+            metric_name,
+            metric_value,
+            batch_size=batch_size,
+            add_dataloader_idx=False,
+            sync_dist=True,
+        )
+        return metric_name
+
 
 def get_eval_output_file(output_dir, eval_phase, epoch_identifier, task_key, suffix):
     return (
@@ -437,7 +490,7 @@ def show_clip_param_groups_dict(param_groups_dict):
         params = group_content["params"]
         param_names = group_content["param_names"]
         wd = group_content["weight_decay"]
-        lr = group_content["lr"]
+        lr = group_content.get("lr", -1.0)
         logger.info(f"{group_name:20s} {lr=:7.1e} {wd=:7.1e}")
         param_dict = {param_name: param for param_name, param in zip(param_names, params)}
         param_shapes = []
@@ -449,10 +502,50 @@ def show_clip_param_groups_dict(param_groups_dict):
                 n_params_by_tower["visual"] += n_params
             else:
                 n_params_by_tower["other"] += n_params
-        new_names, new_data = group_params_and_data_for_display(param_names, param_shapes)
-        new_shapes = [d.shape for d in new_data]
+        new_names, new_shapes = group_params_and_data_for_display(param_names, param_shapes)
         for param_name, param_shape in zip(new_names, new_shapes):
             logger.info(f"    {str(param_shape):20s} {param_name}")
         logger.info("")
     for tower, n_params in n_params_by_tower.items():
         logger.info(f"Number of parameters in {tower}: {int(n_params):_d}")
+
+
+def log_batch_images(
+    batch,
+    experiment_logger,
+    transform,
+    n_images_max,
+    log_data_locally: bool = False,
+    local_dir: PathType = None,
+    key="training/image",
+):
+    batch_size = batch["image"].shape[0]
+    n_images_to_save = min(n_images_max, batch_size)
+    if n_images_max == 0:
+        return
+    if "text" in batch:
+        text_tuples_to_save = [[a] for a in batch["text"][:n_images_to_save]]
+    elif "text_list" in batch:
+        text_tuples_to_save = [[" ||| ".join(inner_list)] for inner_list in batch["text_list"]][
+            :n_images_to_save
+        ]
+    else:
+        logger.warning(f"Called log_batch_images with unknown batch format, keys: {batch.keys()}")
+        return
+    if "idx" in batch:
+        for i, idx in enumerate(batch["idx"][:n_images_to_save].detach().cpu().tolist()):
+            text_tuples_to_save[i].append(idx)
+    if "key" in batch:
+        for i, k in enumerate(batch["key"][:n_images_to_save]):
+            text_tuples_to_save[i].append(k)
+    text_to_save = [" | ".join([str(a) for a in t]) for t in text_tuples_to_save]
+    log_image_tensor(
+        experiment_logger,
+        key,
+        batch["image"][:n_images_to_save],
+        descriptions=text_to_save,
+        transform=transform,
+        n_images_max=n_images_max,
+        log_data_locally=log_data_locally,
+        local_dir=local_dir,
+    )

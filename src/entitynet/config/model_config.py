@@ -20,6 +20,7 @@ class BaseModelCfg:
     # during eval, there may not be a loss. but we may need the loss name to find out specifics
     # about the model forward pass, therefore store it at model level instead of training task level
     model_loss_name: str = "clip"
+    ckpt_loading_strict: bool = True  # whether to use strict loading for model checkpoints
 
 
 @define(auto_attribs=True, kw_only=True)
@@ -35,8 +36,8 @@ class PreprocCfg:
 class ClipPreprocCfg:
     size: int | tuple[int, int] | None = None
     mode: str | None = None
-    mean: tuple[float, ...] | None = None
-    std: tuple[float, ...] | None = None
+    mean: tuple[float, ...] | float | None = None
+    std: tuple[float, ...] | float | None = None
     interpolation: str | None = None
     resize_mode: str | None = None  # shortest, squash, longest, none, see get_resize_transforms()
     fill_color: int | None = None
@@ -89,7 +90,9 @@ class ClipModelCfg(BaseModelCfg):
 
 
 class ModelFactoryC(Const):
+    NONE = "none"
     OPEN_CLIP = "open_clip"
+    OPEN_CLIP_MANUAL = "open_clip_manual"  # do not use model_name to instantiate preprocessing
 
 
 # for now preprocessor and model factories match
