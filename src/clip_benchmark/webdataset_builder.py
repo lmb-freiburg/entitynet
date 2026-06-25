@@ -14,8 +14,7 @@ from .datasets.builder import build_dataset
 
 
 def get_parser_args():
-    parser = argparse.ArgumentParser(
-        description="""
+    parser = argparse.ArgumentParser(description="""
         Convert a CLIP_benchmark dataset to the webdataset format (TAR files).
         Datasets can be uploaded to the Huggingface Hub to allow CLIP model
         evaluation from anywhere with an Internet connection.
@@ -23,8 +22,7 @@ def get_parser_args():
         To convert other image classification datasets, use the Python API:
         >>> import clip_benchmark.webdataset_builder
         >>> help(clip_benchmark.webdataset_builder.convert_dataset)
-    """
-    )
+    """)
     # Main arguments
     parser.add_argument(
         "--dataset",

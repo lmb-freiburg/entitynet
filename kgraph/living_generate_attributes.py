@@ -1,11 +1,9 @@
-import math
-
-import sys
 import argparse
-from tqdm import tqdm
+import math
+import sys
 
 from llm_text_generation import TextGenerator
-
+from tqdm import tqdm
 
 PLANT_PROMPT = """\
 From the following list of visual plant attributes, one can predict attribute \

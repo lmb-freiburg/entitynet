@@ -10,9 +10,10 @@ from typing import Iterable, Iterator
 from pydantic import BaseModel, ValidationError
 from tqdm import tqdm
 
-from entitynet.datasets.wikidata.wikidata_utils import strip_label
 from packg import format_exception
 from packg.web.robust_request import send_robust_post_request
+
+from entitynet.datasets.wikidata.wikidata_utils import strip_label
 
 
 def parse_args() -> argparse.Namespace:
@@ -330,8 +331,7 @@ QUALIFIER_ATTRIBUTES = [
 def get_attribute_hints(entity: str) -> str:
     direct_att_list = " ".join("wdt:" + a for a in DIRECT_ATTRIBUTES)
 
-    qual_att_list = "\n".join(
-        f"""UNION {{
+    qual_att_list = "\n".join(f"""UNION {{
         {entity} p:{p} ?s .
         ?s ps:{p} ?v .
         wd:{p} rdfs:label ?attLabel .
@@ -351,9 +351,7 @@ def get_attribute_hints(entity: str) -> str:
             ) as ?valLabel
         )
     }}
-"""
-        for p, q in QUALIFIER_ATTRIBUTES
-    )
+""" for p, q in QUALIFIER_ATTRIBUTES)
 
     query = f"""\
 PREFIX p: <http://www.wikidata.org/prop/>

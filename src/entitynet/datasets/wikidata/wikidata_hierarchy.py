@@ -7,14 +7,14 @@ import math
 import pandas as pd
 from loguru import logger
 
+from packg.iotools import dump_json, load_json
+from visiontext.nlp import preprocess_text_simple
+
 from entitynet.datasets.wikidata.wikidata_utils import (
     strip_label_no_quotes,
     strip_label_no_quotes_allow_multilang,
 )
 from entitynet.paths import get_entitynet_repo_root
-from packg.iotools import dump_json, load_json
-from visiontext.nlp import preprocess_text_simple
-
 
 wrong_links = {
     "Q181537": set(["Q134683"]),

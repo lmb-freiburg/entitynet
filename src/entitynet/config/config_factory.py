@@ -247,15 +247,13 @@ def verify_config(config: Config):
         lossname2task = dict(lossname2task)
         for loss_name, task_keys in lossname2task.items():
             if len(task_keys) > 1:
-                raise ValueError(
-                    f"""\
+                raise ValueError(f"""\
 Misconfig: Multiple tasks will log the same metric '{loss_name}' which will break lightning. 
 Tasks: {task_keys}. Solution is to change the task config and either: 
 1) Set 'loss_name_appdx' to a non-empty string for all "except one task, so the loss will be logged\
 under different names."
 2) Set disable_loss_logging=True for all but one task.
-3) Disable tasks until one is left."""
-                )
+3) Disable tasks until one is left.""")
 
 
 def load_sub_config(

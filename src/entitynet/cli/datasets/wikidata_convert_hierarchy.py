@@ -68,17 +68,18 @@ from collections import defaultdict
 from loguru import logger
 from natsort import natsorted
 
+from packg.iotools import dump_json, load_json
+
 from entitynet.datasets.wikidata.wikidata_hierarchy import (
+    KGRAPH_DIR,
+    display_entity_and_parents,
+    entity_types,
     get_large_entity_set,
     get_medium_entity_set,
     get_small_entity_set,
-    simplify_id,
-    entity_types,
     resolve_parents,
-    display_entity_and_parents,
-    KGRAPH_DIR,
+    simplify_id,
 )
-from packg.iotools import dump_json, load_json
 
 
 def main():

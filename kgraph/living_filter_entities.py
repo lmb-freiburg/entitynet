@@ -2,9 +2,8 @@ import argparse
 import math
 import sys
 
-from tqdm import tqdm
-
 from llm_text_generation import TextGenerator
+from tqdm import tqdm
 
 PLANT_PROMPT = """\
 Given the name and description of an entity, one can decide whether the \

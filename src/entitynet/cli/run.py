@@ -153,8 +153,8 @@ def main():
 
     # ----- setup metric logger
     if args.vislogger == "neptune":
-        from neptune.utils import stringify_unsupported
         from lightning.pytorch.loggers import NeptuneLogger
+        from neptune.utils import stringify_unsupported
 
         logger.warning(
             f"***********************************************\n"

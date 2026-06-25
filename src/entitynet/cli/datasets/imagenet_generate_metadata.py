@@ -16,6 +16,7 @@ from glob import glob
 from operator import itemgetter
 from pathlib import Path
 
+from crx.datasets.wordnet import convert_wnid_to_synname, load_wordnet_nouns
 from loguru import logger
 from natsort import natsorted
 from scipy.io import loadmat
@@ -26,7 +27,6 @@ from packg.log import configure_logger
 from packg.tqdmext import tqdm_max_ncols
 from typedparser.objects import compare_nested_objects
 
-from crx.datasets.wordnet import convert_wnid_to_synname, load_wordnet_nouns
 from entitynet.paths import get_entitynet_annotations_dir, get_entitynet_data_dir
 
 

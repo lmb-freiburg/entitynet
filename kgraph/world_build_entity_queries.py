@@ -1,8 +1,8 @@
 import argparse
-import random
-from collections import Counter, defaultdict
 import json
+import random
 import sys
+from collections import Counter, defaultdict
 
 from entitynet.datasets.wikidata.wikidata_utils import strip_label
 

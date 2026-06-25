@@ -16,15 +16,15 @@ import math
 from pprint import pprint
 
 import pandas as pd
+from crx.paths import get_crx_annotations_dir
 from loguru import logger
 
-from entitynet.datasets.wikidata.wikidata_hierarchy import KGRAPH_DIR
-from entitynet.datasets.wikidata.wikidata_utils import strip_label_no_quotes
 from packg.iotools import dump_json
 from visiontext.nlp import preprocess_text_simple
 from visiontext.pandatools import pd_print_series
 
-from crx.paths import get_crx_annotations_dir
+from entitynet.datasets.wikidata.wikidata_hierarchy import KGRAPH_DIR
+from entitynet.datasets.wikidata.wikidata_utils import strip_label_no_quotes
 
 
 def check_empty(field):

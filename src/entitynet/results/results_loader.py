@@ -74,7 +74,7 @@ def check_run_is_empty(run_dir: PathType):
         return False
 
     # 3. get experiment status from checkpoints
-    (found_train_ckpts, found_test_only_output, last_ckpt, best_ckpt) = (
+    found_train_ckpts, found_test_only_output, last_ckpt, best_ckpt = (
         get_experiment_status_from_checkpoints(run_dir, log_errors=False)
     )
     if found_train_ckpts or found_test_only_output:

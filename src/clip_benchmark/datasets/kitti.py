@@ -18,10 +18,9 @@
 from __future__ import absolute_import, division, print_function
 
 import numpy as np
+import task_adaptation.data.base as base
 import tensorflow.compat.v1 as tf
 import tensorflow_datasets as tfds
-
-import task_adaptation.data.base as base
 from task_adaptation.registry import Registry
 
 

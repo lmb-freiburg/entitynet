@@ -1,13 +1,13 @@
-import requests
-import sys
 import argparse
 import os
 import random
-from re import escape
+import sys
 from multiprocessing import Pool
+from re import escape
 
-from tqdm import tqdm
+import requests
 from llm_text_generation import TextGenerator
+from tqdm import tqdm
 
 QLEVER_URL = "https://qlever.cs.uni-freiburg.de/api/wikidata"
 

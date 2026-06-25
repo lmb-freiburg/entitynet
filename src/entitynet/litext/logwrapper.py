@@ -80,8 +80,9 @@ def log_image_tensor(
             f"{descriptions}."
         )
         return
-    
+
     from lightning.pytorch.loggers import NeptuneLogger
+
     if isinstance(metric_logger, NeptuneLogger):
         from neptune.attributes import FileSeries  # type: ignore
         from neptune.handler import Handler  # type: ignore
@@ -111,5 +112,5 @@ def log_image_tensor(
                     File.as_image(image_tensor[b].permute(1, 2, 0).cpu().numpy()),
                     description=description,
                 )
-        return    
+        return
     raise NotImplementedError(f"Image saving not implemented for logger {metric_logger}")

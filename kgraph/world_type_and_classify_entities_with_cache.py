@@ -4,11 +4,12 @@ import os
 import sys
 from pathlib import Path
 
+from llm_text_generation import TextGenerator
 from tqdm import tqdm
 
-from entitynet.datasets.wikidata.wikidata_hierarchies_loader import simplify_wikidata_id
-from llm_text_generation import TextGenerator
 from packg.iotools import load_json
+
+from entitynet.datasets.wikidata.wikidata_hierarchies_loader import simplify_wikidata_id
 
 
 def load_tsv(path: str) -> list[list[str]]:

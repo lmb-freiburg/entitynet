@@ -7,6 +7,7 @@ import random
 from copy import deepcopy
 from pathlib import Path
 
+from crx.datasets.inat21 import iNat21
 from webdataset import TarWriter
 
 from packg.log import logger
@@ -14,7 +15,6 @@ from packg.multiproc import FnMultiProcessor
 from visiontext.images import decode_jpeg
 from visiontext.mathutils import distribute_evenly
 
-from crx.datasets.inat21 import iNat21
 from entitynet.paths import get_entitynet_data_dir
 
 

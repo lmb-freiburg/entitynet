@@ -7,8 +7,8 @@ Notes:
 See WordNet license at src/entitynet/datasets/wordnet/LICENSE
 """
 
-from collections import defaultdict
 import os
+from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd
