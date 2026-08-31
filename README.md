@@ -74,7 +74,7 @@ tokens = tokenizer(texts)
 
 with torch.no_grad(), torch.autocast("cuda"):
     image_features = model.encode_image(image)
-    text_features = model.encode_text(text)
+    text_features = model.encode_text(tokens)
     image_features /= image_features.norm(dim=-1, keepdim=True)
     text_features /= text_features.norm(dim=-1, keepdim=True)
     logits = (model.logit_scale * image_features @ text_features.T)
