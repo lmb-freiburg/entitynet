@@ -1,6 +1,6 @@
-packg
-typedparser
-visiontext
+packg<1
+typedparser<1
+visiontext<1
 
 lightning
 pandas
