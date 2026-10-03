@@ -2,19 +2,19 @@
 Run the WikidataLoader and analyze the hierarchy distributions with different balancing strengths.
 """
 
-from loguru import logger
-from attrs import define
-from entitynet.datasets.wikidata.wikidata_hierarchies_loader import WikidataLoader
-from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
-from typedparser import VerboseQuietArgs, TypedParser, add_argument
 from collections import Counter, defaultdict
 
 import matplotlib.pyplot as plt
 import numpy as np
+from attrs import define
+from loguru import logger
 
+from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
 from packg.tqdmext import tqdm_max_ncols
+from typedparser import TypedParser, VerboseQuietArgs, add_argument
 
 from entitynet.config.task_config import EntityNetTextAugCfg
+from entitynet.datasets.wikidata.wikidata_hierarchies_loader import WikidataLoader
 
 
 @define

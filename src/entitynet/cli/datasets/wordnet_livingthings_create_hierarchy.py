@@ -4,8 +4,8 @@ Create the clean living_thing hierarchy, with max 1 parent per node.
 See WordNet license at src/entitynet/datasets/wordnet/LICENSE
 """
 
-from collections import Counter
 import os
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd

@@ -1,3 +1,9 @@
+"""
+Create a copy of checkpoints with only model weights (no optimizer states)
+
+
+"""
+
 from pathlib import Path
 from typing import Optional
 
@@ -18,6 +24,7 @@ class Args(VerboseQuietArgs):
     glob: str = add_argument(
         "--glob", type=str, help="Glob pattern for checkpoint files", default="**/*.ckpt"
     )
+    write: bool = add_argument(action="store_true", help="Confirm write.")
 
 
 def main():
@@ -26,7 +33,7 @@ def main():
     configure_logger(level=get_logger_level_from_args(args), format=SHORTEST_FORMAT)
     target_dir = Path(args.base_dir)
     logger.info(f"Stripping optimizer states in {target_dir} matching '{args.glob}'")
-    new_paths = strip_optimizer_states_in_folder(target_dir, args.glob)
+    new_paths = strip_optimizer_states_in_folder(target_dir, args.glob, write=args.write)
     logger.info(f"Created {len(new_paths)} optimizer-free checkpoints")
 
 

@@ -1,6 +1,5 @@
 # living-things v4 default contrastive evaluation
 task_factory: "contrastive"
-# loss_name_appdx: "_cont_val"  # this one we want logged as val_loss and test_loss without appendix
 dataset:
     dataset_factory: "entityneturl"
     dataset_name: "indexable"

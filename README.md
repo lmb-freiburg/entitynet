@@ -19,6 +19,10 @@ at fine-grained classification of animals, plants, and fungi.
 
 **Dataset and training code are released!**
 
+<a href="https://github.com/lmb-freiburg/entitynet/actions/workflows/build-py312-cpu.yml">
+  <img alt="build 3.12 status" title="build 3.12 status" src="https://img.shields.io/github/actions/workflow/status/lmb-freiburg/entitynet/build-py312-cpu.yml?branch=main&label=build%203.12%20cpu" />
+</a>
+
 ## News
 
 - 27 November 2025: Uploaded **knowledge graph querying** and query generation
@@ -70,7 +74,7 @@ tokens = tokenizer(texts)
 
 with torch.no_grad(), torch.autocast("cuda"):
     image_features = model.encode_image(image)
-    text_features = model.encode_text(text)
+    text_features = model.encode_text(tokens)
     image_features /= image_features.norm(dim=-1, keepdim=True)
     text_features /= text_features.norm(dim=-1, keepdim=True)
     logits = (model.logit_scale * image_features @ text_features.T)
@@ -95,15 +99,14 @@ src/
 
 ## Setup
 
-- Currently running with python=3.12 torch=2.6 cuda=12.4
+- Tested with python=3.12 torch=2.6 cuda=12.4
 - Setup the paths with environment variables `ENTITYNET_DATA_DIR` and `ENTITYNET_OUTPUT_DIR`
+- In case of install problems try `frozen_pip_requirements.txt` instead.
 
 ```bash
 # 0. setup conda environment
 conda update conda -n base -y
 
-conda deactivate
-conda env remove -n entitynet -y
 conda create -n entitynet python=3.12 -y
 conda activate entitynet
 pip install -U setuptools wheel

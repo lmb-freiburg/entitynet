@@ -50,7 +50,7 @@ def main():
     if args.trace is not None and global_rank == 0:
         connect_to_pycharm_debug_server(args.trace, args.trace_port)
     logger.info(f"dataset dir: {get_entitynet_data_dir()}")
-    logger.info(f"crx output dir: {get_entitynet_output_dir()}")
+    logger.info(f"output dir: {get_entitynet_output_dir()}")
 
     config = load_config_from_file(args.config_file, merge_dotlist=args.options)
     config.trainer.val_task_keys = []

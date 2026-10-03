@@ -10,6 +10,7 @@ class SchedulerC(Const):
     COSINE = "cosine"
     COSINE_CONSTANT = "cosine_constant"
     CONST = "const"
+    NONE = "none"
 
 
 def create_scheduler(optimizer, scheduler_name, total_steps, warmup_steps, constant_steps):
@@ -22,6 +23,8 @@ def create_scheduler(optimizer, scheduler_name, total_steps, warmup_steps, const
         )
     elif scheduler_name == SchedulerC.CONST:
         scheduler = WarmupConstantScheduler(optimizer, warmup_steps)
+    elif scheduler_name == SchedulerC.NONE:
+        scheduler = None
     else:
         raise ValueError(f"Unknown scheduler: {scheduler_name}")
     return scheduler

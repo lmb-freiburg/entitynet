@@ -7,9 +7,10 @@ See WordNet license at src/entitynet/datasets/wordnet/LICENSE
 import random
 from copy import deepcopy
 
+from packg.iotools import load_json
+
 from entitynet.datasets.wordnet import WordnetNoun, load_wordnet_nouns_as_namedtuples
 from entitynet.paths import get_entitynet_annotations_dir
-from packg.iotools import load_json
 
 
 def main():

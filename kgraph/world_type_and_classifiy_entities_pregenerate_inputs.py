@@ -10,10 +10,11 @@ from re import escape
 import requests
 from tqdm import tqdm
 
+from packg.iotools import dump_json, load_json
+
+from entitynet.datasets.wikidata.qleverutils import query_qlever
 from entitynet.datasets.wikidata.wikidata_hierarchies_loader import simplify_wikidata_id
 from entitynet.datasets.wikidata.wikidata_utils import strip_label
-from packg.iotools import load_json, dump_json
-from entitynet.datasets.wikidata.qleverutils import query_qlever
 
 
 def get_super_types(entity: str) -> list[str]:

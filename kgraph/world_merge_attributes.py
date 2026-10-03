@@ -17,13 +17,13 @@ from collections import defaultdict
 from copy import deepcopy
 
 from attrs import define
+from crossm.paths import get_crossm_repo_root
 from loguru import logger
 
-from crossm.paths import get_crossm_repo_root
 from packg.iotools import dump_json, dump_jsonl
 from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
 from packg.strings import dict_to_str_comma_equals
-from typedparser import VerboseQuietArgs, add_argument, TypedParser
+from typedparser import TypedParser, VerboseQuietArgs, add_argument
 
 _world_dir = get_crossm_repo_root() / "misc" / "wikidata_world"
 

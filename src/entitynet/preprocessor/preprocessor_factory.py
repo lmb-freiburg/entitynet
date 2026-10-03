@@ -1,5 +1,8 @@
+from typing import Callable
+
 from attr import asdict
 from loguru import logger
+from PIL import Image
 from torchvision.transforms import (
     Compose,
     ElasticTransform,
@@ -16,12 +19,15 @@ from packg.iotools.jsonext import dump_json
 
 import open_clip
 from entitynet.config.model_config import ModelFactoryC, PreprocCfg, PreprocessorFactoryC
+from entitynet.loss_ext import get_init_logits_for_loss_name
 from entitynet.models.clip_misc_utils import process_clip_model_name
 from entitynet.preprocessor.open_clip_prep import (
     get_preprocess_config_file,
     load_open_clip_preprocessor,
+    load_open_clip_preprocessor_manually,
 )
 from open_clip.model import CLIP, get_model_preprocess_cfg
+from open_clip.transform import _convert_to_rgb
 from open_clip.transform import color_jitter as color_jitter_fn
 from open_clip.transform import gray_scale, image_transform
 
@@ -35,15 +41,31 @@ def get_simple_transform_to_tensor(
     return image_transform(image_size, is_train=False, mean=mean, std=std, resize_mode=resize_mode)
 
 
-def build_vis_preprocessor_from_config(preproc_cfg: PreprocCfg):
+def build_vis_preprocessor_from_config(preproc_cfg: PreprocCfg) -> Callable | None:
     preproc_factory = preproc_cfg.preproc_factory
-
+    if preproc_factory == PreprocessorFactoryC.NONE:
+        return None
     if preproc_factory == PreprocessorFactoryC.OPEN_CLIP:
-        # model_name, pretrained = preproc_cfg.preproc_ident.split("/")
+        # build open_clip preprocessing based on model name + overwrites
         model_name, pretrained = process_clip_model_name(preproc_cfg.preproc_ident)
         overwrites = preproc_cfg.clip_pp_cfg
         overwrites = {} if overwrites is None else asdict(overwrites)
         vis_prep = load_open_clip_preprocessor(model_name, pretrained, is_train=False, **overwrites)
+        aug_cfg = preproc_cfg.aug_cfg
+        if aug_cfg is not None:
+            # augmentations requested, find parameters from the loaded preprocessor
+            size, mean, std = extract_information_from_compose(vis_prep)
+            logger.info(f"Building train augmentations: {size=} {mean=} {std=} {aug_cfg=}")
+            vis_prep = build_train_aug_cfg(size, mean, std, **aug_cfg)
+        return vis_prep
+    if preproc_factory == PreprocessorFactoryC.OPEN_CLIP_MANUAL:
+        # build open_clip preprocessing manually from overwrites only
+        assert (
+            preproc_cfg.preproc_ident == "unused"
+        ), f"preproc_ident should be 'unused' for OPEN_CLIP_MANUAL got {preproc_cfg.preproc_ident}"
+        assert preproc_cfg.clip_pp_cfg is not None, "clip_pp_cfg required for OPEN_CLIP_MANUAL"
+        overwrites = asdict(preproc_cfg.clip_pp_cfg)
+        vis_prep = load_open_clip_preprocessor_manually(is_train=False, **overwrites)
         aug_cfg = preproc_cfg.aug_cfg
         if aug_cfg is not None:
             # augmentations requested, find parameters from the loaded preprocessor
@@ -75,15 +97,11 @@ def extract_information_from_compose(compose):
     return size, mean, std
 
 
-def _convert_to_rgb(image):
-    return image.convert("RGB")
-
-
 def build_train_aug_cfg(
     image_size,
     mean,
     std,
-    scale: tuple[float, float] | None,
+    scale: tuple[float, float] = (0.08, 1.0),
     ratio: tuple[float, float] = (3.0 / 4.0, 4.0 / 3.0),
     color_jitter: tuple[float, float, float, float] | None = None,
     color_jitter_prob: float | None = None,
@@ -94,17 +112,24 @@ def build_train_aug_cfg(
     h_flip_probability: float | None = None,
     gaussian_blur_kernel_size: int | tuple[float, float] | None = None,
     gaussian_blur_sigma: float | tuple[float, float] | None = None,
+    resize_mode: str = "random",
 ):
     normalize = Normalize(mean=mean, std=std)
-    train_transform = [
-        RandomResizedCrop(
-            image_size,
-            scale=scale,
-            ratio=ratio,
-            interpolation=InterpolationMode.BICUBIC,
-        ),
-        _convert_to_rgb,
-    ]
+    if resize_mode == "random":
+        train_transform = [
+            RandomResizedCrop(
+                image_size,
+                scale=scale,
+                ratio=ratio,
+                interpolation=InterpolationMode.BICUBIC,
+            ),
+        ]
+    elif resize_mode == "none":
+        train_transform = []
+    else:
+        raise ValueError(f"Unknown {resize_mode=}, options: 'random'")
+    train_transform.append(_convert_to_rgb)
+
     if color_jitter_prob is not None:
         assert color_jitter is not None and len(color_jitter) == 4, f"Wrong values: {color_jitter}"
         train_transform.extend([color_jitter_fn(*color_jitter, p=color_jitter_prob)])
@@ -139,7 +164,17 @@ def create_preprocessing_config_file_from_model(
 
     logger.warning(f"Creating preprocessor config file: {filename}")
     if model_factory == ModelFactoryC.OPEN_CLIP:
-        model: CLIP = open_clip.create_model(model_name, pretrained)
+        loss_name = "clip"
+        if "siglip" in model_name.lower():
+            loss_name = "siglip"
+        init_logit_scale, init_logit_bias = get_init_logits_for_loss_name(loss_name)
+
+        model: CLIP = open_clip.create_model(
+            model_name,
+            pretrained,
+            init_logit_scale=init_logit_scale,
+            init_logit_bias=init_logit_bias,
+        )
     else:
         raise ValueError(
             f"Unknown {model_factory=}, options: {ModelFactoryC.values_list()}."

@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 import re
 import warnings
@@ -9,10 +8,9 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Tuple, Union
 
 import torch
+from loguru import logger
 
 from .coca_model import CoCa
-from .convert import convert_state_dict
-from .loss import ClipLoss, CoCaLoss, DistillClipLoss, SigLipLoss
 from .model import (
     CLIP,
     CustomTextCLIP,
@@ -27,10 +25,9 @@ from .pretrained import (
     download_pretrained,
     download_pretrained_from_hf,
     get_pretrained_cfg,
-    is_pretrained_cfg,
     list_pretrained_tags_by_model,
 )
-from .tokenizer import DEFAULT_CONTEXT_LENGTH, HFTokenizer, SigLipTokenizer, SimpleTokenizer
+from .tokenizer import DEFAULT_CONTEXT_LENGTH, HFTokenizer, SimpleTokenizer
 from .transform import (
     AugmentationCfg,
     PreprocessCfg,
@@ -141,12 +138,16 @@ def parse_model_name(model_name: str) -> Tuple[Optional[str], str]:
 def _get_hf_config(
     model_id: str,
     cache_dir: Optional[str] = None,
+    local_files_only: bool = False,
+    revision: str | None = None,
 ):
     """Fetch model config from HuggingFace Hub."""
     config_path = download_pretrained_from_hf(
         model_id,
         filename="open_clip_config.json",
         cache_dir=cache_dir,
+        local_files_only=local_files_only,
+        revision=revision,
     )
     with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
@@ -226,6 +227,8 @@ def load_checkpoint(
     # If loading a non-SigLIP model for SigLIP training. See https://github.com/mlfoundations/open_clip/issues/712
     if "logit_bias" not in state_dict and model.logit_bias is not None:
         state_dict["logit_bias"] = torch.zeros_like(state_dict["logit_scale"])
+    # When loading a SigLIP model for non-SigLIP training set model.ckpt_loading_strict=False
+
     # Certain text transformers no longer expect position_ids after transformers==4.31
     position_id_key = "text.transformer.embeddings.position_ids"
     if position_id_key in state_dict and not hasattr(model, position_id_key):
@@ -240,24 +243,17 @@ def load_checkpoint(
         if key not in state_dict:
             state_dict[key] = model_state_dict[key]
 
-    if strict:
-        # hack to be able to load models that put the text transformer into "text." or not
-        miss_keys, unexp_keys = model.load_state_dict(state_dict, strict=False)
-        if len(unexp_keys) > 0:
-            raise ValueError(f"WARNING: {len(miss_keys)=} {len(unexp_keys)=}")
-            # # fixing it like this will produce models with 0% accuracy.
-            # if all(k.startswith("text.") for k in unexp_keys):
-            #     # rename the state dict to load
-            #     new_state_dict = {}
-            #     for k, v in state_dict.items():
-            #         if k.startswith("text."):
-            #             new_state_dict[k[5:]] = v
-            #         else:
-            #             new_state_dict[k] = v
-            #     state_dict = new_state_dict
-    incompatible_keys = model.load_state_dict(state_dict, strict=strict)
-
-    return incompatible_keys
+    miss_keys, unexp_keys = model.load_state_dict(state_dict, strict=False)
+    if strict and len(unexp_keys) > 0:
+        raise ValueError(f"Checkpoint mismatch {len(miss_keys)=} {len(unexp_keys)=}: {unexp_keys=}")
+    elif len(unexp_keys) > 0:
+        logger.warning(f"Checkpoint unexpected keys ({len(unexp_keys)}): {unexp_keys}")
+    if len(miss_keys) > 0:
+        logger.warning(
+            f"Checkpoint missing keys ({len(miss_keys)}): {miss_keys[:5]} ... This can be expected "
+            f"in some cases like when loading the text model from huggingface."
+        )
+    return miss_keys, unexp_keys
 
 
 def load_checkpoint_without_text(model, checkpoint_path, weights_only=True):
@@ -313,6 +309,9 @@ def create_model(
     init_logit_scale: float = 2.659260036932778,  # np.log(1 / 0.07)
     init_logit_bias=None,
     model_loss_name: str = "clip",
+    strict: bool = True,
+    local_files_only: bool = False,
+    revision: str | None = None,
     **model_kwargs,
 ):
     """
@@ -341,8 +340,12 @@ def create_model(
     has_hf_hub_prefix = model_name.startswith(HF_HUB_PREFIX)
     if has_hf_hub_prefix:
         model_id = model_name[len(HF_HUB_PREFIX) :]
-        checkpoint_path = download_pretrained_from_hf(model_id, cache_dir=cache_dir)
-        config = _get_hf_config(model_id, cache_dir)  # example: 'open_clip_config.json'.
+        checkpoint_path = download_pretrained_from_hf(
+            model_id, cache_dir=cache_dir, local_files_only=local_files_only, revision=revision
+        )
+        config = _get_hf_config(
+            model_id, cache_dir, local_files_only=local_files_only, revision=revision
+        )  # example: 'open_clip_config.json'.
         preprocess_cfg = merge_preprocess_dict(preprocess_cfg, config["preprocess_cfg"])
         model_cfg = config["model_cfg"]
     else:
@@ -357,9 +360,9 @@ def create_model(
 
     model_cfg = model_cfg or get_model_config(model_name)
     if model_cfg is not None:
-        logging.info(f"Loaded {model_name} model config.")
+        logger.info(f"Loaded {model_name} model config.")
     else:
-        logging.error(f"Model config for {model_name} not found; available models {list_models()}.")
+        logger.error(f"Model config for {model_name} not found; available models {list_models()}.")
         raise RuntimeError(f"Model config for {model_name} not found.")
 
     # modify model cfg
@@ -428,7 +431,12 @@ def create_model(
         checkpoint_path = ""
         pretrained_cfg = get_pretrained_cfg(model_name, pretrained)
         if pretrained_cfg:
-            checkpoint_path = download_pretrained(pretrained_cfg, cache_dir=cache_dir)
+            checkpoint_path = download_pretrained(
+                pretrained_cfg,
+                cache_dir=cache_dir,
+                local_files_only=local_files_only,
+                revision=revision,
+            )
             preprocess_cfg = merge_preprocess_dict(preprocess_cfg, pretrained_cfg)
             pretrained_quick_gelu = pretrained_cfg.get("quick_gelu", False)
             model_quick_gelu = model_cfg.get("quick_gelu", False)
@@ -452,19 +460,20 @@ def create_model(
             checkpoint_path = pretrained
 
         if checkpoint_path:
-            logging.info(f"Loading pretrained {model_name} weights ({pretrained}).")
+            logger.info(f"Loading pretrained {model_name} weights ({pretrained}).")
             load_checkpoint(
                 model,
                 checkpoint_path,
                 resize_text_pos_emb=resize_text_pos_emb,
                 weights_only=weights_only,
+                strict=strict,
             )
         else:
             error_str = (
                 f"Pretrained weights ({pretrained}) not found for model {model_name}."
                 f" Available pretrained tags ({list_pretrained_tags_by_model(model_name)}."
             )
-            logging.warning(error_str)
+            logger.warning(error_str)
             raise RuntimeError(error_str)
         pretrained_loaded = True
     elif has_hf_hub_prefix:
@@ -472,19 +481,20 @@ def create_model(
             # we want to load visual and other params from the hf clip checkpoint
             # but text params from the hf text checkpoint.
             # in case text_cfg.hf_model_pretrained is True, those were already loaded.
-            logging.info(f"Loading pretrained {model_name} text only weights ({checkpoint_path}).")
+            logger.info(f"Loading pretrained {model_name} text only weights ({checkpoint_path}).")
             _incompatible_keys = load_checkpoint_without_text(
                 model, checkpoint_path, weights_only=weights_only
             )
             # model_cfg["text_cfg"]["hf_model_pretrained"] = True
             pretrained_loaded = model_cfg["text_cfg"]["hf_model_pretrained"]
         else:
-            logging.info(f"Loading pretrained {model_name} weights ({checkpoint_path}).")
+            logger.info(f"Loading pretrained {model_name} weights ({checkpoint_path}).")
             load_checkpoint(
                 model,
                 checkpoint_path,
                 resize_text_pos_emb=resize_text_pos_emb,
                 weights_only=weights_only,
+                strict=strict,
             )
             pretrained_loaded = True
 
@@ -504,6 +514,14 @@ def create_model(
         force_preprocess_cfg["size"] = model.visual.image_size
     model.model_cfg = model_cfg
     set_model_preprocess_cfg(model, merge_preprocess_dict(preprocess_cfg, force_preprocess_cfg))
+
+    # in some situations now the hf text encoder is set to eval mode, while the rest is train mode
+    # the default state is all train mode, so set that here
+    model.train()
+    # for n, m in model.named_modules():
+    #     str_ = "train" if m.training else "eval"
+    #     cls = m.__class__.__name__
+    #     print(f"  {str_}  {n} {cls}")
     return model
 
 
@@ -582,6 +600,8 @@ def create_model_and_transforms(
     hf_load_text_separately: bool = False,
     resize_text_pos_emb: str = "cut",
     weights_only: bool = True,
+    local_files_only: bool = False,
+    revision: str | None = None,
     **model_kwargs,
 ):
     force_preprocess_cfg = merge_preprocess_kwargs(
@@ -611,6 +631,8 @@ def create_model_and_transforms(
         hf_load_text_separately=hf_load_text_separately,
         resize_text_pos_emb=resize_text_pos_emb,
         weights_only=weights_only,
+        local_files_only=local_files_only,
+        revision=revision,
         **model_kwargs,
     )
 
@@ -647,6 +669,7 @@ def create_model_from_pretrained(
     hf_load_text_separately: bool = False,
     resize_text_pos_emb: str = "cut",
     weights_only: bool = True,
+    local_files_only: bool = False,
     **model_kwargs,
 ):
     force_preprocess_cfg = merge_preprocess_kwargs(
@@ -673,6 +696,7 @@ def create_model_from_pretrained(
         hf_load_text_separately=hf_load_text_separately,
         resize_text_pos_emb=resize_text_pos_emb,
         weights_only=weights_only,
+        local_files_only=local_files_only,
         **model_kwargs,
     )
 

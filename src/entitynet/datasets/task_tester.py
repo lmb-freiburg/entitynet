@@ -44,5 +44,5 @@ def run_task_tester(task_key):
             preproc_ident="ViT-B-32/laion2b_e16",
         )
         task_config.vis_preproc = vis_preproc_cfg
-    dataset, loader = build_eval_dataset_for_task(task_key, task_config, workers=0)
+    dataset, loader = build_eval_dataset_for_task(task_key, task_config, workers=0, download=False)
     return dataset, loader

@@ -5,17 +5,15 @@ from loguru import logger
 from torch import nn
 from torch.optim.lr_scheduler import LRScheduler
 
-from packg.typext import PathType
 from visiontext.distutils import WorldInfo
 
 import open_clip
 from entitynet.config.main_config import Config
 from entitynet.config.model_config import ClipModelCfg, ModelFactoryC
 from entitynet.config.task_config import ClipContrastiveTaskCfg
-from entitynet.litext.logwrapper import log_image_tensor
 from entitynet.loralib.utils import apply_lora, mark_only_lora_as_trainable
 from entitynet.loss_ext import get_init_logits_for_loss_name
-from entitynet.models.base_model import LitBaseModel
+from entitynet.models.base_model import LitBaseModel, log_batch_images
 from entitynet.models.clip_misc_utils import HF_HUB_PREFIX, process_clip_model_name
 from entitynet.models.clip_param_groups import get_clip_param_groups
 from entitynet.models.tokenizer_factory import build_tokenizer_from_config
@@ -42,7 +40,7 @@ class LitOpenClip(LitBaseModel):
         if config.train_task is not None:
             train_task_cfg: ClipContrastiveTaskCfg = config.train_task
             assert train_task_cfg.loss_name == cm.model_loss_name, (
-                f"Misconfiguration: {train_task_cfg.loss_name} != {cm.model_loss_name}"
+                f"Misconfiguration: {train_task_cfg.loss_name=} != {cm.model_loss_name=}"
                 f" but they must be the same"
             )
         self.accum_steps = config.trainer.accum_steps
@@ -75,6 +73,7 @@ class LitOpenClip(LitBaseModel):
                 init_logit_bias=init_logit_bias,
                 weights_only=cm.weights_only,
                 model_loss_name=cm.model_loss_name,
+                strict=cm.ckpt_loading_strict,
             )
         else:
             raise ValueError(f"Unknown {cm.model_factory=}, options: {ModelFactoryC.values_list()}")
@@ -358,7 +357,8 @@ class LitOpenClip(LitBaseModel):
             opt.step()
             opt.zero_grad()
             lr_sched: LRScheduler = self.lr_schedulers()
-            lr_sched.step()
+            if lr_sched is not None:
+                lr_sched.step()
             self.log("train_loss", total_loss / self.accum_steps, batch_size=batch_size)
             self.reset_accum()
 
@@ -375,45 +375,6 @@ def log_batch_input(batch):
         else:
             text_str = f"{text}"
     logger.info(f"First batch, {image.shape=} {text_str=} {tokens.shape=}")
-
-
-def log_batch_images(
-    batch,
-    experiment_logger,
-    transform,
-    n_images_max,
-    log_data_locally: bool = False,
-    local_dir: PathType = None,
-):
-    batch_size = batch["image"].shape[0]
-    n_images_to_save = min(n_images_max, batch_size)
-    if n_images_max == 0:
-        return
-    if "text" in batch:
-        text_tuples_to_save = [[a] for a in batch["text"][:n_images_to_save]]
-    elif "text_list" in batch:
-        text_tuples_to_save = [[" ||| ".join(inner_list)] for inner_list in batch["text_list"]][
-            :n_images_to_save
-        ]
-    else:
-        raise ValueError(f"Unknown batch format with keys: {batch.keys()}")
-    if "idx" in batch:
-        for i, idx in enumerate(batch["idx"][:n_images_to_save].detach().cpu().tolist()):
-            text_tuples_to_save[i].append(idx)
-    if "key" in batch:
-        for i, key in enumerate(batch["key"][:n_images_to_save]):
-            text_tuples_to_save[i].append(key)
-    text_to_save = [" | ".join([str(a) for a in t]) for t in text_tuples_to_save]
-    log_image_tensor(
-        experiment_logger,
-        "training/image",
-        batch["image"][:n_images_to_save],
-        descriptions=text_to_save,
-        transform=transform,
-        n_images_max=n_images_max,
-        log_data_locally=log_data_locally,
-        local_dir=local_dir,
-    )
 
 
 def log_batch_output(out_dict):

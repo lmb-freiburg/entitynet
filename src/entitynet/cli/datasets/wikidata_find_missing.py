@@ -14,45 +14,29 @@ Stats 2024:
 """
 
 from collections import defaultdict
+from pathlib import Path
+from typing import Optional
 
 import numpy as np
+from attrs import define
+from loguru import logger
+
+from packg.iotools import load_json
+from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args, logger
+from typedparser import TypedParser, VerboseQuietArgs, add_argument
 
 from entitynet.datasets.wikidata.qleverutils import (
     query_living_entities_batched,
     query_qlever_robust,
 )
 from entitynet.datasets.wikidata.wikidata_hierarchy import (
-    simplify_id,
-    get_large_entity_set,
-    get_small_entity_set,
-    get_medium_entity_set,
-    entity_types,
-)
-from packg.iotools import load_json
-from packg.log import logger, configure_logger
-
-
-from collections import defaultdict
-
-from loguru import logger
-
-from entitynet.datasets.wikidata.wikidata_hierarchy import (
-    get_large_entity_set,
-    get_medium_entity_set,
-    get_small_entity_set,
-    simplify_id,
-    entity_types,
     KGRAPH_DIR,
+    entity_types,
+    get_large_entity_set,
+    get_medium_entity_set,
+    get_small_entity_set,
+    simplify_id,
 )
-from packg.iotools import load_json
-
-from pathlib import Path
-from typing import Optional
-
-from loguru import logger
-from attrs import define
-from packg.log import SHORTEST_FORMAT, configure_logger, get_logger_level_from_args
-from typedparser import VerboseQuietArgs, add_argument, TypedParser
 
 
 @define

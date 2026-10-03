@@ -1,10 +1,10 @@
 import sys
-import requests
 import time
 from timeit import default_timer
 
-from packg.misc import format_exception
+import requests
 
+from packg.misc import format_exception
 
 QLEVER_URL = "https://qlever.dev/api/wikidata"
 

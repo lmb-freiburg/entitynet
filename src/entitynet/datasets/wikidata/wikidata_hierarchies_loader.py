@@ -8,10 +8,10 @@ import numpy as np
 import pandas as pd
 from natsort import natsorted
 
-from entitynet.datasets.wikidata.wikidata_hierarchy import KGRAPH_DIR
 from packg.iotools import load_json
 
 from entitynet.config.task_config import EntityNetTextAugCfg
+from entitynet.datasets.wikidata.wikidata_hierarchy import KGRAPH_DIR
 
 ParentTuple = tuple[str, int]  # parent_id like Q756, depth (0 is the entity itself)
 

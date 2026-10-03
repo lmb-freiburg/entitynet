@@ -874,6 +874,7 @@ def download_pretrained_from_hf(
     filename: Optional[str] = None,
     revision: Optional[str] = None,
     cache_dir: Optional[str] = None,
+    local_files_only: bool = False,
 ):
     has_hf_hub(True)
 
@@ -882,36 +883,31 @@ def download_pretrained_from_hf(
     # Look for .safetensors alternatives and load from it if it exists
     if _has_safetensors:
         for safe_filename in _get_safe_alternatives(filename):
-            try:
-                cached_file = hf_hub_download(
-                    repo_id=model_id,
-                    filename=safe_filename,
-                    revision=revision,
-                    cache_dir=cache_dir,
-                )
-                return cached_file
-            except Exception:
-                pass
+            cached_file = hf_hub_download(
+                repo_id=model_id,
+                filename=safe_filename,
+                revision=revision,
+                cache_dir=cache_dir,
+                local_files_only=local_files_only,
+            )
+            return cached_file
 
-    try:
-        # Attempt to download the file
-        cached_file = hf_hub_download(
-            repo_id=model_id,
-            filename=filename,
-            revision=revision,
-            cache_dir=cache_dir,
-        )
-        return cached_file  # Return the path to the downloaded file if successful
-    except Exception as e:
-        raise FileNotFoundError(
-            f"Failed to download file ({filename}) for {model_id}. Last error: {e}"
-        )
+    cached_file = hf_hub_download(
+        repo_id=model_id,
+        filename=filename,
+        revision=revision,
+        cache_dir=cache_dir,
+        local_files_only=local_files_only,
+    )
+    return cached_file  # Return the path to the downloaded file if successful
 
 
 def download_pretrained(
     cfg: Dict,
     prefer_hf_hub: bool = True,
     cache_dir: Optional[str] = None,
+    local_files_only: bool = False,
+    revision: Optional[str] = None,
 ):
     target = ""
     if not cfg:
@@ -936,8 +932,16 @@ def download_pretrained(
         # use 'open_clip_pytorch_model.bin' default, there must be a trailing slash 'org/model_name/'.
         model_id, filename = os.path.split(download_hf_hub)
         if filename:
-            target = download_pretrained_from_hf(model_id, filename=filename, cache_dir=cache_dir)
+            target = download_pretrained_from_hf(
+                model_id,
+                filename=filename,
+                cache_dir=cache_dir,
+                local_files_only=local_files_only,
+                revision=revision,
+            )
         else:
-            target = download_pretrained_from_hf(model_id, cache_dir=cache_dir)
+            target = download_pretrained_from_hf(
+                model_id, cache_dir=cache_dir, local_files_only=local_files_only, revision=revision
+            )
 
     return target

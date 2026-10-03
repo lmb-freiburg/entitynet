@@ -5,7 +5,6 @@ Can be used to filter the taxons e.g. remove all taxons of rank "kingdom"
 import argparse
 from typing import Iterator
 
-
 from tqdm import tqdm
 
 

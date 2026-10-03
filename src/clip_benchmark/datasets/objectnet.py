@@ -44,7 +44,7 @@ def get_metadata(folder):
 class ObjectNetDataset(datasets.ImageFolder):
 
     def __init__(self, root, transform):
-        (self._class_sublist, self.class_sublist_mask, self.folders_to_ids, self.classname_map) = (
+        self._class_sublist, self.class_sublist_mask, self.folders_to_ids, self.classname_map = (
             get_metadata(root)
         )
         subdir = os.path.join(root, "objectnet-1.0", "images")

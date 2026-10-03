@@ -37,6 +37,11 @@ class Config:
         return f"{dumps_yaml(asdict(self), standard_format=False)}"
 
 
+class WDGroupModeC(Const):
+    LEGACY = "legacy"  # old version with WD on pos emb, cls emb, etc.
+    NEW = "new"  # new version without WD on pos emb, cls emb, etc.
+
+
 @define(auto_attribs=True, kw_only=True, slots=False)
 class OptimizerCfg:
     opt_name: str = None
@@ -46,6 +51,7 @@ class OptimizerCfg:
     constant_steps: int | None = None
     constant_epochs: int | float | None = None
     scheduler_name: str = "const"
+    weight_decay_groups_mode: str = WDGroupModeC.LEGACY
     # options in case layer lr decay is used (different lr per layer)
     vision_layer_decay_factor: float | None = 1.0
     text_layer_decay_factor: float | None = 1.0
@@ -105,6 +111,8 @@ class TrainerCfg:
     print_param_groups: bool = True
     print_config: bool = True
     eval_force_output_embeddings: bool = False
+    log_data_locally: bool = False  # avoid logging images and text to external services
+    log_eval_images: bool = False
     # technical settings
     # https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.trainer.trainer.Trainer.html
     accelerator: str = "gpu"
@@ -113,4 +121,3 @@ class TrainerCfg:
     num_nodes: int = 1
     strategy: str = "auto"
     set_float32_matmul_precision: str | None = None
-    log_data_locally: bool = False  # avoid logging images and text to external services
